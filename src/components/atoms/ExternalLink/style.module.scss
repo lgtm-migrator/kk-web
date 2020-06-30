@@ -1,0 +1,9 @@
+@import "styles/constants.scss";
+
+.external-link {
+  color: map-get($colors, red);
+  display: grid;
+  gap: 0 6px;
+  grid-template: auto / repeat(2, auto);
+  justify-content: flex-start;
+}

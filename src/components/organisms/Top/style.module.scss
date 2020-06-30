@@ -1,0 +1,13 @@
+@import "sass-mq";
+@import "styles/constants.scss";
+
+.top {
+  display: grid;
+  height: 100%;
+
+  .heading1-wrapper {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+  }
+}

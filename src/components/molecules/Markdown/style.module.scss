@@ -1,0 +1,37 @@
+@import "styles/constants.scss";
+
+.markdown {
+  color: inherit;
+  font-family: inherit;
+  font-size: inherit;
+
+  a {
+    color: map-get($colors, red);
+  }
+
+  blockquote {
+    color: inherit;
+  }
+
+  code,
+  pre,
+  table tr {
+    background-color: map-get($colors, blue);
+  }
+
+  table tr:nth-child(2n) {
+    background-color: darken($color: map-get($colors, blue), $amount: 15);
+  }
+
+  pre {
+    font-size: 1.2rem;
+  }
+
+  pre code {
+    white-space: pre-wrap;
+  }
+
+  ul {
+    list-style: disc;
+  }
+}

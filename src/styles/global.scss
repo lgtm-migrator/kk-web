@@ -1,0 +1,32 @@
+@import "styles/constants.scss";
+
+@font-face {
+  font-family: "jkg";
+  src: url("../fonts/JKG.woff2") format("woff2"),
+    url("../fonts/JKG.woff") format("woff"),
+    url("../fonts/JKG.ttf") format("truetype");
+}
+
+html {
+  background: map-get($colors, dark);
+  color: map-get($colors, white);
+  font: 62.5% "jkg";
+  overflow: hidden scroll;
+}
+
+body {
+  font-size: 1.4rem;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+iframe {
+  border: none;
+}
+
+ul {
+  list-style: none;
+}

@@ -1,7 +1,10 @@
-/**
- * Implement Gatsby's Browser APIs in this file.
- *
- * See: https://www.gatsbyjs.org/docs/browser-apis/
- */
+import "ress";
+import "typeface-poiret-one";
+import "./src/styles/global.scss";
+import "github-markdown-css";
+import "react-toastify/dist/ReactToastify.css";
+import "dayjs/locale/ja";
 
-// You can delete this file if you're not using it
+import dayjs from "dayjs";
+
+dayjs.locale("ja");

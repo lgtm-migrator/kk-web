@@ -1,0 +1,67 @@
+@import "sass-mq";
+@import "styles/constants.scss";
+
+.layout {
+  @include mq($until: tablet) {
+    padding-top: 0;
+  }
+
+  display: grid;
+  grid-template: 1fr auto / auto;
+  padding: 66px 0 0;
+
+  .main-wrapper,
+  .footer-wrapper {
+    padding: 24px 16px;
+  }
+
+  .main-wrapper {
+    display: grid;
+  }
+
+  .footer-wrapper {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+  }
+
+  .primary-navigation-wrapper {
+    @include mq($until: tablet) {
+      display: none;
+    }
+
+    align-items: center;
+    background: rgba(map-get($colors, dark), 0.75);
+    display: flex;
+    justify-content: center;
+    height: 66px;
+    left: 0;
+    position: fixed;
+    top: 0;
+    width: 100%;
+  }
+
+  .button {
+    @include mq($from: tablet) {
+      display: none;
+    }
+
+    align-items: center;
+    background: map-get($colors, blue);
+    border-radius: 12px;
+    bottom: 0;
+    display: flex;
+    height: 60px;
+    justify-content: center;
+    margin: 16px;
+    position: fixed;
+    right: 0;
+    width: 60px;
+  }
+
+  .square-navigation-wrapper {
+    bottom: 0;
+    position: fixed;
+    right: 0;
+  }
+}

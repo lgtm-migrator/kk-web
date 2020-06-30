@@ -1,0 +1,19 @@
+@import "sass-mq";
+@import "styles/constants.scss";
+
+.primary-navigation {
+  .list {
+    display: grid;
+    gap: 24px 48px;
+    grid-auto-flow: column;
+    text-align: center;
+  }
+
+  .link {
+    font: 1.2rem "Muli", sans-serif;
+  }
+
+  .link:global(.active) {
+    color: map-get($colors, red);
+  }
+}

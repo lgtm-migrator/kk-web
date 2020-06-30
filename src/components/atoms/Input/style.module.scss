@@ -1,0 +1,8 @@
+@import "styles/constants.scss";
+
+.input {
+  background: map-get($colors, black);
+  color: inherit;
+  padding: 6px;
+  width: 100%;
+}
