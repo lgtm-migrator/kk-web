@@ -1,7 +1,8 @@
-import React, { FC, useEffect, useMemo, useState } from "react";
+import React, { FC, Fragment, useEffect, useMemo, useState } from "react";
 
 import NoSSR from "react-no-ssr";
 import { PageProps } from "gatsby";
+import Seo from "components/templates/Seo";
 import dayjs from "dayjs";
 import noScroll from "no-scroll";
 import pdfFonts from "pdfmake/build/vfs_fonts";
@@ -872,9 +873,12 @@ const Resume: FC<ResumeProps> = () => {
   }, []);
 
   return (
-    <NoSSR>
-      <iframe src={url} style={style} title="resume" />
-    </NoSSR>
+    <Fragment>
+      <Seo title="Resume" />
+      <NoSSR>
+        <iframe src={url} style={style} title="resume" />
+      </NoSSR>
+    </Fragment>
   );
 };
 

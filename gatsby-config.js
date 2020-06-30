@@ -2,7 +2,6 @@ const path = require("path");
 
 module.exports = {
   siteMetadata: {
-    author: process.env.npm_package_author,
     description: process.env.npm_package_description,
     homepage: process.env.npm_package_homepage,
     name: process.env.npm_package_name,
@@ -69,5 +68,6 @@ module.exports = {
       },
     },
     `gatsby-transformer-remark`,
+    `gatsby-plugin-remove-trailing-slashes`,
   ],
 };

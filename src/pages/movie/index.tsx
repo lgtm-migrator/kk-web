@@ -1,8 +1,9 @@
 import LinkList, { LinkListProps } from "components/molecules/LinkList";
-import React, { FC, useMemo } from "react";
+import React, { FC, Fragment, useMemo } from "react";
 
 import Layout from "components/templates/Layout";
 import { PageProps } from "gatsby";
+import Seo from "components/templates/Seo";
 
 export type MovieProps = PageProps;
 
@@ -26,9 +27,12 @@ const Movie: FC<MovieProps> = () => {
   );
 
   return (
-    <Layout>
-      <LinkList items={items} />
-    </Layout>
+    <Fragment>
+      <Seo title="Movie" />
+      <Layout>
+        <LinkList items={items} />
+      </Layout>
+    </Fragment>
   );
 };
 

@@ -1,8 +1,9 @@
 import Blog, { BlogProps } from "components/organisms/Blog";
 import { PageProps, graphql } from "gatsby";
-import React, { FC, useMemo } from "react";
+import React, { FC, Fragment, useMemo } from "react";
 
 import Layout from "components/templates/Layout";
+import Seo from "components/templates/Seo";
 
 export type DateProps = PageProps<{
   markdownRemark: {
@@ -27,9 +28,12 @@ const Date: FC<DateProps> = ({ data: { markdownRemark } }) => {
   );
 
   return (
-    <Layout>
-      <Blog date={date} heading={heading} html={blogHtml} />
-    </Layout>
+    <Fragment>
+      <Seo title={title} />
+      <Layout>
+        <Blog date={date} heading={heading} html={blogHtml} />
+      </Layout>
+    </Fragment>
   );
 };
 

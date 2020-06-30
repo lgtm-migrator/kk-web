@@ -10,8 +10,8 @@ export type BlogProps = Pick<MarkdownProps, "html"> & {
 
 const Blog: FC<BlogProps> = ({ date, heading, html }) => (
   <article styleName="blog">
-    <div styleName="date-wrapper">{date}</div>
     <div styleName="heading-wrapper">{heading}</div>
+    <div styleName="date-wrapper">{date}</div>
     <Markdown html={html} />
   </article>
 );

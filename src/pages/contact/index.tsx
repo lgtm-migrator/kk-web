@@ -4,13 +4,14 @@ import ContactForm, {
   ContactFormProps,
 } from "components/organisms/ContactForm";
 import Input, { InputProps } from "components/atoms/Input";
-import React, { FC, useCallback, useMemo } from "react";
+import React, { FC, Fragment, useCallback, useMemo } from "react";
 import Textarea, { TextareaProps } from "components/atoms/Textarea";
 import { ToastContainer, toast } from "react-toastify";
 
 import Button from "components/atoms/Button";
 import Layout from "components/templates/Layout";
 import { PageProps } from "gatsby";
+import Seo from "components/templates/Seo";
 import axios from "axios";
 import { useForm } from "react-hook-form";
 
@@ -95,14 +96,17 @@ const Contact: FC<ContactProps> = () => {
   );
 
   return (
-    <Layout>
-      <ContactForm
-        callback={formCallback}
-        items={items}
-        submitButton={<Button type="submit">Submit</Button>}
-      />
-      <ToastContainer position="bottom-right" />
-    </Layout>
+    <Fragment>
+      <Seo title="Contact" />
+      <Layout>
+        <ContactForm
+          callback={formCallback}
+          items={items}
+          submitButton={<Button type="submit">Submit</Button>}
+        />
+        <ToastContainer position="bottom-right" />
+      </Layout>
+    </Fragment>
   );
 };
 

@@ -1,8 +1,9 @@
 import LinkList, { LinkListProps } from "components/molecules/LinkList";
-import React, { FC, useMemo } from "react";
+import React, { FC, Fragment, useMemo } from "react";
 
 import Layout from "components/templates/Layout";
 import { PageProps } from "gatsby";
+import Seo from "components/templates/Seo";
 
 export type SiteProps = PageProps;
 
@@ -30,9 +31,12 @@ const Site: FC<SiteProps> = () => {
   );
 
   return (
-    <Layout>
-      <LinkList items={items} />
-    </Layout>
+    <Fragment>
+      <Seo title="Site" />
+      <Layout>
+        <LinkList items={items} />
+      </Layout>
+    </Fragment>
   );
 };
 

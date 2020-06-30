@@ -1,8 +1,9 @@
 import { Link, PageProps, graphql } from "gatsby";
-import React, { FC, useMemo } from "react";
+import React, { FC, Fragment, useMemo } from "react";
 
 import BlogListBlock from "components/organisms/BlogListBlock";
 import Layout from "components/templates/Layout";
+import Seo from "components/templates/Seo";
 
 type Edge = {
   node: {
@@ -31,9 +32,12 @@ const Blog: FC<BlogProps> = ({
   );
 
   return (
-    <Layout>
-      <BlogListBlock items={items} />
-    </Layout>
+    <Fragment>
+      <Seo title="Blog" />
+      <Layout>
+        <BlogListBlock items={items} />
+      </Layout>
+    </Fragment>
   );
 };
 
