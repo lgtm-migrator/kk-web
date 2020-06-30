@@ -26,11 +26,11 @@ function usePrimaryLinks() {
         text: "Blog",
         to: "/blog",
       },
-      {
-        icon: androidMail,
-        text: "Contact",
-        to: "/contact",
-      },
+      // {
+      //   icon: androidMail,
+      //   text: "Contact",
+      //   to: "/contact",
+      // },
       {
         icon: link,
         text: "Link",

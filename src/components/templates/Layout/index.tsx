@@ -10,6 +10,7 @@ import Icon from "components/atoms/Icon";
 import Main from "components/organisms/Main";
 import NoSSR from "react-no-ssr";
 import PrimaryNavigation from "components/molecules/PrimaryNavigation";
+import ToggleButton from "components/atoms/ToggleButton";
 import { menu } from "react-icons-kit/icomoon/menu";
 import useOnClickOutside from "hooks/useOnClickOutside";
 import useWindowSize from "hooks/useWindowSize";
@@ -64,6 +65,7 @@ const Layout: FC = ({ children }) => {
         </div>
         <div styleName="primary-navigation-wrapper">
           <PrimaryNavigation />
+          {/* <ToggleButton /> */}
         </div>
         <button onClick={handleClickOnButton} styleName="button">
           <Icon icon={menu} />

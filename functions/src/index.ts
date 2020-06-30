@@ -1,52 +1,40 @@
-import * as admin from "firebase-admin";
-import * as functions from "firebase-functions";
-import * as nodemailer from "nodemailer";
-
+const functions = require("firebase-functions");
+const admin = require("firebase-admin");
+const nodemailer = require("nodemailer");
 const cors = require("cors")({ origin: true });
-
-// // Start writing Firebase Functions
-// // https://firebase.google.com/docs/functions/typescript
-//
-// export const helloWorld = functions.https.onRequest((request, response) => {
-//  response.send("Hello from Firebase!");
-// });
 
 admin.initializeApp();
 
 const {
-  gmail: { email: user, password: pass },
+  gmail: { email: gmailEmail, password },
 } = functions.config();
 
-const transporter = nodemailer.createTransport({
-  service: "gmail",
-  auth: {
-    user,
-    pass,
-  },
+const send = require("gmail-send")({
+  pass: password,
+  user: gmailEmail,
 });
 
-export const sendMail = functions
+exports.sendMail = functions
   .region("asia-northeast1")
-  .https.onRequest((request: any, response: any) => {
-    const {
-      body: { email, name, subject, text },
-    } = request;
+  .https.onRequest((req: any, res: any) => {
+    cors(req, res, () => {
+      const {
+        body: { email, name, subject, text },
+      } = req;
 
-    cors(request, response, () =>
-      transporter.sendMail(
+      return send(
         {
-          from: `piro <${user}>`,
-          text: `${text} \n ${name} ${email}`,
-          to: user,
-          subject: `kk-web: ${subject || "no subject"}`,
+          html: `${text.replace(/\n/g, "<br />")} <br /> ${name} ${email}`,
+          subject: `[kk-web] ${subject || "no subject"}`,
+          to: `piro <${gmailEmail}>`,
         },
-        (error: any, info: any) => {
-          if (error) {
-            return response.status(550).send(error.toString());
+        (err: any, res2: any, full: any) => {
+          if (err) {
+            return res.status(550).send(err.toString());
           }
 
-          return response.status(200).send("Sended");
+          return res.status(200).send("Sended");
         }
-      )
-    );
+      );
+    });
   });

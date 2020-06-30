@@ -6,6 +6,21 @@ $colors: (
   white: #a6dfec,
 );
 
+$fonts: (
+  jkg: (
+    "jkg",
+    sans-serif,
+  ),
+  muli: (
+    "Muli",
+    sans-serif,
+  ),
+  poiret-one: (
+    "Poiret One",
+    cursive,
+  ),
+);
+
 $mq-breakpoints: (
   mobile: 375px,
   tablet: 740px,

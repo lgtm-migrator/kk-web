@@ -1,3 +1,5 @@
+@import "styles/constants.scss";
+
 .copyright {
-  font: 1rem "Muli", sans-serif;
+  font: 1rem map-get($fonts, muli);
 }

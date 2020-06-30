@@ -10,7 +10,7 @@
   }
 
   .link {
-    font: 1.2rem "Muli", sans-serif;
+    font: 1.2rem map-get($fonts, muli);
   }
 
   .link:global(.active) {

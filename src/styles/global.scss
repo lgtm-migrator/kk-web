@@ -10,7 +10,7 @@
 html {
   background: map-get($colors, dark);
   color: map-get($colors, white);
-  font: 62.5% "jkg";
+  font: 62.5% map-get($fonts, jkg);
   overflow: hidden scroll;
 }
 

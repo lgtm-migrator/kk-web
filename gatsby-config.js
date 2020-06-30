@@ -20,13 +20,13 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `gatsby-starter-default`,
-        short_name: `starter`,
+        name: `kk-web`,
+        short_name: `kk-web`,
         start_url: `/`,
-        background_color: `#663399`,
-        theme_color: `#663399`,
+        background_color: `#234794`,
+        theme_color: `#b33e5c`,
         display: `minimal-ui`,
-        icon: `src/images/gatsby-icon.png`,
+        icon: `src/images/icon.png`,
       },
     },
     {
@@ -69,5 +69,32 @@ module.exports = {
     },
     `gatsby-transformer-remark`,
     `gatsby-plugin-remove-trailing-slashes`,
+    {
+      resolve: `gatsby-plugin-google-analytics`,
+      options: {
+        trackingId: "UA-59624553-5",
+      },
+    },
+    {
+      resolve: "gatsby-plugin-google-tagmanager",
+      options: {
+        id: "GTM-NVKSTRC",
+        includeInDevelopment: false,
+        defaultDataLayer: { platform: "gatsby" },
+      },
+    },
+    {
+      resolve: `gatsby-plugin-google-adsense`,
+      options: {
+        publisherId: `ca-pub-2447798512998125`,
+      },
+    },
+    {
+      resolve: "gatsby-plugin-mixpanel",
+      options: {
+        apiToken: "21ddd8b89e954ea21013dff62ec7ec2c",
+        enableOnDevMode: false,
+      },
+    },
   ],
 };

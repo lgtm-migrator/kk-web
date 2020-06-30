@@ -29,7 +29,7 @@
   }
 
   .text-link {
-    font: 1.1rem "Muli", sans-serif;
+    font: 1.1rem map-get($fonts, muli);
     text-align: center;
   }
 
