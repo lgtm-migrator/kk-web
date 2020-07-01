@@ -1,5 +1,5 @@
 import * as yup from "yup";
-import React, { FC, useCallback, useMemo } from "react";
+import React, { FC, useCallback, useMemo, useState } from "react";
 import { ToastContainer, toast } from "react-toastify";
 import { PageProps } from "gatsby";
 import axios from "axios";
@@ -10,7 +10,7 @@ import ContactForm, {
 } from "components/organisms/ContactForm";
 import Input, { InputProps } from "components/atoms/Input";
 import Textarea, { TextareaProps } from "components/atoms/Textarea";
-import Button from "components/atoms/Button";
+import Button, { ButtonProps } from "components/atoms/Button";
 import Layout from "components/templates/Layout";
 import Seo from "components/templates/Seo";
 
@@ -29,6 +29,9 @@ const Contact: FC<ContactProps> = () => {
       }),
     []
   );
+  const [isSubmitting, setIsSubmitting] = useState<ButtonProps["disabled"]>(
+    false
+  );
   const { handleSubmit: handleSubmitUseForm, register } = useForm<{
     email: string;
     message: string;
@@ -37,6 +40,8 @@ const Contact: FC<ContactProps> = () => {
   }>({ validationSchema });
   const callback = useCallback<Parameters<typeof handleSubmitUseForm>[0]>(
     ({ email, message: text, name, subject }) => {
+      setIsSubmitting(true);
+
       axios
         .post(`${process.env.BASE_URL}/sendMail`, {
           email,
@@ -49,9 +54,12 @@ const Contact: FC<ContactProps> = () => {
         })
         .catch(() => {
           toast.error("An Unknown Network Error Has Occurred");
+        })
+        .finally(() => {
+          setIsSubmitting(false);
         });
     },
-    []
+    [setIsSubmitting]
   );
   const handleSubmit = useCallback<
     NonNullable<JSX.IntrinsicElements["form"]["onSubmit"]>
@@ -101,7 +109,11 @@ const Contact: FC<ContactProps> = () => {
         <ContactForm
           callback={formCallback}
           items={items}
-          submitButton={<Button type="submit">Submit</Button>}
+          submitButton={
+            <Button disabled={isSubmitting} type="submit">
+              Submit
+            </Button>
+          }
         />
         <ToastContainer position="bottom-right" />
       </Layout>

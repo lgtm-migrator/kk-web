@@ -4,4 +4,8 @@
   background: map-get($colors, black);
   font-size: 1.2rem;
   padding: 6px 12px;
+
+  &:disabled {
+    opacity: 0.5;
+  }
 }

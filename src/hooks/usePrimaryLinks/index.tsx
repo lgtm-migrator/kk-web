@@ -1,4 +1,4 @@
-// import { androidMail } from "react-icons-kit/ionicons/androidMail";
+import { androidMail } from "react-icons-kit/ionicons/androidMail";
 import { blog } from "react-icons-kit/icomoon/blog";
 import { cogs } from "react-icons-kit/icomoon/cogs";
 import { earth } from "react-icons-kit/icomoon/earth";
@@ -26,11 +26,11 @@ function usePrimaryLinks() {
         text: "Blog",
         to: "/blog",
       },
-      // {
-      //   icon: androidMail,
-      //   text: "Contact",
-      //   to: "/contact",
-      // },
+      {
+        icon: androidMail,
+        text: "Contact",
+        to: "/contact",
+      },
       {
         icon: link,
         text: "Link",

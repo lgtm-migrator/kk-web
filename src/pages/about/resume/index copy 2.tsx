@@ -1,11 +1,11 @@
-import React, { FC, Fragment, useEffect, useMemo, useState } from "react";
-
+import React, { FC, useEffect, useMemo, useState } from "react";
 import NoSSR from "react-no-ssr";
-import Seo from "components/templates/Seo";
 import dayjs from "dayjs";
 import noScroll from "no-scroll";
 import pdfFonts from "pdfmake/build/vfs_fonts";
 import pdfMake from "pdfmake/build/pdfmake";
+
+import Seo from "components/templates/Seo";
 import useWindowSize from "hooks/useWindowSize";
 
 const Resume: FC = () => {
@@ -24,8 +24,8 @@ const Resume: FC = () => {
       ipam: {
         bold: "ipam.ttf",
         bolditalics: "ipam.ttf",
-        normal: "ipam.ttf",
         italics: "ipam.ttf",
+        normal: "ipam.ttf",
       },
     };
     pdfMake.vfs = pdfFonts.pdfMake.vfs;
@@ -331,12 +331,12 @@ const Resume: FC = () => {
   }, []);
 
   return (
-    <Fragment>
+    <>
       <Seo path="/about/resume" title="Resume" />
       <NoSSR>
         <iframe src={url} style={style} title="resume" />
       </NoSSR>
-    </Fragment>
+    </>
   );
 };
 
