@@ -39,24 +39,24 @@ const Seo: FC<SeoProps> = ({
   return (
     <Helmet defaultTitle={name} title={title} titleTemplate={`%s | ${name}`}>
       <html lang="ja" />
-      <meta property="fb:app_id" content="438978880268835" />
-      <meta property="og:description" content={ogDescription || description} />
-      <meta property="og:image" content={`${homepage}${publicURL}`} />
-      <meta property="og:image:height" content="630" />
-      <meta property="og:image:width" content="1200" />
-      <meta property="og:locale" content="ja_JP" />
-      <meta property="og:site_name" content={name} />
+      <meta content="438978880268835" property="fb:app_id" />
+      <meta content={ogDescription || description} property="og:description" />
+      <meta content={`${homepage}${publicURL}`} property="og:image" />
+      <meta content="630" property="og:image:height" />
+      <meta content="1200" property="og:image:width" />
+      <meta content="ja_JP" property="og:locale" />
+      <meta content={name} property="og:site_name" />
       <meta
-        property="og:title"
         content={
           ogTitle ? `${ogTitle} | ${name}` : title ? `${title} | ${name}` : name
         }
+        property="og:title"
       />
-      <meta property="og:type" content={ogType} />
-      <meta property="og:url" content={`${homepage}${path}`} />
-      <meta name="author" content="piro" />
-      <meta name="description" content={ogDescription || description} />
-      <meta name="twitter:card" content="summary_large_image" />
+      <meta content={ogType} property="og:type" />
+      <meta content={`${homepage}${path}`} property="og:url" />
+      <meta content="piro" name="author" />
+      <meta content={ogDescription || description} name="description" />
+      <meta content="summary_large_image" name="twitter:card" />
     </Helmet>
   );
 };

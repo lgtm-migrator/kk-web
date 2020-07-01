@@ -1,11 +1,11 @@
-import React, { FC, Fragment, useEffect, useMemo, useState } from "react";
-
+import React, { FC, useEffect, useMemo, useState } from "react";
 import NoSSR from "react-no-ssr";
 import { PageProps } from "gatsby";
 import dayjs from "dayjs";
 import noScroll from "no-scroll";
 import pdfFonts from "pdfmake/build/vfs_fonts";
 import pdfMake from "pdfmake/build/pdfmake";
+
 import Seo from "components/templates/Seo";
 import useWindowSize from "hooks/useWindowSize";
 
@@ -74,13 +74,13 @@ const Resume: FC<ResumeProps> = () => {
         fwMwToolList: [],
         languageList: ["C"],
         process: {
-          requirementDefinition: false,
           basicDesign: false,
-          detailedDesign: false,
-          mountingSingleUnit: true,
           combinedTest: false,
           comprehensiveTest: false,
+          detailedDesign: false,
           maintenanceAndOperation: false,
+          mountingSingleUnit: true,
+          requirementDefinition: false,
         },
         role: "PG",
         serverOsList: [],
@@ -102,13 +102,13 @@ const Resume: FC<ResumeProps> = () => {
         fwMwToolList: [],
         languageList: ["Ruby", "SQL"],
         process: {
-          requirementDefinition: false,
           basicDesign: true,
-          detailedDesign: true,
-          mountingSingleUnit: true,
           combinedTest: false,
           comprehensiveTest: false,
+          detailedDesign: true,
           maintenanceAndOperation: false,
+          mountingSingleUnit: true,
+          requirementDefinition: false,
         },
         role: "PG",
         serverOsList: ["CentOS 6"],
@@ -132,13 +132,13 @@ const Resume: FC<ResumeProps> = () => {
         fwMwToolList: [],
         languageList: ["PHP4", "HTML", "CSS", "VB6", "SQL"],
         process: {
-          requirementDefinition: true,
           basicDesign: true,
-          detailedDesign: true,
-          mountingSingleUnit: true,
           combinedTest: false,
           comprehensiveTest: false,
+          detailedDesign: true,
           maintenanceAndOperation: true,
+          mountingSingleUnit: true,
+          requirementDefinition: true,
         },
         role: "SE/PG",
         serverOsList: ["CentOS 5"],
@@ -159,13 +159,13 @@ const Resume: FC<ResumeProps> = () => {
         fwMwToolList: ["JSF 1.2", "Eclipse"],
         languageList: ["Java"],
         process: {
-          requirementDefinition: false,
           basicDesign: true,
-          detailedDesign: true,
-          mountingSingleUnit: true,
           combinedTest: true,
           comprehensiveTest: false,
+          detailedDesign: true,
           maintenanceAndOperation: false,
+          mountingSingleUnit: true,
+          requirementDefinition: false,
         },
         role: "PG",
         serverOsList: [],
@@ -189,13 +189,13 @@ const Resume: FC<ResumeProps> = () => {
         fwMwToolList: ["IIS 7.5", "SOAP", "MIDMOST", "Visual Studio"],
         languageList: ["C#", "VBA"],
         process: {
-          requirementDefinition: false,
           basicDesign: false,
-          detailedDesign: true,
-          mountingSingleUnit: true,
           combinedTest: false,
           comprehensiveTest: false,
+          detailedDesign: true,
           maintenanceAndOperation: false,
+          mountingSingleUnit: true,
+          requirementDefinition: false,
         },
         role: "PG",
         serverOsList: ["Windows 7"],
@@ -217,13 +217,13 @@ const Resume: FC<ResumeProps> = () => {
         fwMwToolList: ["TortoiseSVN", "Visual Studio"],
         languageList: ["C#", "PHP5", "HTML", "CSS", "JavaScript", "SQL"],
         process: {
-          requirementDefinition: true,
           basicDesign: true,
-          detailedDesign: true,
-          mountingSingleUnit: true,
           combinedTest: false,
           comprehensiveTest: false,
+          detailedDesign: true,
           maintenanceAndOperation: true,
+          mountingSingleUnit: true,
+          requirementDefinition: true,
         },
         role: "SE/PG",
         serverOsList: ["CentOS 6"],
@@ -245,13 +245,13 @@ const Resume: FC<ResumeProps> = () => {
         languageList: ["C#", "F#"],
         pageBreakAfter: true,
         process: {
-          requirementDefinition: false,
           basicDesign: false,
-          detailedDesign: false,
-          mountingSingleUnit: true,
           combinedTest: false,
           comprehensiveTest: false,
+          detailedDesign: false,
           maintenanceAndOperation: false,
+          mountingSingleUnit: true,
+          requirementDefinition: false,
         },
         role: "PG",
         serverOsList: [],
@@ -271,13 +271,13 @@ const Resume: FC<ResumeProps> = () => {
         fwMwToolList: ["ASP.NET MVC", "Visual Studio"],
         languageList: ["C#"],
         process: {
-          requirementDefinition: false,
           basicDesign: false,
-          detailedDesign: false,
-          mountingSingleUnit: true,
           combinedTest: false,
           comprehensiveTest: false,
+          detailedDesign: false,
           maintenanceAndOperation: false,
+          mountingSingleUnit: true,
+          requirementDefinition: false,
         },
         role: "PG",
         serverOsList: [],
@@ -306,13 +306,13 @@ const Resume: FC<ResumeProps> = () => {
         ],
         languageList: ["HTML", "Sass", "JavaScript"],
         process: {
-          requirementDefinition: false,
           basicDesign: false,
-          detailedDesign: false,
-          mountingSingleUnit: true,
           combinedTest: false,
           comprehensiveTest: false,
+          detailedDesign: false,
           maintenanceAndOperation: false,
+          mountingSingleUnit: true,
+          requirementDefinition: false,
         },
         role: "PG",
         serverOsList: [],
@@ -347,13 +347,13 @@ const Resume: FC<ResumeProps> = () => {
         ],
         languageList: ["HTML", "Sass", "JavaScript"],
         process: {
-          requirementDefinition: false,
           basicDesign: false,
-          detailedDesign: false,
-          mountingSingleUnit: true,
           combinedTest: true,
           comprehensiveTest: true,
+          detailedDesign: false,
           maintenanceAndOperation: true,
+          mountingSingleUnit: true,
+          requirementDefinition: false,
         },
         role: "PG",
         serverOsList: [],
@@ -388,13 +388,13 @@ const Resume: FC<ResumeProps> = () => {
         ],
         languageList: ["HTML", "CSS", "JavaScript"],
         process: {
-          requirementDefinition: false,
           basicDesign: false,
-          detailedDesign: false,
-          mountingSingleUnit: true,
           combinedTest: false,
           comprehensiveTest: false,
+          detailedDesign: false,
           maintenanceAndOperation: false,
+          mountingSingleUnit: true,
+          requirementDefinition: false,
         },
         role: "LE/PG",
         serverOsList: [],
@@ -425,13 +425,13 @@ const Resume: FC<ResumeProps> = () => {
         ],
         languageList: ["HTML", "Sass", "JavaScript"],
         process: {
-          requirementDefinition: false,
           basicDesign: false,
-          detailedDesign: false,
-          mountingSingleUnit: true,
           combinedTest: false,
           comprehensiveTest: false,
+          detailedDesign: false,
           maintenanceAndOperation: false,
+          mountingSingleUnit: true,
+          requirementDefinition: false,
         },
         role: "PG",
         serverOsList: [],
@@ -458,13 +458,13 @@ const Resume: FC<ResumeProps> = () => {
         ],
         languageList: ["HTML", "CSS", "JavaScript"],
         process: {
-          requirementDefinition: false,
           basicDesign: false,
-          detailedDesign: false,
-          mountingSingleUnit: true,
           combinedTest: false,
           comprehensiveTest: false,
+          detailedDesign: false,
           maintenanceAndOperation: false,
+          mountingSingleUnit: true,
+          requirementDefinition: false,
         },
         role: "PG",
         serverOsList: [],
@@ -495,13 +495,13 @@ const Resume: FC<ResumeProps> = () => {
         ],
         languageList: ["HTML", "CSS", "JavaScript"],
         process: {
-          requirementDefinition: false,
           basicDesign: false,
-          detailedDesign: false,
-          mountingSingleUnit: true,
           combinedTest: false,
           comprehensiveTest: false,
+          detailedDesign: false,
           maintenanceAndOperation: false,
+          mountingSingleUnit: true,
+          requirementDefinition: false,
         },
         role: "LE/PG",
         serverOsList: [],
@@ -657,8 +657,8 @@ const Resume: FC<ResumeProps> = () => {
       ipam: {
         bold: "ipam.ttf",
         bolditalics: "ipam.ttf",
-        normal: "ipam.ttf",
         italics: "ipam.ttf",
+        normal: "ipam.ttf",
       },
     };
     pdfMake.vfs = pdfFonts.pdfMake.vfs;
@@ -873,12 +873,12 @@ const Resume: FC<ResumeProps> = () => {
   }, []);
 
   return (
-    <Fragment>
+    <>
       <Seo path="/about/resume" title="Resume" />
       <NoSSR>
         <iframe src={url} style={style} title="resume" />
       </NoSSR>
-    </Fragment>
+    </>
   );
 };
 

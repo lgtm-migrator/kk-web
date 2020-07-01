@@ -3,10 +3,10 @@ import "./style.module.scss";
 import React, { FC, useCallback, useMemo, useRef, useState } from "react";
 import NoSSR from "react-no-ssr";
 import { menu } from "react-icons-kit/icomoon/menu";
+
 import SquareNavigation, {
   SquareNavigationProps,
 } from "components/organisms/SquareNavigation";
-
 import Footer from "components/organisms/Footer";
 import Icon from "components/atoms/Icon";
 import Main from "components/organisms/Main";

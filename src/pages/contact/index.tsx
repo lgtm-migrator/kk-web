@@ -1,16 +1,15 @@
 import * as yup from "yup";
-
-import React, { FC, Fragment, useCallback, useMemo } from "react";
+import React, { FC, useCallback, useMemo } from "react";
 import { ToastContainer, toast } from "react-toastify";
 import { PageProps } from "gatsby";
 import axios from "axios";
 import { useForm } from "react-hook-form";
+
 import ContactForm, {
   ContactFormProps,
 } from "components/organisms/ContactForm";
 import Input, { InputProps } from "components/atoms/Input";
 import Textarea, { TextareaProps } from "components/atoms/Textarea";
-
 import Button from "components/atoms/Button";
 import Layout from "components/templates/Layout";
 import Seo from "components/templates/Seo";
@@ -96,7 +95,7 @@ const Contact: FC<ContactProps> = () => {
   );
 
   return (
-    <Fragment>
+    <>
       <Seo path="/contact" title="Contact" />
       <Layout>
         <ContactForm
@@ -106,7 +105,7 @@ const Contact: FC<ContactProps> = () => {
         />
         <ToastContainer position="bottom-right" />
       </Layout>
-    </Fragment>
+    </>
   );
 };
 

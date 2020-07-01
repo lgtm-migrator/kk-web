@@ -94,7 +94,7 @@
     "extends": [
       "eslint:recommended",
       "react-app",
-      "plugin:jsx-a11y/recommended",
+      "plugin:jsx-a11y/strict",
       "plugin:import/errors",
       "plugin:import/warnings",
       "plugin:import/typescript"
@@ -110,7 +110,13 @@
       }
     },
     "rules": {
-      "import/order": ["error"]
+      "no-alert": "error",
+      "no-console": "error",
+      "no-var": "error",
+      "import/order": ["error", {"newlines-between": "always"}],
+      "react/jsx-fragments": ["error", "syntax"],
+      "react/jsx-sort-props": ["error"],
+      "sort-keys": "error"
     }
   },
   "importSort": {

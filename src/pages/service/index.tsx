@@ -1,7 +1,7 @@
-import React, { FC, Fragment, useMemo } from "react";
+import React, { FC, useMemo } from "react";
 import { PageProps } from "gatsby";
-import LinkList, { LinkListProps } from "components/molecules/LinkList";
 
+import LinkList, { LinkListProps } from "components/molecules/LinkList";
 import Layout from "components/templates/Layout";
 import Seo from "components/templates/Seo";
 
@@ -23,12 +23,12 @@ const Service: FC<ServiceProps> = () => {
   );
 
   return (
-    <Fragment>
+    <>
       <Seo path="/service" title="Service" />
       <Layout>
         <LinkList items={items} />
       </Layout>
-    </Fragment>
+    </>
   );
 };
 

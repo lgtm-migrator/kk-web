@@ -1,8 +1,8 @@
 import "./style.module.scss";
 
 import React, { FC, useMemo } from "react";
-
 import { Link } from "gatsby";
+
 import usePrimaryLinks from "hooks/usePrimaryLinks";
 
 const PrimaryNavigation: FC = () => {

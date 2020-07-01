@@ -1,8 +1,8 @@
 import { PageProps, graphql } from "gatsby";
-import React, { FC, Fragment } from "react";
+import React, { FC } from "react";
 import dayjs from "dayjs";
-import Blog from "components/organisms/Blog";
 
+import Blog from "components/organisms/Blog";
 import Layout from "components/templates/Layout";
 import Seo from "components/templates/Seo";
 
@@ -28,7 +28,7 @@ const Date: FC<DateProps> = ({ data: { markdownRemark } }) => {
   } = markdownRemark;
 
   return (
-    <Fragment>
+    <>
       <Seo
         ogDescription={content}
         ogTitle={title}
@@ -43,7 +43,7 @@ const Date: FC<DateProps> = ({ data: { markdownRemark } }) => {
           html={html.replace(/a href/g, 'a target="_blank" href')}
         />
       </Layout>
-    </Fragment>
+    </>
   );
 };
 

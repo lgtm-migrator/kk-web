@@ -1,6 +1,7 @@
 import "./style.module.scss";
 
 import React, { FC, ReactNode } from "react";
+
 import DefinitionList, {
   DefinitionListProps,
 } from "components/molecules/DefinitionList";

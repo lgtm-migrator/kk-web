@@ -1,6 +1,7 @@
 import "./style.module.scss";
 
 import React, { FC } from "react";
+
 import Markdown, { MarkdownProps } from "components/molecules/Markdown";
 
 export type BlogProps = Pick<MarkdownProps, "html"> & {
