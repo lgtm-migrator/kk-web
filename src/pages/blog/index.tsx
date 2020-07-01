@@ -28,7 +28,7 @@ const Blog: FC<BlogProps> = ({
         description: <Link to={slug}>{title}</Link>,
         term: date,
       })),
-    []
+    [edges]
   );
 
   return (

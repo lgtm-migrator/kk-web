@@ -1,19 +1,19 @@
 import * as yup from "yup";
 
+import React, { FC, Fragment, useCallback, useMemo } from "react";
+import { ToastContainer, toast } from "react-toastify";
+import { PageProps } from "gatsby";
+import axios from "axios";
+import { useForm } from "react-hook-form";
 import ContactForm, {
   ContactFormProps,
 } from "components/organisms/ContactForm";
 import Input, { InputProps } from "components/atoms/Input";
-import React, { FC, Fragment, useCallback, useMemo } from "react";
 import Textarea, { TextareaProps } from "components/atoms/Textarea";
-import { ToastContainer, toast } from "react-toastify";
 
 import Button from "components/atoms/Button";
 import Layout from "components/templates/Layout";
-import { PageProps } from "gatsby";
 import Seo from "components/templates/Seo";
-import axios from "axios";
-import { useForm } from "react-hook-form";
 
 export type ContactProps = PageProps;
 
@@ -88,11 +88,11 @@ const Contact: FC<ContactProps> = () => {
         term: "Message*",
       },
     ],
-    []
+    [emailRef, messageRef, nameRef, register]
   );
   const formCallback = useCallback<ContactFormProps["callback"]>(
     (children) => <form onSubmit={handleSubmit}>{children}</form>,
-    []
+    [handleSubmit]
   );
 
   return (

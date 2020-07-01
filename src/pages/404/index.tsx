@@ -1,7 +1,7 @@
 import React, { FC, Fragment } from "react";
 
-import Layout from "components/templates/Layout";
 import { PageProps } from "gatsby";
+import Layout from "components/templates/Layout";
 import Seo from "components/templates/Seo";
 
 export type NotFoundProps = PageProps;

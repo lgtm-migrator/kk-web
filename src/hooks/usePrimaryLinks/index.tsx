@@ -1,4 +1,4 @@
-import { androidMail } from "react-icons-kit/ionicons/androidMail";
+// import { androidMail } from "react-icons-kit/ionicons/androidMail";
 import { blog } from "react-icons-kit/icomoon/blog";
 import { cogs } from "react-icons-kit/icomoon/cogs";
 import { earth } from "react-icons-kit/icomoon/earth";

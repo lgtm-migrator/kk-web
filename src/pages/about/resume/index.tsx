@@ -2,11 +2,11 @@ import React, { FC, Fragment, useEffect, useMemo, useState } from "react";
 
 import NoSSR from "react-no-ssr";
 import { PageProps } from "gatsby";
-import Seo from "components/templates/Seo";
 import dayjs from "dayjs";
 import noScroll from "no-scroll";
 import pdfFonts from "pdfmake/build/vfs_fonts";
 import pdfMake from "pdfmake/build/pdfmake";
+import Seo from "components/templates/Seo";
 import useWindowSize from "hooks/useWindowSize";
 
 export type ResumeProps = PageProps;
@@ -126,7 +126,7 @@ const Resume: FC<ResumeProps> = () => {
         ・各種設計書及び作業手順書などのドキュメント作成
         ・高速バス予約Webシステム改修及び保守
         ・高速バス予約Webシステム用管理ソフトウェア
-        　新規開発、既存改修、及び保守`,
+        新規開発、既存改修、及び保守`,
         dbList: ["Postgre SQL"],
         from: "201401",
         fwMwToolList: [],

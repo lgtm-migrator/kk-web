@@ -1,11 +1,11 @@
+import React, { FC, Fragment, useMemo } from "react";
+import { PageProps } from "gatsby";
 import DefinitionList, {
   DefinitionListProps,
 } from "components/molecules/DefinitionList";
-import React, { FC, Fragment, useMemo } from "react";
 
 import ExternalLink from "components/atoms/ExternalLink";
 import Layout from "components/templates/Layout";
-import { PageProps } from "gatsby";
 import Seo from "components/templates/Seo";
 
 export type AboutProps = PageProps;

@@ -1,9 +1,9 @@
 import "./style.module.scss";
 
+import React, { FC, ReactNode } from "react";
 import DefinitionList, {
   DefinitionListProps,
 } from "components/molecules/DefinitionList";
-import React, { FC, ReactNode } from "react";
 
 export type ContactFormProps = Pick<DefinitionListProps, "items"> & {
   callback: (children: ReactNode) => ReactNode;

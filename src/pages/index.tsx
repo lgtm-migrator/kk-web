@@ -1,8 +1,8 @@
 import React, { FC, Fragment } from "react";
 
+import { PageProps } from "gatsby";
 import Heading1 from "components/atoms/Heading1";
 import Layout from "components/templates/Layout";
-import { PageProps } from "gatsby";
 import Seo from "components/templates/Seo";
 import Top from "components/organisms/Top";
 

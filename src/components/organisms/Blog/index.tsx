@@ -1,7 +1,7 @@
 import "./style.module.scss";
 
-import Markdown, { MarkdownProps } from "components/molecules/Markdown";
 import React, { FC } from "react";
+import Markdown, { MarkdownProps } from "components/molecules/Markdown";
 
 export type BlogProps = Pick<MarkdownProps, "html"> & {
   date: JSX.IntrinsicElements["div"]["children"];

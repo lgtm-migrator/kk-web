@@ -1,8 +1,8 @@
-import LinkList, { LinkListProps } from "components/molecules/LinkList";
 import React, { FC, Fragment, useMemo } from "react";
+import { PageProps } from "gatsby";
+import LinkList, { LinkListProps } from "components/molecules/LinkList";
 
 import Layout from "components/templates/Layout";
-import { PageProps } from "gatsby";
 import Seo from "components/templates/Seo";
 
 export type ServiceProps = PageProps;

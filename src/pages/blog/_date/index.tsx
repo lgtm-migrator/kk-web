@@ -1,10 +1,10 @@
-import Blog, { BlogProps } from "components/organisms/Blog";
 import { PageProps, graphql } from "gatsby";
-import React, { FC, Fragment, useMemo } from "react";
+import React, { FC, Fragment } from "react";
+import dayjs from "dayjs";
+import Blog from "components/organisms/Blog";
 
 import Layout from "components/templates/Layout";
 import Seo from "components/templates/Seo";
-import dayjs from "dayjs";
 
 export type DateProps = PageProps<{
   markdownRemark: {
@@ -26,11 +26,6 @@ const Date: FC<DateProps> = ({ data: { markdownRemark } }) => {
     html,
     internal: { content },
   } = markdownRemark;
-  const heading = useMemo(() => <h1>{title}</h1>, [title]);
-  const blogHtml = useMemo<BlogProps["html"]>(
-    () => html.replace(/a href/g, 'a target="_blank" href'),
-    []
-  );
 
   return (
     <Fragment>
@@ -42,7 +37,11 @@ const Date: FC<DateProps> = ({ data: { markdownRemark } }) => {
         title={title}
       />
       <Layout>
-        <Blog date={date} heading={heading} html={blogHtml} />
+        <Blog
+          date={date}
+          heading={<h1>{title}</h1>}
+          html={html.replace(/a href/g, 'a target="_blank" href')}
+        />
       </Layout>
     </Fragment>
   );

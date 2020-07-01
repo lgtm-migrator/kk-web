@@ -40,7 +40,7 @@ const SquareNavigation: FC<SquareNavigationProps> = ({
           </div>
         </li>
       )),
-    [primaryLinks]
+    [handleClickOnLink, primaryLinks]
   );
 
   return (
