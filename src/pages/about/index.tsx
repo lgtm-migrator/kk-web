@@ -41,7 +41,7 @@ const About: FC<AboutProps> = () => {
 
   return (
     <Fragment>
-      <Seo title="About" />
+      <Seo path="/about" title="About" />
       <Layout>
         <DefinitionList items={items} />
       </Layout>

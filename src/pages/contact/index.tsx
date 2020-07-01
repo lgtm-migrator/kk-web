@@ -97,7 +97,7 @@ const Contact: FC<ContactProps> = () => {
 
   return (
     <Fragment>
-      <Seo title="Contact" />
+      <Seo path="/contact" title="Contact" />
       <Layout>
         <ContactForm
           callback={formCallback}

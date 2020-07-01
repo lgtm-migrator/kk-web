@@ -28,7 +28,7 @@ const Movie: FC<MovieProps> = () => {
 
   return (
     <Fragment>
-      <Seo title="Movie" />
+      <Seo path="/movie" title="Movie" />
       <Layout>
         <LinkList items={items} />
       </Layout>

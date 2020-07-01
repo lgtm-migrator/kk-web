@@ -8,7 +8,7 @@ export type NotFoundProps = PageProps;
 
 const NotFound: FC<NotFoundProps> = () => (
   <Fragment>
-    <Seo title="404" />
+    <Seo path="/404" title="404" />
     <Layout>404</Layout>
   </Fragment>
 );

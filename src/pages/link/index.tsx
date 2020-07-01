@@ -36,7 +36,7 @@ const Link: FC<LinkProps> = () => {
 
   return (
     <Fragment>
-      <Seo title="Link" />
+      <Seo path="/link" title="Link" />
       <Layout>
         <LinkList items={items} />
       </Layout>

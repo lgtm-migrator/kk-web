@@ -4,11 +4,15 @@ import React, { FC, Fragment, useMemo } from "react";
 
 import Layout from "components/templates/Layout";
 import Seo from "components/templates/Seo";
+import dayjs from "dayjs";
 
 export type DateProps = PageProps<{
   markdownRemark: {
     frontmatter: { date: string; title: string };
     html: string;
+    internal: {
+      content: string;
+    };
   } | null;
 }>;
 
@@ -20,6 +24,7 @@ const Date: FC<DateProps> = ({ data: { markdownRemark } }) => {
   const {
     frontmatter: { date, title },
     html,
+    internal: { content },
   } = markdownRemark;
   const heading = useMemo(() => <h1>{title}</h1>, [title]);
   const blogHtml = useMemo<BlogProps["html"]>(
@@ -29,7 +34,13 @@ const Date: FC<DateProps> = ({ data: { markdownRemark } }) => {
 
   return (
     <Fragment>
-      <Seo title={title} />
+      <Seo
+        ogDescription={content}
+        ogTitle={title}
+        ogType="article"
+        path={`/blog/${dayjs(date).format("YYYYMMDD")}`}
+        title={title}
+      />
       <Layout>
         <Blog date={date} heading={heading} html={blogHtml} />
       </Layout>
@@ -44,6 +55,9 @@ export const pageQuery = graphql`
       frontmatter {
         title
         date
+      }
+      internal {
+        content
       }
     }
   }

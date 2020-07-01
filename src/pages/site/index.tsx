@@ -32,7 +32,7 @@ const Site: FC<SiteProps> = () => {
 
   return (
     <Fragment>
-      <Seo title="Site" />
+      <Seo path="/site" title="Site" />
       <Layout>
         <LinkList items={items} />
       </Layout>

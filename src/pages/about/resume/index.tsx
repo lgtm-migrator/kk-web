@@ -874,7 +874,7 @@ const Resume: FC<ResumeProps> = () => {
 
   return (
     <Fragment>
-      <Seo title="Resume" />
+      <Seo path="/about/resume" title="Resume" />
       <NoSSR>
         <iframe src={url} style={style} title="resume" />
       </NoSSR>

@@ -33,7 +33,7 @@ const Blog: FC<BlogProps> = ({
 
   return (
     <Fragment>
-      <Seo title="Blog" />
+      <Seo ogType="blog" path="/blog" title="Blog" />
       <Layout>
         <BlogListBlock items={items} />
       </Layout>

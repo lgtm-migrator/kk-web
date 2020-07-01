@@ -24,7 +24,7 @@ const Service: FC<ServiceProps> = () => {
 
   return (
     <Fragment>
-      <Seo title="Service" />
+      <Seo path="/service" title="Service" />
       <Layout>
         <LinkList items={items} />
       </Layout>
