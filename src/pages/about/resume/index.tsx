@@ -1,58 +1,16 @@
 import React, { FC, useEffect, useMemo, useState } from "react";
 import NoSSR from "react-no-ssr";
-import { PageProps } from "gatsby";
 import dayjs from "dayjs";
 import noScroll from "no-scroll";
 import pdfFonts from "pdfmake/build/vfs_fonts";
 import pdfMake from "pdfmake/build/pdfmake";
+// eslint-disable-next-line import/no-unresolved
+import { TableLayout, TableCell } from "pdfmake/interfaces";
 
 import Seo from "components/templates/Seo";
 import useWindowSize from "hooks/useWindowSize";
 
-export type ResumeProps = PageProps;
-
-type Project = {
-  // 業務内容
-  content: string;
-  // DB
-  dbList: string[];
-  // 期間開始 "YYYYMM"
-  from: string;
-  // FW・NW ツール等
-  fwMwToolList: string[];
-  // 使用言語
-  languageList: string[];
-  pageBreakAfter?: boolean;
-  // 担当工程
-  process: {
-    // 要件定義
-    requirementDefinition: boolean;
-    // 基本設計
-    basicDesign: boolean;
-    // 詳細設計
-    detailedDesign: boolean;
-    // 実装・単体
-    mountingSingleUnit: boolean;
-    // 結合テスト
-    combinedTest: boolean;
-    // 総合テスト
-    comprehensiveTest: boolean;
-    // 保守・運用
-    maintenanceAndOperation: boolean;
-  };
-  // 役割
-  role: string;
-  // サーバOS
-  serverOsList: string[];
-  // number
-  team: number;
-  // 業務タイトル
-  title: string;
-  // 期間終了 "YYYYMM"
-  to?: string;
-};
-
-const Resume: FC<ResumeProps> = () => {
+const Resume: FC = () => {
   const [url, setUrl] = useState<JSX.IntrinsicElements["iframe"]["src"]>("");
   const { windowHeight, windowWidth } = useWindowSize();
   const style = useMemo(
@@ -63,10 +21,28 @@ const Resume: FC<ResumeProps> = () => {
     [windowHeight, windowWidth]
   );
 
-  React.useEffect(() => {
-    const projects: Project[] = [];
+  useEffect(() => {
+    pdfMake.fonts = {
+      ipam: {
+        bold: "ipam.ttf",
+        bolditalics: "ipam.ttf",
+        italics: "ipam.ttf",
+        normal: "ipam.ttf",
+      },
+    };
+    pdfMake.vfs = pdfFonts.pdfMake.vfs;
 
-    [
+    const layout: TableLayout = {
+      fillColor: (_, __, columnIndex: number) =>
+        columnIndex % 2 ? null : "#ccf",
+      hLineWidth: (index, { table: { body } }) =>
+        index === 0 || index === body.length ? 1 : 0.5,
+      vLineWidth: (index, { table: { widths } }) =>
+        index === 0 || (Array.isArray(widths) && index === widths.length)
+          ? 1
+          : 0.5,
+    };
+    const histories = [
       {
         content: "新入社員向けプログラミング研修受講",
         dbList: [],
@@ -510,12 +486,10 @@ const Resume: FC<ResumeProps> = () => {
           "法人向け社外人材の活用及び一元管理ソリューションの新規開発及び保守改修",
         to: "202004",
       },
-    ].forEach((project) => {
-      projects.push(project);
-      projects.push(project);
-    });
+    ];
+    const rows: TableCell[][] = [];
 
-    const rows = projects.map(
+    histories.forEach(
       (
         {
           content,
@@ -540,94 +514,60 @@ const Resume: FC<ResumeProps> = () => {
           to,
         },
         index
-      ) =>
-        !(index % 2)
-          ? [
-              {
-                rowSpan: 2,
-                text: index / 2 + 1,
-              },
-              dayjs(from, "YYYYMM").format(`YYYY年MM月`),
-              "-",
-              to ? dayjs(to, "YYYYMM").format(`YYYY年MM月`) : "",
-              title,
-              role,
-              {
-                rowSpan: 2,
-                text: languageList.join("\n") || "-",
-              },
-              {
-                rowSpan: 2,
-                text: dbList.join("\n") || "-",
-              },
-              {
-                rowSpan: 2,
-                text: serverOsList.join("\n") || "-",
-              },
-              {
-                rowSpan: 2,
-                text: fwMwToolList.join("\n") || "-",
-              },
-              {
-                rowSpan: 2,
-                text: requirementDefinition ? "●" : "",
-              },
-              {
-                rowSpan: 2,
-                text: basicDesign ? "●" : "",
-              },
-              {
-                rowSpan: 2,
-                text: detailedDesign ? "●" : "",
-              },
-              {
-                rowSpan: 2,
-                text: mountingSingleUnit ? "●" : "",
-              },
-              {
-                rowSpan: 2,
-                text: combinedTest ? "●" : "",
-              },
-              {
-                rowSpan: 2,
-                text: comprehensiveTest ? "●" : "",
-              },
-              {
-                rowSpan: 2,
-                text: maintenanceAndOperation ? "●" : "",
-              },
-            ]
-          : [
-              { text: "" },
-              {
-                colSpan: 3,
-                text: `(${
-                  (to ? dayjs(to, "YYYYMM") : dayjs()).diff(
-                    dayjs(from, "YYYYMM"),
-                    "month"
-                  ) + 1
-                }ヶ月間)`,
-              },
-              { text: "" },
-              { text: "" },
-              { text: content },
-              {
-                text: `チーム\n${team}名`,
-              },
-              { text: "" },
-              { text: "" },
-              { text: "" },
-              { text: "" },
-              { text: "" },
-              { text: "" },
-              { text: "" },
-              { text: "" },
-              { text: "" },
-              { text: "" },
-              { text: "" },
-            ].map((cell) =>
-              pageBreakAfter ? { ...cell, pageBreak: "after" } : cell
-            )
+      ) => {
+        rows.push([
+          {
+            rowSpan: 2,
+            text: index + 1,
+          },
+          dayjs(from, "YYYYMM").format(`YYYY年MM月`),
+          "-",
+          to ? dayjs(to, "YYYYMM").format(`YYYY年MM月`) : "",
+          title,
+          role,
+          ...[languageList, dbList, serverOsList, fwMwToolList].map(
+            (value) => ({
+              rowSpan: 2,
+              text: value.join("\n") || "-",
+            })
+          ),
+          ...[
+            requirementDefinition,
+            basicDesign,
+            detailedDesign,
+            mountingSingleUnit,
+            combinedTest,
+            comprehensiveTest,
+            maintenanceAndOperation,
+          ].map((value) => ({
+            rowSpan: 2,
+            text: value ? "●" : "",
+          })),
+        ]);
+
+        rows.push(
+          [
+            { text: "" },
+            {
+              colSpan: 3,
+              text: `(${
+                (to ? dayjs(to, "YYYYMM") : dayjs()).diff(
+                  dayjs(from, "YYYYMM"),
+                  "month"
+                ) + 1
+              }ヶ月間)`,
+            },
+            ...[...Array(2)].map(() => ({ text: "" })),
+            { text: content },
+            {
+              text: `チーム\n${team}名`,
+            },
+            ...[...Array(11)].map(() => ({ text: "" })),
+          ].map((cell) =>
+            pageBreakAfter ? { ...cell, pageBreak: "after" } : cell
+          )
+        );
+      }
     );
 
     rows.splice(12, 0, [
@@ -635,33 +575,9 @@ const Resume: FC<ResumeProps> = () => {
         colSpan: 17,
         text: "2016年10月～2017年8月まで同一企業に参画しておりました",
       },
-      { text: "" },
-      { text: "" },
-      { text: "" },
-      { text: "" },
-      { text: "" },
-      { text: "" },
-      { text: "" },
-      { text: "" },
-      { text: "" },
-      { text: "" },
-      { text: "" },
-      { text: "" },
-      { text: "" },
-      { text: "" },
-      { text: "" },
-      { text: "" },
+      ...[...Array(16)].map(() => ({ text: "" })),
     ]);
 
-    pdfMake.fonts = {
-      ipam: {
-        bold: "ipam.ttf",
-        bolditalics: "ipam.ttf",
-        italics: "ipam.ttf",
-        normal: "ipam.ttf",
-      },
-    };
-    pdfMake.vfs = pdfFonts.pdfMake.vfs;
     pdfMake
       .createPdf({
         content: [
@@ -673,18 +589,10 @@ const Resume: FC<ResumeProps> = () => {
             text: "スキルシート",
           },
           {
-            layout: {
-              fillColor: (_: number, __: any, columnIndex: number) =>
-                columnIndex % 2 ? null : "#ccf",
-              hLineWidth: (index: number, node: any) =>
-                index === 0 || index === node.table.body.length ? 1 : 0.5,
-              vLineWidth: (index: number, node: any) =>
-                index === 0 || index === node.table.widths.length ? 1 : 0.5,
-            },
+            layout,
             margin: [0, 0, 0, 5],
             table: {
               body: [
-                // ["技術者コード", "ENG0000287323", "所属", "個人事業主"],
                 [
                   "年齢",
                   `満${dayjs().diff(dayjs("19890919"), "year")}歳`,
@@ -703,14 +611,7 @@ const Resume: FC<ResumeProps> = () => {
             },
           },
           {
-            layout: {
-              fillColor: (_: number, __: any, columnIndex: number) =>
-                columnIndex % 2 ? null : "#ccf",
-              hLineWidth: (index: number, node: any) =>
-                index === 0 || index === node.table.body.length ? 1 : 0.5,
-              vLineWidth: (index: number, node: any) =>
-                index === 0 || index === node.table.widths.length ? 1 : 0.5,
-            },
+            layout,
             margin: [0, 0, 0, 5],
             table: {
               body: [
@@ -725,14 +626,7 @@ const Resume: FC<ResumeProps> = () => {
             },
           },
           {
-            layout: {
-              fillColor: (_: number, __: any, columnIndex: number) =>
-                columnIndex % 2 ? null : "#ccf",
-              hLineWidth: (index: number, node: any) =>
-                index === 0 || index === node.table.body.length ? 1 : 0.5,
-              vLineWidth: (index: number, node: any) =>
-                index === 0 || index === node.table.widths.length ? 1 : 0.5,
-            },
+            layout,
             margin: [0, 0, 0, 5],
             table: {
               body: [
@@ -749,14 +643,10 @@ const Resume: FC<ResumeProps> = () => {
           },
           {
             layout: {
-              fillColor: (rowIndex: number, _: any, columnIndex: number) =>
-                rowIndex <= 1 || (columnIndex === 0 && rowIndex !== 12 + 2)
-                  ? "#ccf"
-                  : null,
-              hLineWidth: (index: number, node: any) =>
-                index === 0 || index === node.table.body.length ? 1 : 0.5,
-              vLineWidth: (index: number, node: any) =>
-                index === 0 || index === node.table.widths.length ? 1 : 0.5,
+              ...layout,
+              fillColor: (rowIndex, _, columnIndex) =>
+                // rowIndex <= 1 || (columnIndex === 0 && rowIndex !== 12 + 2)
+                rowIndex <= 1 || columnIndex === 0 ? "#ccf" : null,
             },
             table: {
               body: [
@@ -766,57 +656,28 @@ const Resume: FC<ResumeProps> = () => {
                     rowSpan: 2,
                     text: "期間",
                   },
-                  "",
-                  "",
-                  "",
-                  {
-                    rowSpan: 2,
-                    text: "業務内容",
-                  },
-                  {
-                    rowSpan: 2,
-                    text: `役割
+                  ...[...Array(3)].map(() => ""),
+                  ...[
+                    "業務内容",
+                    `役割
                       規模`,
-                  },
-                  {
-                    rowSpan: 2,
-                    text: "使用言語",
-                  },
-                  {
-                    rowSpan: 2,
-                    text: "DB",
-                  },
-                  {
-                    rowSpan: 2,
-                    text: "サーバOS",
-                  },
-                  {
-                    rowSpan: 2,
-                    text: `FW・MW
+                    "使用言語",
+                    "DB",
+                    "サーバOS",
+                    `FW・MW
                       ツール等`,
-                  },
+                  ].map((value) => ({
+                    rowSpan: 2,
+                    text: value,
+                  })),
                   {
                     colSpan: 7,
                     text: "担当工程",
                   },
-                  "",
-                  "",
-                  "",
-                  "",
-                  "",
-                  "",
+                  ...[...Array(6)].map(() => ""),
                 ],
                 [
-                  "",
-                  "",
-                  "",
-                  "",
-                  "",
-                  "",
-                  "",
-                  "",
-                  "",
-                  "",
+                  ...[...Array(10)].map(() => ""),
                   "要件定義",
                   "基本設計",
                   "詳細設計",
@@ -826,7 +687,6 @@ const Resume: FC<ResumeProps> = () => {
                   "保守・運用",
                 ],
                 ...rows,
-                ...[],
               ],
               headerRows: 2,
               widths: [
@@ -836,17 +696,8 @@ const Resume: FC<ResumeProps> = () => {
                 30,
                 "*",
                 20,
-                "auto",
-                "auto",
-                "auto",
-                "auto",
-                5,
-                5,
-                5,
-                5,
-                5,
-                5,
-                5,
+                ...[...Array(4)].map(() => "auto"),
+                ...[...Array(7)].map(() => 5),
               ],
             },
           },
