@@ -7,6 +7,7 @@ import { home } from "react-icons-kit/icomoon/home";
 import { link } from "react-icons-kit/icomoon/link";
 import { useMemo } from "react";
 import { user } from "react-icons-kit/icomoon/user";
+import { starFull } from "react-icons-kit/icomoon/starFull";
 
 function usePrimaryLinks() {
   const primaryLinks = useMemo(
@@ -40,6 +41,11 @@ function usePrimaryLinks() {
         icon: film,
         text: "Movie",
         to: "/movie",
+      },
+      {
+        icon: starFull,
+        text: "Request",
+        to: "/request",
       },
       {
         icon: cogs,

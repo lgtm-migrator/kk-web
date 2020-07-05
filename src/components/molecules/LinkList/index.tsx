@@ -1,10 +1,13 @@
 import "./style.module.scss";
 
 import React, { FC, useMemo } from "react";
+import { Link, GatsbyLinkProps } from "gatsby";
 
 import ExternalLink from "components/atoms/ExternalLink";
 
-type Item = Required<Pick<JSX.IntrinsicElements["a"], "children" | "href">>;
+type Item =
+  | Required<Pick<JSX.IntrinsicElements["a"], "children" | "href">>
+  | Pick<GatsbyLinkProps<any>, "children" | "to">;
 
 export type LinkListProps = {
   items: Item[];
@@ -13,11 +16,25 @@ export type LinkListProps = {
 const LinkList: FC<LinkListProps> = ({ items }) => {
   const children = useMemo(
     () =>
-      items.map(({ children, href }) => (
-        <li key={href} styleName="item">
-          <ExternalLink href={href}>{children}</ExternalLink>
-        </li>
-      )),
+      items.map(({ children, ...item }) => {
+        if ("href" in item) {
+          const { href } = item;
+
+          return (
+            <li key={href} styleName="item">
+              <ExternalLink href={href}>{children}</ExternalLink>
+            </li>
+          );
+        }
+
+        const { to } = item;
+
+        return (
+          <li key={to} styleName="item">
+            <Link to={to}>{children}</Link>
+          </li>
+        );
+      }),
     [items]
   );
 
