@@ -1,9 +1,10 @@
 @import "styles/constants.scss";
 
 .button {
-  background: map-get($colors, black);
+  background: map-get($colors, blue);
+  color: map-get($colors, white);
   font-size: 1.2rem;
-  padding: 6px 12px;
+  padding: 9px 12px;
 
   &:disabled {
     opacity: 0.5;
