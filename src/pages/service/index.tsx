@@ -18,6 +18,10 @@ const Service: FC<ServiceProps> = () => {
         children: "レジュメイク",
         href: "https://resumake.kk-web.link/",
       },
+      {
+        children: "レシグル",
+        href: "https://recigle.kk-web.link/",
+      },
     ],
     []
   );
