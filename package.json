@@ -51,7 +51,7 @@
     "mixpanel-browser": "2.38.0",
     "no-scroll": "2.1.1",
     "node-sass": "4.14.1",
-    "pdfmake": "0.1.65",
+    "pdfmake": "0.1.66",
     "postcss-scss": "2.1.1",
     "prettier": "2.0.5",
     "prop-types": "^15.7.2",
