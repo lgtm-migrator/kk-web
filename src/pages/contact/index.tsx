@@ -43,7 +43,7 @@ const Contact: FC<ContactProps> = () => {
       setIsSubmitting(true);
 
       axios
-        .post(`${process.env.BASE_URL}/sendMail`, {
+        .post(`${process.env.GATSBY_BASE_URL}/sendMail`, {
           email,
           name,
           subject,
