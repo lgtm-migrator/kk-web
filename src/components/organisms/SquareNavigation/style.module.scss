@@ -1,7 +1,8 @@
 @import "styles/constants.scss";
+@import "styles/mixins.scss";
 
 .square-navigation {
-  background: rgba(map-get($colors, black), 0.75);
+  background: map-get($colors, black);
   padding: 16px;
 
   .list {
@@ -29,6 +30,10 @@
   }
 
   .text-link {
+    @include light-mode {
+      color: map-get($light-mode-colors, white);
+    }
+
     font: 1.1rem map-get($fonts, muli);
     text-align: center;
   }

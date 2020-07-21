@@ -8,37 +8,37 @@ module.exports = {
     name: process.env.npm_package_name,
   },
   plugins: [
-    `gatsby-plugin-react-helmet`,
+    "gatsby-plugin-react-helmet",
     {
-      resolve: `gatsby-source-filesystem`,
+      resolve: "gatsby-source-filesystem",
       options: {
-        name: `images`,
+        name: "images",
         path: `${__dirname}/src/images`,
       },
     },
-    `gatsby-transformer-sharp`,
-    `gatsby-plugin-sharp`,
+    "gatsby-transformer-sharp",
+    "gatsby-plugin-sharp",
     {
-      resolve: `gatsby-plugin-manifest`,
+      resolve: "gatsby-plugin-manifest",
       options: {
-        name: `kk-web`,
-        short_name: `kk-web`,
-        start_url: `/`,
-        background_color: `#234794`,
-        theme_color: `#b33e5c`,
-        display: `minimal-ui`,
-        icon: `src/images/icon.png`,
+        name: "kk-web",
+        short_name: "kk-web",
+        start_url: "/",
+        background_color: "#234794",
+        theme_color: "#b33e5c",
+        display: "minimal-ui",
+        icon: "src/images/icon.png",
       },
     },
     {
-      resolve: `gatsby-plugin-google-fonts`,
+      resolve: "gatsby-plugin-google-fonts",
       options: {
         fonts: ["Muli", "Poiret+One"],
         display: "swap",
       },
     },
     {
-      resolve: `gatsby-plugin-sass`,
+      resolve: "gatsby-plugin-sass",
       options: {
         cssLoaderOptions: {
           modules: true,
@@ -46,10 +46,10 @@ module.exports = {
       },
     },
     {
-      resolve: `gatsby-plugin-react-css-modules`,
+      resolve: "gatsby-plugin-react-css-modules",
       options: {
         filetypes: {
-          ".scss": { syntax: `postcss-scss` },
+          ".scss": { syntax: "postcss-scss" },
         },
       },
     },
@@ -62,16 +62,16 @@ module.exports = {
       },
     },
     {
-      resolve: `gatsby-source-filesystem`,
+      resolve: "gatsby-source-filesystem",
       options: {
-        name: `markdown-pages`,
+        name: "markdown-pages",
         path: `${__dirname}/src/markdown-pages`,
       },
     },
-    `gatsby-transformer-remark`,
-    `gatsby-plugin-remove-trailing-slashes`,
+    "gatsby-transformer-remark",
+    "gatsby-plugin-remove-trailing-slashes",
     {
-      resolve: `gatsby-plugin-google-analytics`,
+      resolve: "gatsby-plugin-google-analytics",
       options: {
         trackingId: "UA-59624553-5",
       },
@@ -85,9 +85,9 @@ module.exports = {
       },
     },
     {
-      resolve: `gatsby-plugin-google-adsense`,
+      resolve: "gatsby-plugin-google-adsense",
       options: {
-        publisherId: `ca-pub-2447798512998125`,
+        publisherId: "ca-pub-2447798512998125",
       },
     },
     {
@@ -97,5 +97,6 @@ module.exports = {
         enableOnDevMode: false,
       },
     },
+    "gatsby-plugin-use-dark-mode",
   ],
 };

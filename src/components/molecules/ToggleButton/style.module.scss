@@ -1,0 +1,9 @@
+@import "styles/constants.scss";
+
+.toggle-button {
+  cursor: pointer;
+
+  .checkbox {
+    display: none;
+  }
+}

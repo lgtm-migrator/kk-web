@@ -1,5 +1,6 @@
 @import "sass-mq";
 @import "styles/constants.scss";
+@import "styles/mixins.scss";
 
 .request {
   .footer {
@@ -13,6 +14,10 @@
   }
 
   .link {
+    @include light-mode {
+      color: map-get($light-mode-colors, white);
+    }
+
     background: map-get($colors, blue);
     color: map-get($colors, white);
     padding: 9px 12px;

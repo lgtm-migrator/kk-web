@@ -8,19 +8,17 @@
 }
 
 html {
-  background: map-get($colors, dark);
-  color: map-get($colors, white);
   font: 62.5% map-get($fonts, jkg);
   overflow: hidden scroll;
+}
+
+body {
+  font-size: 1.4rem;
 }
 
 * {
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
   outline: 0;
-}
-
-body {
-  font-size: 1.4rem;
 }
 
 a {

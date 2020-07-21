@@ -1,11 +1,19 @@
 @import "sass-mq";
 @import "styles/constants.scss";
+@import "styles/mixins.scss";
 
 .layout {
   @include mq($until: tablet) {
     padding-top: 0;
   }
 
+  @include light-mode {
+    background-color: map-get($light-mode-colors, white);
+    color: map-get($light-mode-colors, dark);
+  }
+
+  background: map-get($colors, dark);
+  color: map-get($colors, white);
   display: grid;
   grid-template: 1fr auto / auto;
   padding: 66px 0 0;
@@ -30,15 +38,31 @@
       display: none;
     }
 
+    @include light-mode {
+      background-color: rgba(map-get($light-mode-colors, white), 0.75);
+      border-bottom: 1px solid rgba(map-get($light-mode-colors, dark), 0.125);
+    }
+
     align-items: center;
     background: rgba(map-get($colors, dark), 0.75);
     display: flex;
-    justify-content: center;
+    justify-content: space-around;
     height: 66px;
     left: 0;
     position: fixed;
     top: 0;
     width: 100%;
+  }
+
+  .toggle-button-wrapper {
+    @include mq($from: tablet) {
+      display: none;
+    }
+
+    margin: 24px;
+    position: fixed;
+    right: 0;
+    top: 0;
   }
 
   .button {
