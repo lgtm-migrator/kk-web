@@ -13,7 +13,7 @@ jobs:
         with:
           node-version: '10.x'
       - run: npm install
-      - run: echo '::set-env name=BASE_URL::${{ secrets.BASE_URL }}'
+      - run: echo 'BASE_URL=https://asia-northeast1-kk-web-ff4a4.cloudfunctions.net' > .env
       - run: npm run build
       - uses: w9jds/firebase-action@v1.5.0
         with:
