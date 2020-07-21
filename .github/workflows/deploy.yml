@@ -15,7 +15,7 @@ jobs:
       - run: npm install
       - run: npm run build
         env:
-          BASE_URL: "https://asia-northeast1-kk-web-ff4a4.cloudfunctions.net" 
+          GATSBY_BASE_URL: "https://asia-northeast1-kk-web-ff4a4.cloudfunctions.net" 
       - uses: w9jds/firebase-action@v1.5.0
         with:
           args: deploy --only hosting
