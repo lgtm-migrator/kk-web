@@ -4,16 +4,16 @@ import React, { FC } from "react";
 
 import Markdown, { MarkdownProps } from "components/molecules/Markdown";
 
-export type BlogProps = Pick<MarkdownProps, "html"> & {
+export type BlogProps = Pick<MarkdownProps, "handleCopy" | "source"> & {
   date: JSX.IntrinsicElements["div"]["children"];
   heading: JSX.IntrinsicElements["div"]["children"];
 };
 
-const Blog: FC<BlogProps> = ({ date, heading, html }) => (
+const Blog: FC<BlogProps> = ({ date, handleCopy, heading, source }) => (
   <article styleName="blog">
     <div styleName="heading-wrapper">{heading}</div>
     <div styleName="date-wrapper">{date}</div>
-    <Markdown html={html} />
+    <Markdown handleCopy={handleCopy} source={source} />
   </article>
 );
 

@@ -6,17 +6,17 @@
   font-family: inherit;
   font-size: inherit;
 
-  a {
+  .a {
     color: map-get($colors, red);
   }
 
-  blockquote {
+  .blockquote {
     color: inherit;
   }
 
-  code,
-  pre,
-  table tr {
+  .code,
+  .pre,
+  .table .tr {
     @include light-mode {
       color: map-get($light-mode-colors, white);
     }
@@ -24,19 +24,33 @@
     background-color: map-get($colors, blue);
   }
 
-  table tr:nth-child(even) {
+  .thead .tr,
+  .table .tr:nth-child(even) {
     background-color: darken($color: map-get($colors, blue), $amount: 15);
   }
 
-  pre {
+  .pre {
     font-size: 1.2rem;
+    position: relative;
   }
 
-  pre code {
+  .copy-to-clipboard {
+    cursor: pointer;
+    margin: 12px;
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+
+  .code {
     white-space: pre-wrap;
   }
 
-  ul {
-    list-style: disc;
+  .ul {
+    list-style: square;
+  }
+
+  .ol {
+    list-style: hiragana-iroha;
   }
 }

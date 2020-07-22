@@ -61,9 +61,6 @@ const Contact: FC<ContactProps> = () => {
     },
     [setIsSubmitting]
   );
-  const handleSubmit = useCallback<
-    NonNullable<JSX.IntrinsicElements["form"]["onSubmit"]>
-  >(handleSubmitUseForm(callback), [callback, handleSubmitUseForm]);
   const nameRef = useMemo<InputProps["inputRef"]>(
     () => register({ required: true }),
     [register]
@@ -98,8 +95,10 @@ const Contact: FC<ContactProps> = () => {
     [emailRef, messageRef, nameRef, register]
   );
   const formCallback = useCallback<ContactFormProps["callback"]>(
-    (children) => <form onSubmit={handleSubmit}>{children}</form>,
-    [handleSubmit]
+    (children) => (
+      <form onSubmit={handleSubmitUseForm(callback)}>{children}</form>
+    ),
+    [callback, handleSubmitUseForm]
   );
 
   return (
@@ -115,7 +114,7 @@ const Contact: FC<ContactProps> = () => {
             </Button>
           }
         />
-        <ToastContainer position="bottom-right" />
+        <ToastContainer pauseOnFocusLoss={false} position="bottom-right" />
       </Layout>
     </>
   );

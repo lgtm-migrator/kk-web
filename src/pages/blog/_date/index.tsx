@@ -1,56 +1,68 @@
 import { PageProps, graphql } from "gatsby";
-import React, { FC } from "react";
+import React, { FC, useCallback } from "react";
 import dayjs from "dayjs";
+import { ToastContainer, toast } from "react-toastify";
 
-import Blog from "components/organisms/Blog";
+import Blog, { BlogProps } from "components/organisms/Blog";
 import Layout from "components/templates/Layout";
 import Seo from "components/templates/Seo";
 
 export type DateProps = PageProps<{
   markdownRemark: {
     frontmatter: { date: string; title: string };
-    html: string;
     internal: {
       content: string;
     };
+    rawMarkdownBody: string;
   } | null;
 }>;
 
 const Date: FC<DateProps> = ({ data: { markdownRemark } }) => {
-  if (!markdownRemark) {
-    return null;
-  }
-
   const {
     frontmatter: { date, title },
-    html,
     internal: { content },
-  } = markdownRemark;
+    rawMarkdownBody,
+  } = markdownRemark || { frontmatter: {}, internal: {} };
+  const handleCopy = useCallback<NonNullable<BlogProps["handleCopy"]>>(
+    (_, result) => {
+      if (result) {
+        toast.success("Copy Success!");
+
+        return;
+      }
+
+      toast.error("Copy failed");
+    },
+    []
+  );
 
   return (
-    <>
-      <Seo
-        ogDescription={content}
-        ogTitle={title}
-        ogType="article"
-        path={`/blog/${dayjs(date).format("YYYYMMDD")}`}
-        title={title}
-      />
-      <Layout>
-        <Blog
-          date={date}
-          heading={<h1>{title}</h1>}
-          html={html.replace(/a href/g, 'a target="_blank" href')}
+    markdownRemark && (
+      <>
+        <Seo
+          ogDescription={content}
+          ogTitle={title}
+          ogType="article"
+          path={`/blog/${dayjs(date).format("YYYYMMDD")}`}
+          title={title}
         />
-      </Layout>
-    </>
+        <Layout>
+          <Blog
+            date={date}
+            handleCopy={handleCopy}
+            heading={<h1>{title}</h1>}
+            source={rawMarkdownBody}
+          />
+        </Layout>
+        <ToastContainer pauseOnFocusLoss={false} position="bottom-right" />
+      </>
+    )
   );
 };
 
 export const pageQuery = graphql`
   query DateQuery($path: String!) {
     markdownRemark(frontmatter: { slug: { eq: $path } }) {
-      html
       frontmatter {
         title
         date
@@ -58,6 +70,7 @@ export const pageQuery = graphql`
       internal {
         content
       }
+      rawMarkdownBody
     }
   }
 `;
