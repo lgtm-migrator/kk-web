@@ -67,7 +67,7 @@
     "react-markdown": "4.3.1",
     "react-no-ssr": "1.1.0",
     "react-toastify": "6.0.8",
-    "ress": "2.0.4",
+    "ress": "3.0.0",
     "sass-mq": "5.0.1",
     "ts-node": "8.10.2",
     "uniqid": "5.2.0",
