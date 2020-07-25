@@ -70,6 +70,7 @@
     "ress": "2.0.4",
     "sass-mq": "5.0.1",
     "ts-node": "8.10.2",
+    "typescript": "3.9.7",
     "uniqid": "5.2.0",
     "use-dark-mode": "2.3.1",
     "yup": "0.29.1"
