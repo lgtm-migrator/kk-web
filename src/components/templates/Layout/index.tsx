@@ -3,7 +3,6 @@ import "./style.module.scss";
 import React, { FC, useCallback, useMemo, useRef, useState } from "react";
 import NoSSR from "react-no-ssr";
 import { menu } from "react-icons-kit/icomoon/menu";
-import useDarkMode from "use-dark-mode";
 
 import SquareNavigation, {
   SquareNavigationProps,
@@ -15,6 +14,7 @@ import PrimaryNavigation from "components/molecules/PrimaryNavigation";
 import ToggleButton from "components/molecules/ToggleButton";
 import useOnClickOutside from "hooks/useOnClickOutside";
 import useWindowSize from "hooks/useWindowSize";
+import DarkModeContext from "contexts/DarkModeContext";
 
 const Layout: FC = ({ children }) => {
   const { windowHeight } = useWindowSize();
@@ -51,32 +51,35 @@ const Layout: FC = ({ children }) => {
       ) : null,
     [handleClickOnLink, menuOpen, ref]
   );
-  const { toggle, value } = useDarkMode(true);
 
   useOnClickOutside(ref, handler);
 
   return (
-    <NoSSR>
-      <div style={style} styleName="layout">
-        <div styleName="main-wrapper">
-          <Main>{children}</Main>
-        </div>
-        <div styleName="footer-wrapper">
-          <Footer />
-        </div>
-        <div styleName="primary-navigation-wrapper">
-          <PrimaryNavigation />
-          <ToggleButton checked={value} handleChange={toggle} />
-        </div>
-        <div styleName="toggle-button-wrapper">
-          <ToggleButton checked={value} handleChange={toggle} />
-        </div>
-        <button onClick={handleClickOnButton} styleName="button">
-          <Icon icon={menu} />
-        </button>
-        {squareNavigation}
-      </div>
-    </NoSSR>
+    <DarkModeContext.Consumer>
+      {({ toggle, value }) => (
+        <NoSSR>
+          <div style={style} styleName="layout">
+            <div styleName="main-wrapper">
+              <Main>{children}</Main>
+            </div>
+            <div styleName="footer-wrapper">
+              <Footer />
+            </div>
+            <div styleName="primary-navigation-wrapper">
+              <PrimaryNavigation />
+              <ToggleButton checked={value} handleChange={toggle} />
+            </div>
+            <div styleName="toggle-button-wrapper">
+              <ToggleButton checked={value} handleChange={toggle} />
+            </div>
+            <button onClick={handleClickOnButton} styleName="button">
+              <Icon icon={menu} />
+            </button>
+            {squareNavigation}
+          </div>
+        </NoSSR>
+      )}
+    </DarkModeContext.Consumer>
   );
 };
 

@@ -15,7 +15,6 @@
   }
 
   .code,
-  .pre,
   .table .tr {
     @include light-mode {
       color: map-get($light-mode-colors, white);
@@ -29,9 +28,12 @@
     background-color: darken($color: map-get($colors, blue), $amount: 15);
   }
 
-  .pre {
-    font-size: 1.2rem;
+  .syntax-highlighter-wrapper {
     position: relative;
+  }
+
+  .syntax-highlighter {
+    padding: 16px !important;
   }
 
   .copy-to-clipboard {
