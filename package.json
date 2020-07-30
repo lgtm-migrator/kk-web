@@ -49,6 +49,8 @@
     "gatsby-transformer-remark": "2.8.27",
     "gatsby-transformer-sharp": "2.5.11",
     "github-markdown-css": "4.0.0",
+    "husky": "4.2.5",
+    "lint-staged": "10.2.11",
     "logrocket": "1.0.10",
     "logrocket-react": "4.0.1",
     "mixpanel-browser": "2.38.0",
@@ -85,6 +87,15 @@
     "gatsby"
   ],
   "license": "MIT",
+  "husky": {
+    "hooks": {
+      "pre-commit": "pretty-quick --staged && lint-staged"
+    }
+  },
+  "lint-staged": {
+    "**/*.ts?(x)": "npm run lint",
+    "**/*.scss": "npm run stylelint"
+  },
   "scripts": {
     "build": "npm run build:fonts && gatsby build",
     "build:fonts": "ts-node --project pdfmake/tsconfig.json pdfmake/buildFonts.ts",
