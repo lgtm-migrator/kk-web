@@ -1,8 +1,14 @@
 @import "sass-mq";
-@import "styles/constants.scss";
-@import "styles/mixins.scss";
+@import "styles/constants";
+@import "styles/mixins";
 
 .layout {
+  background: map-get($colors, dark);
+  color: map-get($colors, white);
+  display: grid;
+  grid-template: 1fr auto / auto;
+  padding: 66px 0 0;
+
   @include mq($until: tablet) {
     padding-top: 0;
   }
@@ -11,12 +17,6 @@
     background-color: map-get($light-mode-colors, white);
     color: map-get($light-mode-colors, dark);
   }
-
-  background: map-get($colors, dark);
-  color: map-get($colors, white);
-  display: grid;
-  grid-template: 1fr auto / auto;
-  padding: 66px 0 0;
 
   .main-wrapper,
   .footer-wrapper {
@@ -34,6 +34,16 @@
   }
 
   .primary-navigation-wrapper {
+    align-items: center;
+    background: rgba(map-get($colors, dark), 0.75);
+    display: flex;
+    height: 66px;
+    justify-content: space-around;
+    left: 0;
+    position: fixed;
+    top: 0;
+    width: 100%;
+
     @include mq($until: tablet) {
       display: none;
     }
@@ -42,34 +52,20 @@
       background-color: rgba(map-get($light-mode-colors, white), 0.75);
       border-bottom: 1px solid rgba(map-get($light-mode-colors, dark), 0.125);
     }
-
-    align-items: center;
-    background: rgba(map-get($colors, dark), 0.75);
-    display: flex;
-    justify-content: space-around;
-    height: 66px;
-    left: 0;
-    position: fixed;
-    top: 0;
-    width: 100%;
   }
 
   .toggle-button-wrapper {
-    @include mq($from: tablet) {
-      display: none;
-    }
-
     margin: 24px;
     position: fixed;
     right: 0;
     top: 0;
-  }
 
-  .button {
     @include mq($from: tablet) {
       display: none;
     }
+  }
 
+  .button {
     align-items: center;
     background: map-get($colors, blue);
     border-radius: 12px;
@@ -81,6 +77,10 @@
     position: fixed;
     right: 0;
     width: 60px;
+
+    @include mq($from: tablet) {
+      display: none;
+    }
   }
 
   .square-navigation-wrapper {

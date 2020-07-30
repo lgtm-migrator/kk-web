@@ -1,25 +1,25 @@
 @import "sass-mq";
-@import "styles/constants.scss";
-@import "styles/mixins.scss";
+@import "styles/constants";
+@import "styles/mixins";
 
 .request {
   .footer {
-    @include mq($until: tablet) {
-      justify-content: center;
-    }
-
     display: flex;
     justify-content: flex-end;
     padding: 36px 0 0;
+
+    @include mq($until: tablet) {
+      justify-content: center;
+    }
   }
 
   .link {
-    @include light-mode {
-      color: map-get($light-mode-colors, white);
-    }
-
     background: map-get($colors, blue);
     color: map-get($colors, white);
     padding: 9px 12px;
+
+    @include light-mode {
+      color: map-get($light-mode-colors, white);
+    }
   }
 }

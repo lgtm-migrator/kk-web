@@ -1,4 +1,4 @@
-import React, { FC, useEffect } from "react";
+import React, { FC } from "react";
 import ReactMarkdown, { ReactMarkdownProps } from "react-markdown";
 import "./style.module.scss";
 import CopyToClipboard from "react-copy-to-clipboard";
@@ -9,6 +9,7 @@ import {
   atomOneDark,
   github,
 } from "react-syntax-highlighter/dist/esm/styles/hljs";
+
 import DarkModeContext from "contexts/DarkModeContext";
 
 export type MarkdownProps = Pick<ReactMarkdownProps, "source"> & {

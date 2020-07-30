@@ -1,5 +1,5 @@
-@import "styles/constants.scss";
-@import "styles/mixins.scss";
+@import "styles/constants";
+@import "styles/mixins";
 
 .markdown {
   color: inherit;
@@ -16,11 +16,11 @@
 
   .code,
   .table .tr {
+    background-color: map-get($colors, blue);
+
     @include light-mode {
       color: map-get($light-mode-colors, white);
     }
-
-    background-color: map-get($colors, blue);
   }
 
   .thead .tr,

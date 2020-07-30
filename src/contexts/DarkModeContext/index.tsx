@@ -2,8 +2,8 @@ import React, { createContext, FC, useMemo } from "react";
 import useDarkMode, { DarkMode } from "use-dark-mode";
 
 const defaultValue: DarkMode = {
-  enable: () => {},
   disable: () => {},
+  enable: () => {},
   toggle: () => {},
   value: true,
 };

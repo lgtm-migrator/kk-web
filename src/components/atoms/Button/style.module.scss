@@ -1,15 +1,15 @@
-@import "styles/constants.scss";
-@import "styles/mixins.scss";
+@import "styles/constants";
+@import "styles/mixins";
 
 .button {
-  @include light-mode {
-    color: map-get($light-mode-colors, white);
-  }
-
   background: map-get($colors, blue);
   color: map-get($colors, white);
   font-size: 1.2rem;
   padding: 9px 12px;
+
+  @include light-mode {
+    color: map-get($light-mode-colors, white);
+  }
 
   &:disabled {
     opacity: 0.5;

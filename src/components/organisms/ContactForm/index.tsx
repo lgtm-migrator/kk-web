@@ -17,7 +17,7 @@ const ContactForm: FC<ContactFormProps> = ({
   submitButton,
 }) => {
   const children = callback(
-    <div styleName="formInner">
+    <div styleName="form-inner">
       <div styleName="definition-list-wrapper">
         <DefinitionList items={items} />
       </div>

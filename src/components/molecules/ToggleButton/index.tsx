@@ -1,7 +1,6 @@
 import "./style.module.scss";
 
 import React, { FC } from "react";
-
 import { Icon } from "react-icons-kit";
 import { iosLightbulb } from "react-icons-kit/ionicons/iosLightbulb";
 

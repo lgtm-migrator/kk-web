@@ -1,15 +1,15 @@
-@import "styles/constants.scss";
-@import "styles/mixins.scss";
+@import "styles/constants";
+@import "styles/mixins";
 
 .textarea {
-  @include light-mode {
-    background-color: map-get($light-mode-colors, white);
-    border: 1px solid map-get($light-mode-colors, black);
-  }
-
   background: map-get($colors, black);
   color: inherit;
   min-height: 180px;
   padding: 6px;
   width: 100%;
+
+  @include light-mode {
+    background-color: map-get($light-mode-colors, white);
+    border: 1px solid map-get($light-mode-colors, black);
+  }
 }

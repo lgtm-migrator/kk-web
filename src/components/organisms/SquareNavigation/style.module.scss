@@ -1,5 +1,5 @@
-@import "styles/constants.scss";
-@import "styles/mixins.scss";
+@import "styles/constants";
+@import "styles/mixins";
 
 .square-navigation {
   background: map-get($colors, black);
@@ -30,12 +30,12 @@
   }
 
   .text-link {
+    font: 1.1rem map-get($fonts, muli);
+    text-align: center;
+
     @include light-mode {
       color: map-get($light-mode-colors, white);
     }
-
-    font: 1.1rem map-get($fonts, muli);
-    text-align: center;
   }
 
   .text-link:global(.active) {

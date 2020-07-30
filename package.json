@@ -71,6 +71,10 @@
     "react-toastify": "6.0.8",
     "ress": "3.0.0",
     "sass-mq": "5.0.1",
+    "stylelint": "13.6.1",
+    "stylelint-config-prettier": "8.0.2",
+    "stylelint-config-sass-guidelines": "7.0.0",
+    "stylelint-prettier": "1.1.2",
     "ts-node": "8.10.2",
     "typescript": "3.9.7",
     "uniqid": "5.2.0",
@@ -91,7 +95,8 @@
     "serve": "gatsby serve",
     "clean": "gatsby clean",
     "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1",
-    "lint": "eslint --fix --ext .ts,.tsx src/"
+    "lint": "eslint --fix --ext .ts,.tsx src/",
+    "stylelint": "stylelint \"**/*.scss\" --fix"
   },
   "repository": {
     "type": "git",
@@ -143,6 +148,34 @@
     ".ts, .tsx": {
       "parser": "typescript",
       "style": "eslint"
+    }
+  },
+  "stylelint": {
+    "extends": [
+      "stylelint-config-sass-guidelines",
+      "stylelint-prettier/recommended"
+    ],
+    "plugins": [
+      "stylelint-prettier"
+    ],
+    "rules": {
+      "at-rule-empty-line-before": [
+        "always",
+        {
+          "except": [
+            "blockless-after-same-name-blockless"
+          ]
+        }
+      ],
+      "color-named": [
+        "never",
+        {
+          "ignore": [
+            "inside-function"
+          ]
+        }
+      ],
+      "prettier/prettier": true
     }
   }
 }
