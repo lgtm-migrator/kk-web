@@ -89,7 +89,7 @@
   "license": "MIT",
   "husky": {
     "hooks": {
-      "pre-commit": "pretty-quick --staged && lint-staged"
+      "pre-commit": "pretty-quick --staged --pattern \"**/*.*(ts|tsx|scss|md)\" && lint-staged"
     }
   },
   "lint-staged": {
@@ -101,7 +101,7 @@
     "build:fonts": "ts-node --project pdfmake/tsconfig.json pdfmake/buildFonts.ts",
     "deploy": "firebase deploy --only hosting",
     "develop": "gatsby develop",
-    "format": "prettier --write \"**/*.{js,jsx,json,md}\"",
+    "format": "prettier --write \"**/*.{ts,tsx,scss,md}\"",
     "start": "npm run develop",
     "serve": "gatsby serve",
     "clean": "gatsby clean",
