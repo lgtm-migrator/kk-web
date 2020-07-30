@@ -1,10 +1,10 @@
 import { IconProp, Icon as ReactIconKitIcon } from "react-icons-kit";
 import React, { FC } from "react";
 
-export type IconProps = Pick<IconProp, "icon">;
+export type IconProps = Pick<IconProp, "icon" | "size">;
 
-const Icon: FC<IconProps> = ({ icon }) => (
-  <ReactIconKitIcon icon={icon} size={30} style={{ color: "#a6dfec" }} />
+const Icon: FC<IconProps> = ({ icon, size }) => (
+  <ReactIconKitIcon icon={icon} size={size} />
 );
 
 export default Icon;

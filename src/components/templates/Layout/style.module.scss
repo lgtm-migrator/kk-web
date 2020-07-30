@@ -54,7 +54,16 @@
     }
   }
 
+  .icons {
+    display: grid;
+    gap: 24px;
+    grid-auto-flow: column;
+  }
+
   .toggle-button-wrapper {
+    display: grid;
+    gap: 24px;
+    grid-auto-flow: column;
     margin: 24px;
     position: fixed;
     right: 0;

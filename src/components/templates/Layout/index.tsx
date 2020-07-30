@@ -3,12 +3,14 @@ import "./style.module.scss";
 import React, { FC, useCallback, useMemo, useRef, useState } from "react";
 import NoSSR from "react-no-ssr";
 import { menu } from "react-icons-kit/icomoon/menu";
+import { github } from "react-icons-kit/icomoon/github";
 
 import SquareNavigation, {
   SquareNavigationProps,
 } from "components/organisms/SquareNavigation";
 import Footer from "components/organisms/Footer";
 import Icon from "components/atoms/Icon";
+import MenuIcon from "components/atoms/MenuIcon";
 import Main from "components/organisms/Main";
 import PrimaryNavigation from "components/molecules/PrimaryNavigation";
 import ToggleButton from "components/molecules/ToggleButton";
@@ -67,13 +69,29 @@ const Layout: FC = ({ children }) => {
             </div>
             <div styleName="primary-navigation-wrapper">
               <PrimaryNavigation />
-              <ToggleButton checked={value} handleChange={toggle} />
+              <div styleName="icons">
+                <a
+                  href="https://github.com/piro0919/kk-web2"
+                  rel="noreferrer"
+                  target="_blank"
+                >
+                  <Icon icon={github} size={18} />
+                </a>
+                <ToggleButton checked={value} handleChange={toggle} />
+              </div>
             </div>
             <div styleName="toggle-button-wrapper">
+              <a
+                href="https://github.com/piro0919/kk-web2"
+                rel="noreferrer"
+                target="_blank"
+              >
+                <Icon icon={github} size={18} />
+              </a>
               <ToggleButton checked={value} handleChange={toggle} />
             </div>
             <button onClick={handleClickOnButton} styleName="button">
-              <Icon icon={menu} />
+              <MenuIcon icon={menu} />
             </button>
             {squareNavigation}
           </div>

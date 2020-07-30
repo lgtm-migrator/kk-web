@@ -1,5 +1,12 @@
+@import "sass-mq";
+@import "styles/constants";
+
 .blog {
   max-width: 960px;
+
+  @include mq($until: tablet) {
+    padding: 36px 0 0;
+  }
 
   .heading-wrapper {
     padding: 0 0 6px;
