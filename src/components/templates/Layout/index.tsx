@@ -10,7 +10,6 @@ import SquareNavigation, {
 } from "components/organisms/SquareNavigation";
 import Footer from "components/organisms/Footer";
 import Icon from "components/atoms/Icon";
-import MenuIcon from "components/atoms/MenuIcon";
 import Main from "components/organisms/Main";
 import PrimaryNavigation from "components/molecules/PrimaryNavigation";
 import ToggleButton from "components/molecules/ToggleButton";
@@ -91,7 +90,7 @@ const Layout: FC = ({ children }) => {
               <ToggleButton checked={value} handleChange={toggle} />
             </div>
             <button onClick={handleClickOnButton} styleName="button">
-              <MenuIcon icon={menu} />
+              <Icon icon={menu} size={30} style={{ color: "#a6dfec" }} />
             </button>
             {squareNavigation}
           </div>

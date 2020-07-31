@@ -3,7 +3,7 @@ import "./style.module.scss";
 import { GatsbyLinkProps, Link } from "gatsby";
 import React, { FC, useMemo } from "react";
 
-import MenuIcon from "components/atoms/MenuIcon";
+import Icon from "components/atoms/Icon";
 import usePrimaryLinks from "hooks/usePrimaryLinks";
 
 export type SquareNavigationProps = {
@@ -27,7 +27,7 @@ const SquareNavigation: FC<SquareNavigationProps> = ({
               styleName="icon-link"
               to={to}
             >
-              <MenuIcon icon={icon} />
+              <Icon icon={icon} size={30} style={{ color: "#a6dfec" }} />
             </Link>
             <Link
               activeClassName="active"
