@@ -1,0 +1,16 @@
+name: DEPLOY
+on:
+  pull_request:
+    branches: [master]
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@master
+      - uses: actions/setup-node@master
+        with:
+          node-version: "10.x"
+      - run: npm install
+      - run: npm run build
+        env:
+          GATSBY_BASE_URL: ${{ secrets.GATSBY_BASE_URL }}
