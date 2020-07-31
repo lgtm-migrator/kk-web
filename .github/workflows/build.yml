@@ -1,7 +1,5 @@
-name: DEPLOY
-on:
-  pull_request:
-    branches: [master]
+name: BUILD
+on: [pull_request]
 jobs:
   deploy:
     runs-on: ubuntu-latest
