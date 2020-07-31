@@ -4,6 +4,8 @@ import { ToastContainer, toast } from "react-toastify";
 import { PageProps } from "gatsby";
 import axios from "axios";
 import { useForm } from "react-hook-form";
+import { yupResolver } from "@hookform/resolvers";
+import { ObjectSchema } from "yup";
 
 import ContactForm, {
   ContactFormProps,
@@ -17,7 +19,7 @@ import Seo from "components/templates/Seo";
 export type ContactProps = PageProps;
 
 const Contact: FC<ContactProps> = () => {
-  const validationSchema = useMemo(
+  const schema = useMemo<ObjectSchema>(
     () =>
       yup.object().shape({
         email: yup
@@ -37,7 +39,7 @@ const Contact: FC<ContactProps> = () => {
     message: string;
     name: string;
     subject: string;
-  }>({ validationSchema });
+  }>({ resolver: yupResolver(schema) });
   const callback = useCallback<Parameters<typeof handleSubmitUseForm>[0]>(
     ({ email, message: text, name, subject }) => {
       setIsSubmitting(true);

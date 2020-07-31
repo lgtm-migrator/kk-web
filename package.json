@@ -5,6 +5,7 @@
   "author": "piro <piro.haniwa@gmail.com>",
   "homepage": "https://kk-web.link",
   "dependencies": {
+    "@hookform/resolvers": "0.1.0",
     "@types/fs-extra": "9.0.1",
     "@types/no-scroll": "2.1.0",
     "@types/pdfmake": "0.1.14",
