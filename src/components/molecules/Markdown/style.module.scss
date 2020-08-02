@@ -44,8 +44,10 @@
     top: 0;
   }
 
+  .syntax-highlighter code,
   .code {
     white-space: pre-wrap;
+    word-break: break-all;
   }
 
   .ul {
@@ -54,5 +56,28 @@
 
   .ol {
     list-style: hiragana-iroha;
+  }
+
+  iframe {
+    margin: 0 0 16px;
+  }
+
+  :global(.iframe-wrapper) {
+    margin: 0 0 16px;
+    position: relative;
+  }
+
+  :global(.iframe-wrapper)::before {
+    content: "";
+    display: block;
+    padding: 56.25% 0 0;
+  }
+
+  :global(.iframe-wrapper) iframe {
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
   }
 }
