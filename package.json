@@ -5,6 +5,8 @@
   "author": "piro <piro.haniwa@gmail.com>",
   "homepage": "https://kk-web.link",
   "dependencies": {
+    "@commitlint/cli": "9.1.1",
+    "@commitlint/config-conventional": "9.1.1",
     "@hookform/resolvers": "0.1.0",
     "@types/fs-extra": "9.0.1",
     "@types/no-scroll": "2.1.0",
@@ -91,6 +93,7 @@
   "license": "MIT",
   "husky": {
     "hooks": {
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS",
       "pre-commit": "npm run precommit"
     }
   },
