@@ -13,7 +13,7 @@
     "@types/pdfmake": "0.1.14",
     "@types/react-copy-to-clipboard": "4.3.0",
     "@types/react-css-modules": "4.6.2",
-    "@types/react-helmet": "6.0.0",
+    "@types/react-helmet": "6.1.0",
     "@types/react-no-ssr": "1.1.1",
     "@types/react-syntax-highlighter": "11.0.4",
     "@types/uniqid": "5.2.0",
