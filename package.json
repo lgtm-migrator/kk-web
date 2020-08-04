@@ -85,7 +85,7 @@
     "uniqid": "5.2.0",
     "use-dark-mode": "2.3.1",
     "use-http": "1.0.13",
-    "yup": "0.29.2"
+    "yup": "0.29.3"
   },
   "keywords": [
     "gatsby"
