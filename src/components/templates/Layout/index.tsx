@@ -60,14 +60,10 @@ const Layout: FC = ({ children }) => {
       {({ toggle, value }) => (
         <NoSSR>
           <div style={style} styleName="layout">
-            <div styleName="main-wrapper">
-              <Main>{children}</Main>
-            </div>
-            <div styleName="footer-wrapper">
-              <Footer />
-            </div>
-            <div styleName="primary-navigation-wrapper">
-              <PrimaryNavigation />
+            <div styleName="navigation-wrapper">
+              <div styleName="primary-navigation-wrapper">
+                <PrimaryNavigation />
+              </div>
               <div styleName="icons">
                 <a
                   href="https://github.com/piro0919/kk-web2"
@@ -79,15 +75,11 @@ const Layout: FC = ({ children }) => {
                 <ToggleButton checked={value} handleChange={toggle} />
               </div>
             </div>
-            <div styleName="toggle-button-wrapper">
-              <a
-                href="https://github.com/piro0919/kk-web2"
-                rel="noreferrer"
-                target="_blank"
-              >
-                <Icon icon={github} size={18} />
-              </a>
-              <ToggleButton checked={value} handleChange={toggle} />
+            <div styleName="main-wrapper">
+              <Main>{children}</Main>
+            </div>
+            <div styleName="footer-wrapper">
+              <Footer />
             </div>
             <button onClick={handleClickOnButton} styleName="button">
               <Icon icon={menu} size={30} style={{ color: "#a6dfec" }} />
