@@ -52,7 +52,7 @@
     "gatsby-transformer-sharp": "2.5.13",
     "github-markdown-css": "4.0.0",
     "husky": "4.2.5",
-    "lint-staged": "10.2.11",
+    "lint-staged": "10.2.13",
     "logrocket": "1.0.11",
     "logrocket-react": "4.0.1",
     "mixpanel-browser": "2.39.0",
