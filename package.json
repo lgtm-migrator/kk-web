@@ -78,7 +78,7 @@
     "sass-mq": "5.0.1",
     "stylelint": "13.7.0",
     "stylelint-config-prettier": "8.0.2",
-    "stylelint-config-sass-guidelines": "7.0.0",
+    "stylelint-config-sass-guidelines": "7.1.0",
     "stylelint-prettier": "1.1.2",
     "ts-node": "9.0.0",
     "typescript": "3.9.7",
