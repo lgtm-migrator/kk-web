@@ -26,6 +26,7 @@ const Blog: FC<BlogProps> = ({
     () =>
       edges.map(({ node: { frontmatter: { date, slug, title } } }) => ({
         description: <Link to={slug}>{title}</Link>,
+        key: slug,
         term: date,
       })),
     [edges]

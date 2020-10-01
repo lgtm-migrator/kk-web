@@ -4,7 +4,8 @@ import React, { FC, Fragment, useMemo } from "react";
 
 type Item = {
   description: JSX.IntrinsicElements["dd"]["children"];
-  term: Extract<JSX.IntrinsicElements["dt"]["children"], string>;
+  key?: string;
+  term: JSX.IntrinsicElements["dt"]["children"];
 };
 
 export type DefinitionListProps = {
@@ -14,8 +15,8 @@ export type DefinitionListProps = {
 const DefinitionList: FC<DefinitionListProps> = ({ items }) => {
   const children = useMemo(
     () =>
-      items.map(({ description, term }) => (
-        <Fragment key={term}>
+      items.map(({ description, key, term }) => (
+        <Fragment key={key || term}>
           <dt styleName="term">{term}</dt>
           <dd>{description}</dd>
         </Fragment>
