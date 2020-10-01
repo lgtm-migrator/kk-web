@@ -86,12 +86,6 @@ module.exports = {
       },
     },
     {
-      resolve: "gatsby-plugin-google-adsense",
-      options: {
-        publisherId: "ca-pub-2447798512998125",
-      },
-    },
-    {
       resolve: "gatsby-plugin-mixpanel",
       options: {
         apiToken: "21ddd8b89e954ea21013dff62ec7ec2c",
