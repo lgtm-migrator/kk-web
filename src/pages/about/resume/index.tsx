@@ -486,6 +486,43 @@ const Resume: FC = () => {
           "法人向け社外人材の活用及び一元管理ソリューションの新規開発及び保守改修",
         to: "202004",
       },
+      {
+        content: `事業継続マネジメントの完全クラウド化を実現するプラットフォーム新規開発
+
+        ≪担当業務≫
+        ・ダッシュボード機能実装
+        ・ニュース一覧機能実装
+        ・顧客管理機能実装
+        ・参画メンバーに対する技術サポート
+        ・フロントエンド勉強会主催`,
+        dbList: [],
+        from: "202005",
+        fwMwToolList: [
+          "React",
+          "Redux",
+          "redux-saga",
+          "TypeScript",
+          "Atomic Design",
+          "Visual Studio Code",
+          "Git",
+          "Webpack",
+        ],
+        languageList: ["HTML", "Sass", "JavaScript"],
+        process: {
+          basicDesign: false,
+          combinedTest: false,
+          comprehensiveTest: false,
+          detailedDesign: false,
+          maintenanceAndOperation: false,
+          mountingSingleUnit: true,
+          requirementDefinition: false,
+        },
+        role: "LE/PG",
+        serverOsList: [],
+        team: 5,
+        title:
+          "事業継続マネジメント完全クラウド化実現用プラットフォーム新規開発",
+      },
     ];
     const rows: TableCell[][] = [];
 
@@ -605,7 +642,7 @@ const Resume: FC = () => {
                   "学歴",
                   "東京理科大学 理工学部 数学科 卒業",
                 ],
-                ["稼働", "2020年5月1日～", "最寄り駅", "西武池袋線 椎名町駅"],
+                ["稼働", "即時～", "最寄り駅", "西武池袋線 椎名町駅"],
               ],
               widths: [50, "*", 50, "*"],
             },
@@ -727,7 +764,12 @@ const Resume: FC = () => {
     <>
       <Seo path="/about/resume" title="Resume" />
       <NoSSR>
-        <iframe src={url} style={style} title="resume" />
+        <object
+          data={url}
+          style={style}
+          title="resume"
+          type="application/pdf"
+        />
       </NoSSR>
     </>
   );
