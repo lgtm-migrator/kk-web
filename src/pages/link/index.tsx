@@ -30,6 +30,10 @@ const Link: FC<LinkProps> = () => {
         children: "Wantedly",
         href: "https://www.wantedly.com/users/125337597",
       },
+      {
+        children: "ニコニコミュニティ",
+        href: "https://com.nicovideo.jp/community/co4686164",
+      },
     ],
     []
   );
