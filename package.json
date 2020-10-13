@@ -21,7 +21,7 @@
     "@typescript-eslint/eslint-plugin": "4.4.1",
     "@typescript-eslint/parser": "4.4.1",
     "babel-eslint": "10.1.0",
-    "dayjs": "1.9.2",
+    "dayjs": "1.9.3",
     "eslint": "7.11.0",
     "eslint-config-react-app": "5.2.1",
     "eslint-import-resolver-node": "0.3.4",
