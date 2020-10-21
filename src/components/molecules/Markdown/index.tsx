@@ -63,9 +63,17 @@ const Markdown: FC<MarkdownProps> = ({ handleCopy, source = "" }) => {
               ),
               list: ({ ordered, tight, ...props }) =>
                 ordered ? (
-                  <ol {...props} styleName="ol" tight={tight.toString()} />
+                  <ol
+                    {...props}
+                    styleName="ol"
+                    tight={tight && tight.toString()}
+                  />
                 ) : (
-                  <ul {...props} styleName="ul" tight={tight.toString()} />
+                  <ul
+                    {...props}
+                    styleName="ul"
+                    tight={tight && tight.toString()}
+                  />
                 ),
               table: (props) => <table {...props} styleName="table" />,
               tableHead: (props) => <thead {...props} styleName="thead" />,
