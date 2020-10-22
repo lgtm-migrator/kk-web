@@ -1,12 +1,12 @@
 import "./style.module.scss";
 
-import React, { FC } from "react";
+import React, { ComponentPropsWithoutRef, FC } from "react";
 
 import Markdown, { MarkdownProps } from "components/molecules/Markdown";
 
 export type BlogProps = Pick<MarkdownProps, "handleCopy" | "source"> & {
-  date: JSX.IntrinsicElements["div"]["children"];
-  heading: JSX.IntrinsicElements["div"]["children"];
+  date: ComponentPropsWithoutRef<"div">["children"];
+  heading: ComponentPropsWithoutRef<"div">["children"];
 };
 
 const Blog: FC<BlogProps> = ({ date, handleCopy, heading, source }) => (

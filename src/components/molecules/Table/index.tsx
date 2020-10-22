@@ -1,8 +1,9 @@
-import React, { FC, useMemo } from "react";
+import React, { ComponentPropsWithoutRef, FC, useMemo } from "react";
 import uniqid from "uniqid";
+
 import "./style.module.scss";
 
-type Row = JSX.IntrinsicElements["td"]["children"][];
+type Row = ComponentPropsWithoutRef<"td">["children"][];
 
 export type TableProps = {
   rows: Row[];

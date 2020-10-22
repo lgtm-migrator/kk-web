@@ -1,12 +1,12 @@
 import "./style.module.scss";
 
-import React, { FC, useMemo } from "react";
+import React, { ComponentPropsWithoutRef, FC, useMemo } from "react";
 import { Link, GatsbyLinkProps } from "gatsby";
 
 import ExternalLink from "components/atoms/ExternalLink";
 
 type Item =
-  | Required<Pick<JSX.IntrinsicElements["a"], "children" | "href">>
+  | Required<Pick<ComponentPropsWithoutRef<"a">, "children" | "href">>
   | Pick<GatsbyLinkProps<any>, "children" | "to">;
 
 export type LinkListProps = {

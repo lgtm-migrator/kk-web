@@ -1,9 +1,9 @@
 import "./style.module.scss";
 
-import React, { FC } from "react";
+import React, { ComponentPropsWithoutRef, FC } from "react";
 
 export type TopProps = {
-  heading: JSX.IntrinsicElements["div"]["children"];
+  heading: ComponentPropsWithoutRef<"div">["children"];
 };
 
 const Top: FC<TopProps> = ({ heading }) => (

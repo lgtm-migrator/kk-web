@@ -1,6 +1,13 @@
 import "./style.module.scss";
 
-import React, { FC, useCallback, useMemo, useRef, useState } from "react";
+import React, {
+  ComponentPropsWithoutRef,
+  FC,
+  useCallback,
+  useMemo,
+  useRef,
+  useState,
+} from "react";
 import NoSSR from "react-no-ssr";
 import { menu } from "react-icons-kit/icomoon/menu";
 import { github } from "react-icons-kit/icomoon/github";
@@ -27,7 +34,7 @@ const Layout: FC = ({ children }) => {
   );
   const [menuOpen, setMenuOpen] = useState(false);
   const handleClickOnButton = useCallback<
-    NonNullable<JSX.IntrinsicElements["button"]["onClick"]>
+    NonNullable<ComponentPropsWithoutRef<"button">["onClick"]>
   >(() => {
     setMenuOpen(true);
   }, []);

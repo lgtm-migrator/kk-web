@@ -1,4 +1,10 @@
-import React, { FC, useEffect, useMemo, useState } from "react";
+import React, {
+  ComponentPropsWithoutRef,
+  FC,
+  useEffect,
+  useMemo,
+  useState,
+} from "react";
 import NoSSR from "react-no-ssr";
 import dayjs from "dayjs";
 import noScroll from "no-scroll";
@@ -11,7 +17,7 @@ import Seo from "components/templates/Seo";
 import useWindowSize from "hooks/useWindowSize";
 
 const Resume: FC = () => {
-  const [url, setUrl] = useState<JSX.IntrinsicElements["iframe"]["src"]>("");
+  const [url, setUrl] = useState<ComponentPropsWithoutRef<"iframe">["src"]>("");
   const { windowHeight, windowWidth } = useWindowSize();
   const style = useMemo(
     () => ({

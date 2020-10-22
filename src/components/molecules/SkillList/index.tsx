@@ -1,9 +1,9 @@
-import React, { FC, useMemo } from "react";
+import React, { ComponentPropsWithoutRef, FC, useMemo } from "react";
 import "./style.module.scss";
 
 type Item = {
-  description: JSX.IntrinsicElements["dd"]["children"];
-  term: Extract<JSX.IntrinsicElements["dt"]["children"], string>;
+  description: ComponentPropsWithoutRef<"dd">["children"];
+  term: Extract<ComponentPropsWithoutRef<"dt">["children"], string>;
 };
 
 export type SkillListProps = {

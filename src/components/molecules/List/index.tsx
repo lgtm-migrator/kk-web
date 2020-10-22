@@ -1,9 +1,9 @@
-import React, { FC, useMemo } from "react";
+import React, { ComponentPropsWithoutRef, FC, useMemo } from "react";
 import uniqid from "uniqid";
 import "./style.module.scss";
 
 export type ListProps = {
-  items: JSX.IntrinsicElements["li"]["children"][];
+  items: ComponentPropsWithoutRef<"li">["children"][];
 };
 
 const List: FC<ListProps> = ({ items }) => {

@@ -1,11 +1,11 @@
 import "./style.module.scss";
 
-import React, { FC, Fragment, useMemo } from "react";
+import React, { ComponentPropsWithoutRef, FC, Fragment, useMemo } from "react";
 
 type Item = {
-  description: JSX.IntrinsicElements["dd"]["children"];
+  description: ComponentPropsWithoutRef<"dd">["children"];
   key?: string;
-  term: JSX.IntrinsicElements["dt"]["children"];
+  term: ComponentPropsWithoutRef<"dt">["children"];
 };
 
 export type DefinitionListProps = {

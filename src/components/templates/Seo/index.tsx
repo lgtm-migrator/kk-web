@@ -1,12 +1,12 @@
 import { Helmet, HelmetProps } from "react-helmet";
-import React, { FC } from "react";
+import React, { ComponentPropsWithoutRef, FC } from "react";
 import { graphql, useStaticQuery } from "gatsby";
 
 export type SeoProps = Pick<HelmetProps, "title"> & {
-  ogDescription?: JSX.IntrinsicElements["meta"]["content"];
-  ogTitle?: JSX.IntrinsicElements["meta"]["content"];
-  ogType?: JSX.IntrinsicElements["meta"]["content"];
-  path?: JSX.IntrinsicElements["meta"]["content"];
+  ogDescription?: ComponentPropsWithoutRef<"meta">["content"];
+  ogTitle?: ComponentPropsWithoutRef<"meta">["content"];
+  ogType?: ComponentPropsWithoutRef<"meta">["content"];
+  path?: ComponentPropsWithoutRef<"meta">["content"];
 };
 
 const Seo: FC<SeoProps> = ({

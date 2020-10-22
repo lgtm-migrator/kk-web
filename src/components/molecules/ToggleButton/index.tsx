@@ -1,14 +1,14 @@
 import "./style.module.scss";
 
-import React, { FC } from "react";
+import React, { ComponentPropsWithoutRef, FC } from "react";
 import { Icon } from "react-icons-kit";
 import { iosLightbulb } from "react-icons-kit/ionicons/iosLightbulb";
 
 export type ToggleButtonProps = Pick<
-  JSX.IntrinsicElements["input"],
+  ComponentPropsWithoutRef<"input">,
   "checked"
 > & {
-  handleChange: JSX.IntrinsicElements["input"]["onChange"];
+  handleChange: ComponentPropsWithoutRef<"input">["onChange"];
 };
 
 const ToggleButton: FC<ToggleButtonProps> = ({ checked, handleChange }) => (

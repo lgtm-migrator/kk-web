@@ -1,6 +1,6 @@
 import "./style.module.scss";
 
-import React, { FC, ReactNode } from "react";
+import React, { ComponentPropsWithoutRef, FC, ReactNode } from "react";
 
 import DefinitionList, {
   DefinitionListProps,
@@ -8,7 +8,7 @@ import DefinitionList, {
 
 export type ContactFormProps = Pick<DefinitionListProps, "items"> & {
   callback: (children: ReactNode) => ReactNode;
-  submitButton: JSX.IntrinsicElements["button"]["children"];
+  submitButton: ComponentPropsWithoutRef<"button">["children"];
 };
 
 const ContactForm: FC<ContactFormProps> = ({

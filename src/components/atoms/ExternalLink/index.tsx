@@ -1,9 +1,9 @@
 import "./style.module.scss";
 
-import React, { FC } from "react";
+import React, { ComponentPropsWithoutRef, FC } from "react";
 
 export type ExternalLinkProps = Pick<
-  JSX.IntrinsicElements["a"],
+  ComponentPropsWithoutRef<"a">,
   "children" | "href"
 >;
 
