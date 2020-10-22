@@ -9,6 +9,7 @@ import {
   atomOneDark,
   github,
 } from "react-syntax-highlighter/dist/esm/styles/hljs";
+import gfm from "remark-gfm";
 
 import DarkModeContext from "contexts/DarkModeContext";
 
@@ -33,8 +34,9 @@ const Markdown: FC<MarkdownProps> = ({ handleCopy, source = "" }) => {
           <ReactMarkdown
             escapeHtml={false}
             linkTarget="_blank"
+            plugins={[gfm as any]}
             renderers={{
-              blockquote: (props) => (
+              blockquote: ({ node, ...props }) => (
                 <blockquote {...props} styleName="blockquote" />
               ),
               code: ({ language, value }) => (
@@ -53,33 +55,31 @@ const Markdown: FC<MarkdownProps> = ({ handleCopy, source = "" }) => {
                   </SyntaxHighlighter>
                 </div>
               ),
-              inlineCode: ({ inline, ...props }) => (
+              inlineCode: ({ inline, node, ...props }) => (
                 <code {...props} inline={inline.toString()} styleName="code" />
               ),
-              link: ({ children, ...props }) => (
+              link: ({ children, node, ...props }) => (
                 <a {...props} styleName="a">
                   {children}
                 </a>
               ),
-              list: ({ ordered, tight, ...props }) =>
+              list: ({ node, ordered, tight, ...props }) =>
                 ordered ? (
-                  <ol
-                    {...props}
-                    styleName="ol"
-                    tight={tight && tight.toString()}
-                  />
+                  <ol {...props} spread={tight} styleName="ol" />
                 ) : (
-                  <ul
-                    {...props}
-                    styleName="ul"
-                    tight={tight && tight.toString()}
-                  />
+                  <ul {...props} spread={tight} styleName="ul" />
                 ),
-              table: (props) => <table {...props} styleName="table" />,
-              tableHead: (props) => <thead {...props} styleName="thead" />,
-              tableRow: (props) => <tr {...props} styleName="tr" />,
+              table: ({ node, ...props }) => (
+                <table {...props} styleName="table" />
+              ),
+              tableHead: ({ node, ...props }) => (
+                <thead {...props} styleName="thead" />
+              ),
+              tableRow: ({ node, ...props }) => (
+                <tr {...props} styleName="tr" />
+              ),
             }}
-            source={replacedSource}
+            source={replacedSource || ""}
           />
         </div>
       )}
