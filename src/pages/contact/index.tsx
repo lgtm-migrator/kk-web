@@ -67,24 +67,20 @@ const Contact: FC<ContactProps> = () => {
   const items = useMemo<ContactFormProps["items"]>(
     () => [
       {
-        description: (
-          <Input inputRef={register({ required: true })} name="name" />
-        ),
+        description: <Input name="name" ref={register({ required: true })} />,
         term: "Name*",
       },
       {
-        description: (
-          <Input inputRef={register({ required: true })} name="email" />
-        ),
+        description: <Input name="email" ref={register({ required: true })} />,
         term: "Email*",
       },
       {
-        description: <Input inputRef={register} name="subject" />,
+        description: <Input name="subject" ref={register} />,
         term: "Subject",
       },
       {
         description: (
-          <Textarea name="message" textareaRef={register({ required: true })} />
+          <Textarea name="message" ref={register({ required: true })} />
         ),
         term: "Message*",
       },

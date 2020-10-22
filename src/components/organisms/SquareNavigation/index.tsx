@@ -1,20 +1,22 @@
 import "./style.module.scss";
 
 import { GatsbyLinkProps, Link } from "gatsby";
-import React, { FC, useMemo } from "react";
+import React, { ComponentPropsWithRef, FC, forwardRef, useMemo } from "react";
 
 import Icon from "components/atoms/Icon";
 import usePrimaryLinks from "hooks/usePrimaryLinks";
 
-export type SquareNavigationProps = {
+export type SquareNavigationProps = Pick<
+  ComponentPropsWithRef<"nav">,
+  "ref"
+> & {
   handleClickOnLink: GatsbyLinkProps<any>["onClick"];
-  squareNavigationRef: JSX.IntrinsicElements["nav"]["ref"];
 };
 
-const SquareNavigation: FC<SquareNavigationProps> = ({
-  handleClickOnLink,
-  squareNavigationRef,
-}) => {
+const SquareNavigation: FC<SquareNavigationProps> = forwardRef<
+  HTMLElement,
+  SquareNavigationProps
+>(({ handleClickOnLink }, ref) => {
   const primaryLinks = usePrimaryLinks();
   const children = useMemo(
     () =>
@@ -44,10 +46,10 @@ const SquareNavigation: FC<SquareNavigationProps> = ({
   );
 
   return (
-    <nav ref={squareNavigationRef} styleName="square-navigation">
+    <nav ref={ref} styleName="square-navigation">
       <ul styleName="list">{children}</ul>
     </nav>
   );
-};
+});
 
 export default SquareNavigation;

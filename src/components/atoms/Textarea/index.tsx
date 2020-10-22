@@ -1,13 +1,15 @@
 import "./style.module.scss";
 
-import React, { FC } from "react";
+import React, { ComponentPropsWithRef, FC, forwardRef } from "react";
 
-export type TextareaProps = Pick<JSX.IntrinsicElements["textarea"], "name"> & {
-  textareaRef: JSX.IntrinsicElements["textarea"]["ref"];
-};
+export type TextareaProps = Pick<
+  ComponentPropsWithRef<"textarea">,
+  "name" | "ref"
+>;
 
-const Textarea: FC<TextareaProps> = ({ name, textareaRef }) => (
-  <textarea name={name} ref={textareaRef} styleName="textarea" />
-);
+const Textarea: FC<TextareaProps> = forwardRef<
+  HTMLTextAreaElement,
+  TextareaProps
+>(({ name }, ref) => <textarea name={name} ref={ref} styleName="textarea" />);
 
 export default Textarea;

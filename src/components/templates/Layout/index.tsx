@@ -44,10 +44,7 @@ const Layout: FC = ({ children }) => {
     () =>
       menuOpen ? (
         <div styleName="square-navigation-wrapper">
-          <SquareNavigation
-            handleClickOnLink={handleClickOnLink}
-            squareNavigationRef={ref}
-          />
+          <SquareNavigation handleClickOnLink={handleClickOnLink} ref={ref} />
         </div>
       ) : null,
     [handleClickOnLink, menuOpen, ref]
