@@ -8,7 +8,6 @@ import React, {
   useRef,
   useState,
 } from "react";
-import NoSSR from "react-no-ssr";
 import { menu } from "react-icons-kit/icomoon/menu";
 import { github } from "react-icons-kit/icomoon/github";
 
@@ -62,35 +61,33 @@ const Layout: FC = ({ children }) => {
   return (
     <DarkModeContext.Consumer>
       {({ toggle, value }) => (
-        <NoSSR>
-          <div style={style} styleName="layout">
-            <div styleName="navigation-wrapper">
-              <div styleName="primary-navigation-wrapper">
-                <PrimaryNavigation />
-              </div>
-              <div styleName="icons">
-                <a
-                  href="https://github.com/piro0919/kk-web2"
-                  rel="noreferrer"
-                  target="_blank"
-                >
-                  <Icon icon={github} size={18} />
-                </a>
-                <ToggleButton checked={value} handleChange={toggle} />
-              </div>
+        <div style={style} styleName="layout">
+          <div styleName="navigation-wrapper">
+            <div styleName="primary-navigation-wrapper">
+              <PrimaryNavigation />
             </div>
-            <div styleName="main-wrapper">
-              <Main>{children}</Main>
+            <div styleName="icons">
+              <a
+                href="https://github.com/piro0919/kk-web2"
+                rel="noreferrer"
+                target="_blank"
+              >
+                <Icon icon={github} size={18} />
+              </a>
+              <ToggleButton checked={value} handleChange={toggle} />
             </div>
-            <div styleName="footer-wrapper">
-              <Footer />
-            </div>
-            <button onClick={handleClickOnButton} styleName="button">
-              <Icon icon={menu} size={30} style={{ color: "#a6dfec" }} />
-            </button>
-            {squareNavigation}
           </div>
-        </NoSSR>
+          <div styleName="main-wrapper">
+            <Main>{children}</Main>
+          </div>
+          <div styleName="footer-wrapper">
+            <Footer />
+          </div>
+          <button onClick={handleClickOnButton} styleName="button">
+            <Icon icon={menu} size={30} style={{ color: "#a6dfec" }} />
+          </button>
+          {squareNavigation}
+        </div>
       )}
     </DarkModeContext.Consumer>
   );

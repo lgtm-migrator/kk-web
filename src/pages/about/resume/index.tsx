@@ -5,7 +5,6 @@ import React, {
   useMemo,
   useState,
 } from "react";
-import NoSSR from "react-no-ssr";
 import dayjs from "dayjs";
 import noScroll from "no-scroll";
 import pdfFonts from "pdfmake/build/vfs_fonts";
@@ -769,14 +768,7 @@ const Resume: FC = () => {
   return (
     <>
       <Seo path="/about/resume" title="Resume" />
-      <NoSSR>
-        <object
-          data={url}
-          style={style}
-          title="resume"
-          type="application/pdf"
-        />
-      </NoSSR>
+      <object data={url} style={style} title="resume" type="application/pdf" />
     </>
   );
 };
