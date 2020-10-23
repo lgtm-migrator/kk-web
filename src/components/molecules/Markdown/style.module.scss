@@ -46,7 +46,8 @@
 
   .syntax-highlighter code,
   .code {
-    white-space: pre-wrap;
+    font-family: inherit;
+    white-space: pre-wrap !important;
     word-break: break-all;
   }
 

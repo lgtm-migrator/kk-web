@@ -1,7 +1,7 @@
 import "./style.module.scss";
 
+import { GatsbyLinkProps, Link } from "gatsby";
 import React, { ComponentPropsWithoutRef, FC, useMemo } from "react";
-import { Link, GatsbyLinkProps } from "gatsby";
 
 import ExternalLink from "components/atoms/ExternalLink";
 

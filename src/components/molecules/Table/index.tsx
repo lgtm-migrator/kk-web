@@ -1,7 +1,7 @@
+import "./style.module.scss";
+
 import React, { ComponentPropsWithoutRef, FC, useMemo } from "react";
 import uniqid from "uniqid";
-
-import "./style.module.scss";
 
 type Row = ComponentPropsWithoutRef<"td">["children"][];
 
@@ -25,7 +25,7 @@ const Table: FC<TableProps> = ({ rows }) => {
   );
 
   return (
-    <table styleName="table">
+    <table>
       <tbody>{children}</tbody>
     </table>
   );

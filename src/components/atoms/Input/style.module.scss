@@ -8,7 +8,7 @@
   width: 100%;
 
   @include light-mode {
-    background-color: map-get($light-mode-colors, white);
+    background: map-get($light-mode-colors, white);
     border: 1px solid map-get($light-mode-colors, black);
   }
 }

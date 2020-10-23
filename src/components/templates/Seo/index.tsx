@@ -1,6 +1,6 @@
-import { Helmet, HelmetProps } from "react-helmet";
-import React, { ComponentPropsWithoutRef, FC } from "react";
 import { graphql, useStaticQuery } from "gatsby";
+import React, { ComponentPropsWithoutRef, FC } from "react";
+import { Helmet, HelmetProps } from "react-helmet";
 
 export type SeoProps = Pick<HelmetProps, "title"> & {
   ogDescription?: ComponentPropsWithoutRef<"meta">["content"];

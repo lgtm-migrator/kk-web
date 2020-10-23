@@ -1,15 +1,12 @@
-@import "sass-mq";
-@import "styles/constants";
-
 .blog {
   max-width: 960px;
+}
 
-  .heading-wrapper {
-    padding: 0 0 6px;
-  }
+.heading-wrapper {
+  padding: 0 0 6px;
+}
 
-  .date-wrapper {
-    font-size: 1.2rem;
-    padding: 0 0 36px;
-  }
+.date-wrapper {
+  font-size: 1.2rem;
+  padding: 0 0 36px;
 }

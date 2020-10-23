@@ -1,5 +1,5 @@
-import React, { FC, useMemo } from "react";
 import { PageProps } from "gatsby";
+import React, { FC, useMemo } from "react";
 
 import LinkList, { LinkListProps } from "components/molecules/LinkList";
 import Layout from "components/templates/Layout";

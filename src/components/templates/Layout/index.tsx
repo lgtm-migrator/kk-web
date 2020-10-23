@@ -8,20 +8,20 @@ import React, {
   useRef,
   useState,
 } from "react";
-import { menu } from "react-icons-kit/icomoon/menu";
 import { github } from "react-icons-kit/icomoon/github";
+import { menu } from "react-icons-kit/icomoon/menu";
 
+import Icon from "components/atoms/Icon";
+import PrimaryNavigation from "components/molecules/PrimaryNavigation";
+import ToggleButton from "components/molecules/ToggleButton";
+import Footer from "components/organisms/Footer";
+import Main from "components/organisms/Main";
 import SquareNavigation, {
   SquareNavigationProps,
 } from "components/organisms/SquareNavigation";
-import Footer from "components/organisms/Footer";
-import Icon from "components/atoms/Icon";
-import Main from "components/organisms/Main";
-import PrimaryNavigation from "components/molecules/PrimaryNavigation";
-import ToggleButton from "components/molecules/ToggleButton";
+import DarkModeContext from "contexts/DarkModeContext";
 import useOnClickOutside from "hooks/useOnClickOutside";
 import useWindowSize from "hooks/useWindowSize";
-import DarkModeContext from "contexts/DarkModeContext";
 
 const Layout: FC = ({ children }) => {
   const { windowHeight } = useWindowSize();
@@ -68,7 +68,7 @@ const Layout: FC = ({ children }) => {
             </div>
             <div styleName="icons">
               <a
-                href="https://github.com/piro0919/kk-web2"
+                href="https://github.com/piro0919/kk-web"
                 rel="noreferrer"
                 target="_blank"
               >

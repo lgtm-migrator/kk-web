@@ -1,10 +1,10 @@
-import React, { FC, useMemo } from "react";
 import { PageProps } from "gatsby";
+import React, { FC, useMemo } from "react";
 
+import ExternalLink from "components/atoms/ExternalLink";
 import DefinitionList, {
   DefinitionListProps,
 } from "components/molecules/DefinitionList";
-import ExternalLink from "components/atoms/ExternalLink";
 import Layout from "components/templates/Layout";
 import Seo from "components/templates/Seo";
 

@@ -1,6 +1,7 @@
+import "./style.module.scss";
+
 import React, { ComponentPropsWithoutRef, FC, useMemo } from "react";
 import uniqid from "uniqid";
-import "./style.module.scss";
 
 export type ListProps = {
   items: ComponentPropsWithoutRef<"li">["children"][];

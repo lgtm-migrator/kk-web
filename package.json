@@ -117,15 +117,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/piro0919/kk-web2"
+    "url": "https://github.com/piro0919/kk-web"
   },
   "bugs": {
-    "url": "https://github.com/piro0919/kk-web2/issues"
+    "url": "https://github.com/piro0919/kk-web/issues"
   },
   "eslintConfig": {
     "extends": [
-      "eslint:recommended",
       "react-app",
+      "eslint:recommended",
       "plugin:jsx-a11y/strict",
       "plugin:import/errors",
       "plugin:import/warnings",
@@ -148,6 +148,10 @@
       "import/order": [
         "error",
         {
+          "alphabetize": {
+            "order": "asc",
+            "caseInsensitive": true
+          },
           "newlines-between": "always"
         }
       ],
@@ -159,12 +163,6 @@
         "error"
       ],
       "sort-keys": "error"
-    }
-  },
-  "importSort": {
-    ".ts, .tsx": {
-      "parser": "typescript",
-      "style": "eslint"
     }
   },
   "stylelint": {

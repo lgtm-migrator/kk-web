@@ -1,12 +1,12 @@
-import React, { FC, useMemo } from "react";
 import { PageProps } from "gatsby";
+import React, { FC, useMemo } from "react";
 
+import ExternalLink from "components/atoms/ExternalLink";
+import List from "components/molecules/List";
+import Table, { TableProps } from "components/molecules/Table";
+import Request from "components/organisms/Request";
 import Layout from "components/templates/Layout";
 import Seo from "components/templates/Seo";
-import Table, { TableProps } from "components/molecules/Table";
-import List from "components/molecules/List";
-import ExternalLink from "components/atoms/ExternalLink";
-import Request from "components/organisms/Request";
 
 export type MovieProps = PageProps;
 

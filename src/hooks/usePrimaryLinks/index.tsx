@@ -1,13 +1,13 @@
-import { androidMail } from "react-icons-kit/ionicons/androidMail";
+import { useMemo } from "react";
 import { blog } from "react-icons-kit/icomoon/blog";
 import { cogs } from "react-icons-kit/icomoon/cogs";
 import { earth } from "react-icons-kit/icomoon/earth";
 import { film } from "react-icons-kit/icomoon/film";
 import { home } from "react-icons-kit/icomoon/home";
 import { link } from "react-icons-kit/icomoon/link";
-import { useMemo } from "react";
-import { user } from "react-icons-kit/icomoon/user";
 import { starFull } from "react-icons-kit/icomoon/starFull";
+import { user } from "react-icons-kit/icomoon/user";
+import { androidMail } from "react-icons-kit/ionicons/androidMail";
 
 function usePrimaryLinks() {
   const primaryLinks = useMemo(

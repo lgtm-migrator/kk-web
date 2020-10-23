@@ -1,9 +1,10 @@
-import React, { FC } from "react";
-import { Link } from "gatsby";
 import "./style.module.scss";
 
+import { Link } from "gatsby";
+import React, { FC } from "react";
+
 const Request: FC = ({ children }) => (
-  <div styleName="request">
+  <div>
     <div>{children}</div>
     <footer styleName="footer">
       <Link styleName="link" to="/contact">

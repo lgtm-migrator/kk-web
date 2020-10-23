@@ -1,12 +1,12 @@
-import React, { FC, useMemo } from "react";
 import { PageProps } from "gatsby";
+import React, { FC, useMemo } from "react";
 
-import Layout from "components/templates/Layout";
-import Seo from "components/templates/Seo";
-import Table, { TableProps } from "components/molecules/Table";
 import List from "components/molecules/List";
 import SkillList from "components/molecules/SkillList";
+import Table, { TableProps } from "components/molecules/Table";
 import Request from "components/organisms/Request";
+import Layout from "components/templates/Layout";
+import Seo from "components/templates/Seo";
 
 export type FrontendProps = PageProps;
 

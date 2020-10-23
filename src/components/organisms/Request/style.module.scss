@@ -2,24 +2,22 @@
 @import "styles/constants";
 @import "styles/mixins";
 
-.request {
-  .footer {
-    display: flex;
-    justify-content: flex-end;
-    padding: 36px 0 0;
+.footer {
+  display: flex;
+  justify-content: flex-end;
+  padding: 36px 0 0;
 
-    @include mq($until: tablet) {
-      justify-content: center;
-    }
+  @include mq($until: tablet) {
+    justify-content: center;
   }
+}
 
-  .link {
-    background: map-get($colors, blue);
-    color: map-get($colors, white);
-    padding: 9px 12px;
+.link {
+  background: map-get($colors, blue);
+  color: map-get($colors, white);
+  padding: 9px 12px;
 
-    @include light-mode {
-      color: map-get($light-mode-colors, white);
-    }
+  @include light-mode {
+    color: map-get($light-mode-colors, white);
   }
 }

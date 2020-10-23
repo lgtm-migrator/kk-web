@@ -1,9 +1,10 @@
-import React, { FC, useMemo } from "react";
-import ReactMarkdown, { ReactMarkdownProps } from "react-markdown";
 import "./style.module.scss";
+
+import React, { FC, useMemo } from "react";
 import CopyToClipboard from "react-copy-to-clipboard";
 import { Icon } from "react-icons-kit";
 import { ic_content_copy } from "react-icons-kit/md/ic_content_copy";
+import ReactMarkdown, { ReactMarkdownProps } from "react-markdown";
 import SyntaxHighlighter from "react-syntax-highlighter";
 import {
   atomOneDark,

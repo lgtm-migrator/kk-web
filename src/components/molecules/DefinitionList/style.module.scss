@@ -1,10 +1,8 @@
-.definition-list {
-  .term {
-    font-size: 1.1rem;
-    padding-bottom: 2px;
-  }
+.term {
+  font-size: 1.1rem;
+  padding-bottom: 2px;
+}
 
-  .term:not(:first-child) {
-    padding-top: 24px;
-  }
+.term:not(:first-child) {
+  padding-top: 24px;
 }

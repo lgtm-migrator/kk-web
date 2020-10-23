@@ -1,9 +1,9 @@
-import React, { FC, useMemo } from "react";
 import { PageProps } from "gatsby";
+import React, { FC, useMemo } from "react";
 
-import Seo from "components/templates/Seo";
-import Layout from "components/templates/Layout";
 import LinkList, { LinkListProps } from "components/molecules/LinkList";
+import Layout from "components/templates/Layout";
+import Seo from "components/templates/Seo";
 
 export type RequestProps = PageProps;
 

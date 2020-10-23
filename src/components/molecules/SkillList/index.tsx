@@ -1,5 +1,6 @@
-import React, { ComponentPropsWithoutRef, FC, useMemo } from "react";
 import "./style.module.scss";
+
+import React, { ComponentPropsWithoutRef, FC, useMemo } from "react";
 
 type Item = {
   description: ComponentPropsWithoutRef<"dd">["children"];

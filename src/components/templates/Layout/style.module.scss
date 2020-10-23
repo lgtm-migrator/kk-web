@@ -14,7 +14,7 @@
   }
 
   @include light-mode {
-    background-color: map-get($light-mode-colors, white);
+    background: map-get($light-mode-colors, white);
     color: map-get($light-mode-colors, dark);
   }
 }
@@ -34,10 +34,11 @@
     height: 48px;
     justify-content: flex-end;
     padding: 0 24px;
+    z-index: 1;
   }
 
   @include light-mode {
-    background-color: rgba(map-get($light-mode-colors, white), 0.75);
+    background: rgba(map-get($light-mode-colors, white), 0.75);
     border-bottom: 1px solid rgba(map-get($light-mode-colors, dark), 0.125);
   }
 }

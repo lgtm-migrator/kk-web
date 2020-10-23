@@ -4,41 +4,41 @@
 .square-navigation {
   background: map-get($colors, black);
   padding: 16px;
+}
 
-  .list {
-    display: grid;
-    gap: 16px;
-    grid-template: repeat(3, 72px) / repeat(3, 60px);
+.list {
+  display: grid;
+  gap: 16px;
+  grid-template: repeat(3, 72px) / repeat(3, 60px);
+}
+
+.link-wrapper {
+  display: grid;
+  gap: 2px;
+  grid-template: 60px auto / auto;
+}
+
+.icon-link {
+  align-items: center;
+  background: map-get($colors, blue);
+  border-radius: 12px;
+  display: flex;
+  justify-content: center;
+}
+
+.icon-link:global(.active) {
+  background: map-get($colors, red);
+}
+
+.text-link {
+  font: 1.1rem map-get($fonts, muli);
+  text-align: center;
+
+  @include light-mode {
+    color: map-get($light-mode-colors, white);
   }
+}
 
-  .link-wrapper {
-    display: grid;
-    gap: 2px;
-    grid-template: 60px auto / auto;
-  }
-
-  .icon-link {
-    align-items: center;
-    background: map-get($colors, blue);
-    border-radius: 12px;
-    display: flex;
-    justify-content: center;
-  }
-
-  .icon-link:global(.active) {
-    background: map-get($colors, red);
-  }
-
-  .text-link {
-    font: 1.1rem map-get($fonts, muli);
-    text-align: center;
-
-    @include light-mode {
-      color: map-get($light-mode-colors, white);
-    }
-  }
-
-  .text-link:global(.active) {
-    color: map-get($colors, red);
-  }
+.text-link:global(.active) {
+  color: map-get($colors, red);
 }

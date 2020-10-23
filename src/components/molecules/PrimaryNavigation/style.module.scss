@@ -1,18 +1,16 @@
 @import "styles/constants";
 
-.primary-navigation {
-  .list {
-    display: grid;
-    gap: 24px 36px;
-    grid-auto-flow: column;
-    text-align: center;
-  }
+.list {
+  display: grid;
+  gap: 24px 36px;
+  grid-auto-flow: column;
+  text-align: center;
+}
 
-  .link {
-    font: 1.2rem map-get($fonts, muli);
-  }
+.link {
+  font: 1.2rem map-get($fonts, muli);
+}
 
-  .link:global(.active) {
-    color: map-get($colors, red);
-  }
+.link:global(.active) {
+  color: map-get($colors, red);
 }
