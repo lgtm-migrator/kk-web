@@ -45,6 +45,7 @@
     "gatsby-plugin-sass": "2.3.21",
     "gatsby-plugin-sharp": "2.6.43",
     "gatsby-plugin-use-dark-mode": "1.1.2",
+    "gatsby-plugin-why-did-you-render": "2.0.0",
     "gatsby-source-filesystem": "2.3.35",
     "gatsby-transformer-remark": "2.8.46",
     "gatsby-transformer-sharp": "2.5.19",

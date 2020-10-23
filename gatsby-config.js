@@ -8,6 +8,7 @@ module.exports = {
     name: process.env.npm_package_name,
   },
   plugins: [
+    "gatsby-plugin-why-did-you-render",
     "gatsby-plugin-react-helmet",
     {
       resolve: "gatsby-source-filesystem",
