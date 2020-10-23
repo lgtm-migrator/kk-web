@@ -82,15 +82,8 @@
 
 /* stylelint-disable-next-line selector-class-pattern */
 .autosuggest-wrapper :global(.react-autosuggest__input) {
-  background: map-get($colors, black);
   color: inherit;
-  padding: 6px;
-  width: 160px;
-
-  @include light-mode {
-    background: map-get($light-mode-colors, white);
-    border: 1px solid map-get($light-mode-colors, black);
-  }
+  padding: 0 0 0 6px;
 }
 
 /* stylelint-disable-next-line selector-class-pattern */
@@ -99,6 +92,18 @@
   position: absolute;
   right: 0;
   width: 320px;
+}
+
+.input-wrapper {
+  background: map-get($colors, black);
+  display: flex;
+  padding: 6px;
+  width: 180px;
+
+  @include light-mode {
+    background: map-get($light-mode-colors, white);
+    border: 1px solid map-get($light-mode-colors, black);
+  }
 }
 
 .date {

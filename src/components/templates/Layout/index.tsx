@@ -13,6 +13,7 @@ import React, {
 import Autosuggest from "react-autosuggest";
 import { github } from "react-icons-kit/icomoon/github";
 import { menu } from "react-icons-kit/icomoon/menu";
+import { ic_search } from "react-icons-kit/md/ic_search";
 import LinesEllipsisLoose from "react-lines-ellipsis/lib/loose";
 
 import Icon from "components/atoms/Icon";
@@ -186,6 +187,12 @@ const Layout: FC = ({ children }) => {
                         .filter((_, index) => index < 5)
                     );
                   }}
+                  renderInputComponent={({ onChange, ...inputProps }) => (
+                    <div styleName="input-wrapper">
+                      <Icon icon={ic_search} />
+                      <input onChange={onChange as any} {...inputProps} />
+                    </div>
+                  )}
                   renderSuggestion={({ date, markdown, title, slug }) => (
                     <Link key={slug} to={slug}>
                       <div styleName="date">{date}</div>
