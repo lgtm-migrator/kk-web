@@ -1,15 +1,19 @@
 import "./style.module.scss";
 
+import { graphql, Link, useStaticQuery } from "gatsby";
 import React, {
   ComponentPropsWithoutRef,
   FC,
   useCallback,
+  useEffect,
   useMemo,
   useRef,
   useState,
 } from "react";
+import Autosuggest from "react-autosuggest";
 import { github } from "react-icons-kit/icomoon/github";
 import { menu } from "react-icons-kit/icomoon/menu";
+import LinesEllipsisLoose from "react-lines-ellipsis/lib/loose";
 
 import Icon from "components/atoms/Icon";
 import PrimaryNavigation from "components/molecules/PrimaryNavigation";
@@ -22,6 +26,30 @@ import SquareNavigation, {
 import DarkModeContext from "contexts/DarkModeContext";
 import useOnClickOutside from "hooks/useOnClickOutside";
 import useWindowSize from "hooks/useWindowSize";
+
+type Edge = {
+  node: {
+    frontmatter: {
+      date: string;
+      slug: string;
+      title: string;
+    };
+    rawMarkdownBody: string;
+  };
+};
+
+type AllBlogData = {
+  allMarkdownRemark: { edges?: Edge[] };
+};
+
+type Blog = {
+  date: string;
+  markdown: string;
+  title: string;
+  slug: string;
+};
+
+type Blogs = Blog[];
 
 const Layout: FC = ({ children }) => {
   const { windowHeight } = useWindowSize();
@@ -55,6 +83,55 @@ const Layout: FC = ({ children }) => {
       ) : null,
     [handleClickOnLink, menuOpen, ref]
   );
+  const [inputValue, setInputValue] = useState("");
+  const handleChange = useCallback((_, { newValue }) => {
+    setInputValue(newValue);
+  }, []);
+  const {
+    allMarkdownRemark: { edges },
+  } = useStaticQuery<AllBlogData>(graphql`
+    query SearchQuery {
+      allMarkdownRemark(
+        sort: { fields: frontmatter___date, order: DESC }
+        limit: 1000
+      ) {
+        edges {
+          node {
+            rawMarkdownBody
+            frontmatter {
+              date
+              title
+              slug
+            }
+          }
+        }
+      }
+    }
+  `);
+  const [blogs, setBlogs] = useState<Blogs>([]);
+  const [suggestions, setSuggestions] = useState<Blogs>([]);
+
+  useEffect(() => {
+    if (!edges) {
+      return;
+    }
+
+    setBlogs(
+      edges.map(
+        ({
+          node: {
+            frontmatter: { date, slug, title },
+            rawMarkdownBody,
+          },
+        }) => ({
+          date,
+          markdown: rawMarkdownBody,
+          slug,
+          title,
+        })
+      )
+    );
+  }, [edges]);
 
   useOnClickOutside(ref, handler);
 
@@ -75,6 +152,54 @@ const Layout: FC = ({ children }) => {
                 <Icon icon={github} size={18} />
               </a>
               <ToggleButton checked={value} handleChange={toggle} />
+              <div styleName="autosuggest-wrapper">
+                <Autosuggest
+                  getSuggestionValue={() => ""}
+                  inputProps={{
+                    onChange: handleChange,
+                    value: inputValue,
+                  }}
+                  multiSection={false}
+                  onSuggestionsClearRequested={() => {
+                    setSuggestions([]);
+                  }}
+                  onSuggestionsFetchRequested={({ value, reason }) => {
+                    const values = value.match(/[^\s]+/g);
+
+                    if (!values || reason !== "input-changed") {
+                      return;
+                    }
+
+                    setSuggestions(
+                      blogs
+                        .filter(
+                          ({ date, markdown, title }) =>
+                            values
+                              .map(
+                                (value) =>
+                                  `${date} ${markdown} ${title}`
+                                    .toLowerCase()
+                                    .indexOf(value.toLowerCase()) >= 0
+                              )
+                              .filter(Boolean).length === values.length
+                        )
+                        .filter((_, index) => index < 5)
+                    );
+                  }}
+                  renderSuggestion={({ date, markdown, title, slug }) => (
+                    <Link key={slug} to={slug}>
+                      <div styleName="date">{date}</div>
+                      <div styleName="render-suggestion">
+                        <div styleName="title">{title}</div>
+                        <div styleName="markdown">
+                          <LinesEllipsisLoose maxLine="2" text={markdown} />
+                        </div>
+                      </div>
+                    </Link>
+                  )}
+                  suggestions={suggestions}
+                />
+              </div>
             </div>
           </div>
           <div styleName="main-wrapper">

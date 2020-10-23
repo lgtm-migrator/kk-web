@@ -29,12 +29,12 @@
   position: fixed;
   top: 0;
   width: 100%;
+  z-index: 1;
 
   @include mq($until: tablet) {
     height: 48px;
     justify-content: flex-end;
     padding: 0 24px;
-    z-index: 1;
   }
 
   @include light-mode {
@@ -66,13 +66,70 @@
 }
 
 .icons {
+  align-items: center;
   display: grid;
-  gap: 28px;
+  gap: 18px;
   grid-auto-flow: column;
 
   @include mq($until: tablet) {
     gap: 18px;
   }
+}
+
+.autosuggest-wrapper {
+  position: relative;
+}
+
+/* stylelint-disable-next-line selector-class-pattern */
+.autosuggest-wrapper :global(.react-autosuggest__input) {
+  background: map-get($colors, black);
+  color: inherit;
+  padding: 6px;
+  width: 160px;
+
+  @include light-mode {
+    background: map-get($light-mode-colors, white);
+    border: 1px solid map-get($light-mode-colors, black);
+  }
+}
+
+/* stylelint-disable-next-line selector-class-pattern */
+.autosuggest-wrapper :global(.react-autosuggest__suggestions-container--open) {
+  margin: 8px 0 0;
+  position: absolute;
+  right: 0;
+  width: 320px;
+}
+
+.date {
+  background: map-get($colors, black);
+  font-size: 1.2rem;
+  font-weight: 900;
+  padding: 4px 8px;
+
+  @include light-mode {
+    background: map-get($light-mode-colors, blue);
+    color: map-get($light-mode-colors, white);
+  }
+}
+
+.render-suggestion {
+  background: map-get($colors, blue);
+  padding: 8px;
+
+  @include light-mode {
+    background: map-get($light-mode-colors, white);
+    border: 1px solid map-get($light-mode-colors, black);
+  }
+}
+
+.title {
+  font-weight: 900;
+}
+
+.markdown {
+  overflow: hidden;
+  padding: 4px 0 0;
 }
 
 .button {

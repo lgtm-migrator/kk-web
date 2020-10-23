@@ -70,13 +70,13 @@ const Markdown: FC<MarkdownProps> = ({ handleCopy, source = "" }) => {
                 ) : (
                   <ul {...props} spread={tight} styleName="ul" />
                 ),
-              table: ({ node, ...props }) => (
+              table: ({ columnAlignment, node, ...props }) => (
                 <table {...props} styleName="table" />
               ),
-              tableHead: ({ node, ...props }) => (
+              tableHead: ({ columnAlignment, node, ...props }) => (
                 <thead {...props} styleName="thead" />
               ),
-              tableRow: ({ node, ...props }) => (
+              tableRow: ({ columnAlignment, isHeader, node, ...props }) => (
                 <tr {...props} styleName="tr" />
               ),
             }}
