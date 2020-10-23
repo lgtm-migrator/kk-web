@@ -1,9 +1,8 @@
 {
-  "name": "kk-web",
-  "description": "Freelance front-end programmer piro's website",
-  "version": "0.1.0",
   "author": "piro <piro.haniwa@gmail.com>",
-  "homepage": "https://kk-web.link",
+  "bugs": {
+    "url": "https://github.com/piro0919/kk-web/issues"
+  },
   "dependencies": {
     "@commitlint/cli": "11.0.0",
     "@commitlint/config-conventional": "11.0.0",
@@ -85,43 +84,7 @@
     "use-http": "1.0.15",
     "yup": "0.29.3"
   },
-  "keywords": [
-    "gatsby"
-  ],
-  "license": "MIT",
-  "husky": {
-    "hooks": {
-      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS",
-      "pre-commit": "npm run precommit"
-    }
-  },
-  "lint-staged": {
-    "**/*.ts?(x)": "npm run lint",
-    "**/*.scss": "npm run stylelint"
-  },
-  "scripts": {
-    "build": "npm run build:fonts && gatsby build",
-    "build:fonts": "ts-node --project pdfmake/tsconfig.json pdfmake/buildFonts.ts",
-    "deploy": "firebase deploy --only hosting",
-    "develop": "gatsby develop",
-    "format": "prettier --write \"**/*.{ts,tsx,scss,md}\"",
-    "format:staged": "pretty-quick --staged --pattern \"**/*.*(ts|tsx|scss|md)\"",
-    "start": "npm run develop",
-    "serve": "gatsby serve",
-    "clean": "gatsby clean",
-    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1",
-    "lint": "eslint --fix --ext .ts,.tsx src/",
-    "lint:staged": "lint-staged",
-    "stylelint": "stylelint \"**/*.scss\" --fix",
-    "precommit": "npm run format:staged && npm run lint:staged"
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/piro0919/kk-web"
-  },
-  "bugs": {
-    "url": "https://github.com/piro0919/kk-web/issues"
-  },
+  "description": "Freelance front-end programmer piro's website",
   "eslintConfig": {
     "extends": [
       "react-app",
@@ -134,27 +97,20 @@
     "plugins": [
       "jsx-a11y"
     ],
-    "settings": {
-      "import/resolver": {
-        "node": {
-          "paths": "src"
-        }
-      }
-    },
     "rules": {
-      "no-alert": "error",
-      "no-console": "error",
-      "no-var": "error",
       "import/order": [
         "error",
         {
           "alphabetize": {
-            "order": "asc",
-            "caseInsensitive": true
+            "caseInsensitive": true,
+            "order": "asc"
           },
           "newlines-between": "always"
         }
       ],
+      "no-alert": "error",
+      "no-console": "error",
+      "no-var": "error",
       "react/jsx-fragments": [
         "error",
         "syntax"
@@ -163,7 +119,50 @@
         "error"
       ],
       "sort-keys": "error"
+    },
+    "settings": {
+      "import/resolver": {
+        "node": {
+          "paths": "src"
+        }
+      }
     }
+  },
+  "homepage": "https://kk-web.link",
+  "husky": {
+    "hooks": {
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS",
+      "pre-commit": "npm run precommit"
+    }
+  },
+  "keywords": [
+    "gatsby"
+  ],
+  "license": "MIT",
+  "lint-staged": {
+    "**/*.scss": "npm run stylelint",
+    "**/*.ts?(x)": "npm run lint"
+  },
+  "name": "kk-web",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/piro0919/kk-web"
+  },
+  "scripts": {
+    "build": "npm run build:fonts && gatsby build",
+    "build:fonts": "ts-node --project pdfmake/tsconfig.json pdfmake/buildFonts.ts",
+    "clean": "gatsby clean",
+    "deploy": "firebase deploy --only hosting",
+    "develop": "gatsby develop",
+    "format": "prettier --write \"**/*.{ts,tsx,scss,md}\"",
+    "format:staged": "pretty-quick --staged --pattern \"**/*.*(ts|tsx|scss|md)\"",
+    "lint": "eslint --fix --ext .ts,.tsx src/",
+    "lint:staged": "lint-staged",
+    "precommit": "npm run format:staged && npm run lint:staged",
+    "serve": "gatsby serve",
+    "start": "npm run develop",
+    "stylelint": "stylelint \"**/*.scss\" --fix",
+    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1"
   },
   "stylelint": {
     "extends": [
@@ -192,5 +191,6 @@
       ],
       "prettier/prettier": true
     }
-  }
+  },
+  "version": "0.1.0"
 }
