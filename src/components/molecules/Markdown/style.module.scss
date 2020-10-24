@@ -1,5 +1,5 @@
-@import "styles/constants";
-@import "styles/mixins";
+@import 'styles/constants';
+@import 'styles/mixins';
 
 .markdown {
   color: inherit;
@@ -69,7 +69,7 @@
   }
 
   :global(.iframe-wrapper)::before {
-    content: "";
+    content: '';
     display: block;
     padding: 56.25% 0 0;
   }

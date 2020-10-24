@@ -1,6 +1,6 @@
-@import "sass-mq";
-@import "styles/constants";
-@import "styles/mixins";
+@import 'sass-mq';
+@import 'styles/constants';
+@import 'styles/mixins';
 
 .layout {
   background: map-get($colors, dark);

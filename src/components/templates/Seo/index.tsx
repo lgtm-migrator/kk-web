@@ -1,19 +1,21 @@
-import { graphql, useStaticQuery } from "gatsby";
-import React, { ComponentPropsWithoutRef, FC } from "react";
-import { Helmet, HelmetProps } from "react-helmet";
+/* eslint-disable @typescript-eslint/restrict-template-expressions */
+/* eslint-disable @typescript-eslint/no-unsafe-assignment */
+import { graphql, useStaticQuery } from 'gatsby';
+import React, { ComponentPropsWithoutRef, FC } from 'react';
+import { Helmet, HelmetProps } from 'react-helmet';
 
-export type SeoProps = Pick<HelmetProps, "title"> & {
-  ogDescription?: ComponentPropsWithoutRef<"meta">["content"];
-  ogTitle?: ComponentPropsWithoutRef<"meta">["content"];
-  ogType?: ComponentPropsWithoutRef<"meta">["content"];
-  path?: ComponentPropsWithoutRef<"meta">["content"];
+export type SeoProps = Pick<HelmetProps, 'title'> & {
+  ogDescription?: ComponentPropsWithoutRef<'meta'>['content'];
+  ogTitle?: ComponentPropsWithoutRef<'meta'>['content'];
+  ogType?: ComponentPropsWithoutRef<'meta'>['content'];
+  path?: ComponentPropsWithoutRef<'meta'>['content'];
 };
 
 const Seo: FC<SeoProps> = ({
   ogDescription,
   ogTitle,
-  ogType = "website",
-  path = "",
+  ogType = 'website',
+  path = '',
   title,
 }) => {
   const {
@@ -48,6 +50,7 @@ const Seo: FC<SeoProps> = ({
       <meta content={name} property="og:site_name" />
       <meta
         content={
+          // eslint-disable-next-line no-nested-ternary
           ogTitle ? `${ogTitle} | ${name}` : title ? `${title} | ${name}` : name
         }
         property="og:title"

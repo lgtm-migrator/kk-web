@@ -1,10 +1,10 @@
-import React, { createContext, FC, useMemo } from "react";
-import useDarkMode, { DarkMode } from "use-dark-mode";
+import React, { createContext, FC, useMemo } from 'react';
+import useDarkMode, { DarkMode } from 'use-dark-mode';
 
 const defaultValue: DarkMode = {
-  disable: () => {},
-  enable: () => {},
-  toggle: () => {},
+  disable: () => { },
+  enable: () => { },
+  toggle: () => { },
   value: true,
 };
 
@@ -12,9 +12,9 @@ const { Consumer, Provider } = createContext(defaultValue);
 
 const DarkModeProvider: FC = ({ children }) => {
   const value = useMemo(() => {
-    const { value } = defaultValue;
+    const { value: value2 } = defaultValue;
 
-    return value;
+    return value2;
   }, []);
   const darkMode = useDarkMode(value);
 

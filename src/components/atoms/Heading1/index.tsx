@@ -1,6 +1,6 @@
-import "./style.module.scss";
+import './style.module.scss';
 
-import React, { FC } from "react";
+import React, { FC } from 'react';
 
 const Heading1: FC = () => <h1 styleName="heading1">kk-web</h1>;
 

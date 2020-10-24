@@ -1,8 +1,8 @@
-import "./style.module.scss";
+import './style.module.scss';
 
-import React, { ComponentPropsWithoutRef, FC } from "react";
+import React, { ComponentPropsWithoutRef, FC } from 'react';
 
-export type MainProps = Pick<ComponentPropsWithoutRef<"main">, "children">;
+export type MainProps = Pick<ComponentPropsWithoutRef<'main'>, 'children'>;
 
 const Main: FC<MainProps> = ({ children }) => (
   <main role="main" styleName="main">

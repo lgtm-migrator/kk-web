@@ -1,1 +1,1 @@
-declare module "react-lines-ellipsis/lib/loose";
+declare module 'react-lines-ellipsis/lib/loose';

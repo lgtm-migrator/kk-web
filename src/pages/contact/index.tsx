@@ -1,19 +1,21 @@
-import { yupResolver } from "@hookform/resolvers";
-import { PageProps } from "gatsby";
-import React, { FC, useCallback, useMemo, useEffect } from "react";
-import { useForm, Resolver } from "react-hook-form";
-import { ToastContainer, toast } from "react-toastify";
-import useFetch from "use-http";
-import * as yup from "yup";
-
-import Button from "components/atoms/Button";
-import Input from "components/atoms/Input";
-import Textarea from "components/atoms/Textarea";
+/* eslint-disable @typescript-eslint/no-unsafe-assignment */
+import { yupResolver } from '@hookform/resolvers';
+import { PageProps } from 'gatsby';
+import React, {
+  FC, useCallback, useMemo, useEffect,
+} from 'react';
+import { useForm, Resolver } from 'react-hook-form';
+import { ToastContainer, toast } from 'react-toastify';
+import useFetch from 'use-http';
+import * as yup from 'yup';
+import Button from 'components/atoms/Button';
+import Input from 'components/atoms/Input';
+import Textarea from 'components/atoms/Textarea';
 import ContactForm, {
   ContactFormProps,
-} from "components/organisms/ContactForm";
-import Layout from "components/templates/Layout";
-import Seo from "components/templates/Seo";
+} from 'components/organisms/ContactForm';
+import Layout from 'components/templates/Layout';
+import Seo from 'components/templates/Seo';
 
 type FieldValues = {
   email: string;
@@ -26,28 +28,32 @@ export type ContactProps = PageProps;
 
 const Contact: FC<ContactProps> = () => {
   const resolver = useMemo<Resolver<FieldValues>>(
-    () =>
-      yupResolver(
-        yup.object().shape({
-          email: yup
-            .string()
-            .email("Invalid Email Address")
-            .required("Email Is Required"),
-          message: yup.string().required("Message Is Required"),
-          name: yup.string().required("Name Is Required"),
-        })
-      ),
-    []
+    () => yupResolver(
+      yup.object().shape({
+        email: yup
+          .string()
+          .email('Invalid Email Address')
+          .required('Email Is Required'),
+        message: yup.string().required('Message Is Required'),
+        name: yup.string().required('Name Is Required'),
+      }),
+    ),
+    [],
   );
+  // eslint-disable-next-line @typescript-eslint/unbound-method
   const { handleSubmit: handleSubmitUseForm, register } = useForm<FieldValues>({
     resolver,
   });
-  const { error, loading, post, response } = useFetch(
-    process.env.GATSBY_BASE_URL
+  const {
+    error, loading, post, response,
+  } = useFetch(
+    process.env.GATSBY_BASE_URL,
   );
   const callback = useCallback<Parameters<typeof handleSubmitUseForm>[0]>(
-    async ({ email, message: text, name, subject }) => {
-      await post("/sendMail", {
+    async ({
+      email, message: text, name, subject,
+    }) => {
+      await post('/sendMail', {
         email,
         name,
         subject,
@@ -60,38 +66,38 @@ const Contact: FC<ContactProps> = () => {
         return;
       }
 
-      toast.success("Send Success Email!");
+      toast.success('Send Success Email!');
     },
-    [post, response]
+    [post, response],
   );
-  const items = useMemo<ContactFormProps["items"]>(
+  const items = useMemo<ContactFormProps['items']>(
     () => [
       {
-        description: <Input name="name" ref={register({ required: true })} />,
-        term: "Name*",
+        description: <Input ref={register({ required: true })} name="name" />,
+        term: 'Name*',
       },
       {
-        description: <Input name="email" ref={register({ required: true })} />,
-        term: "Email*",
+        description: <Input ref={register({ required: true })} name="email" />,
+        term: 'Email*',
       },
       {
-        description: <Input name="subject" ref={register} />,
-        term: "Subject",
+        description: <Input ref={register} name="subject" />,
+        term: 'Subject',
       },
       {
         description: (
-          <Textarea name="message" ref={register({ required: true })} />
+          <Textarea ref={register({ required: true })} name="message" />
         ),
-        term: "Message*",
+        term: 'Message*',
       },
     ],
-    [register]
+    [register],
   );
-  const formCallback = useCallback<ContactFormProps["callback"]>(
+  const formCallback = useCallback<ContactFormProps['callback']>(
     (children) => (
       <form onSubmit={handleSubmitUseForm(callback)}>{children}</form>
     ),
-    [callback, handleSubmitUseForm]
+    [callback, handleSubmitUseForm],
   );
 
   useEffect(() => {
@@ -99,7 +105,7 @@ const Contact: FC<ContactProps> = () => {
       return;
     }
 
-    toast.error("An Unknown Network Error Has Occurred");
+    toast.error('An Unknown Network Error Has Occurred');
   }, [error]);
 
   return (
@@ -109,11 +115,11 @@ const Contact: FC<ContactProps> = () => {
         <ContactForm
           callback={formCallback}
           items={items}
-          submitButton={
+          submitButton={(
             <Button disabled={loading} type="submit">
               Submit
             </Button>
-          }
+          )}
         />
         <ToastContainer pauseOnFocusLoss={false} position="bottom-right" />
       </Layout>

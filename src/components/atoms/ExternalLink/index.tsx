@@ -1,10 +1,10 @@
-import "./style.module.scss";
+import './style.module.scss';
 
-import React, { ComponentPropsWithoutRef, FC } from "react";
+import React, { ComponentPropsWithoutRef, FC } from 'react';
 
 export type ExternalLinkProps = Pick<
-  ComponentPropsWithoutRef<"a">,
-  "children" | "href"
+ComponentPropsWithoutRef<'a'>,
+'children' | 'href'
 >;
 
 const ExternalLink: FC<ExternalLinkProps> = ({ children, href }) => (

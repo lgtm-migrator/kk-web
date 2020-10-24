@@ -1,12 +1,11 @@
-import "./style.module.scss";
+import './style.module.scss';
 
-import React, { FC } from "react";
-
+import React, { FC } from 'react';
 import DefinitionList, {
   DefinitionListProps,
-} from "components/molecules/DefinitionList";
+} from 'components/molecules/DefinitionList';
 
-export type BlogListBlockProps = Pick<DefinitionListProps, "items">;
+export type BlogListBlockProps = Pick<DefinitionListProps, 'items'>;
 
 const BlogListBlock: FC<BlogListBlockProps> = ({ items }) => (
   <div styleName="blog-list-block">

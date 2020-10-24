@@ -1,65 +1,64 @@
-import { PageProps } from "gatsby";
-import React, { FC, useMemo } from "react";
-
-import List from "components/molecules/List";
-import SkillList from "components/molecules/SkillList";
-import Table, { TableProps } from "components/molecules/Table";
-import Request from "components/organisms/Request";
-import Layout from "components/templates/Layout";
-import Seo from "components/templates/Seo";
+import { PageProps } from 'gatsby';
+import React, { FC, useMemo } from 'react';
+import List from 'components/molecules/List';
+import SkillList from 'components/molecules/SkillList';
+import Table, { TableProps } from 'components/molecules/Table';
+import Request from 'components/organisms/Request';
+import Layout from 'components/templates/Layout';
+import Seo from 'components/templates/Seo';
 
 export type FrontendProps = PageProps;
 
 const Frontend: FC<FrontendProps> = () => {
-  const rows = useMemo<TableProps["rows"]>(
+  const rows = useMemo<TableProps['rows']>(
     () => [
       [
-        "概要",
-        "フロントエンドエンジニアを目指している方や、Webサイトを作ってみたい方のサポートを行います",
+        '概要',
+        'フロントエンドエンジニアを目指している方や、Webサイトを作ってみたい方のサポートを行います',
       ],
       [
-        "内容",
+        '内容',
         <List
           items={[
-            "コードレビュー",
-            "開発環境の構築サポート",
-            "相談などもお気軽にどうぞ",
+            'コードレビュー',
+            '開発環境の構築サポート',
+            '相談などもお気軽にどうぞ',
           ]}
         />,
       ],
       [
-        "スキル",
+        'スキル',
         <SkillList
           items={[
             {
-              description: "☆☆☆☆",
-              term: "React",
+              description: '☆☆☆☆',
+              term: 'React',
             },
             {
-              description: "☆☆☆",
-              term: "Redux",
+              description: '☆☆☆',
+              term: 'Redux',
             },
             {
-              description: "☆☆☆",
-              term: "TypeScript",
+              description: '☆☆☆',
+              term: 'TypeScript',
             },
             {
-              description: "☆☆☆☆",
-              term: "Atomic Design",
+              description: '☆☆☆☆',
+              term: 'Atomic Design',
             },
             {
-              description: "☆☆☆☆☆",
-              term: "Create React App",
+              description: '☆☆☆☆☆',
+              term: 'Create React App',
             },
             {
-              description: "☆☆☆",
-              term: "Next.js",
+              description: '☆☆☆',
+              term: 'Next.js',
             },
           ]}
         />,
       ],
       [
-        "方法",
+        '方法',
         <>
           Slack・Skype・Zoom・Discord・メールなど、何でも問題ありません
           <br />
@@ -67,7 +66,7 @@ const Frontend: FC<FrontendProps> = () => {
         </>,
       ],
       [
-        "費用",
+        '費用',
         <>
           初回無料
           <br />
@@ -79,7 +78,7 @@ const Frontend: FC<FrontendProps> = () => {
         </>,
       ],
     ],
-    []
+    [],
   );
 
   return (

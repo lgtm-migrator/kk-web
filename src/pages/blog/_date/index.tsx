@@ -1,11 +1,10 @@
-import dayjs from "dayjs";
-import { PageProps, graphql } from "gatsby";
-import React, { FC, useCallback } from "react";
-import { ToastContainer, toast } from "react-toastify";
-
-import Blog, { BlogProps } from "components/organisms/Blog";
-import Layout from "components/templates/Layout";
-import Seo from "components/templates/Seo";
+import dayjs from 'dayjs';
+import { PageProps, graphql } from 'gatsby';
+import React, { FC, useCallback } from 'react';
+import { ToastContainer, toast } from 'react-toastify';
+import Blog, { BlogProps } from 'components/organisms/Blog';
+import Layout from 'components/templates/Layout';
+import Seo from 'components/templates/Seo';
 
 export type DateProps = PageProps<{
   markdownRemark: {
@@ -23,17 +22,17 @@ const Date: FC<DateProps> = ({ data: { markdownRemark } }) => {
     internal: { content },
     rawMarkdownBody,
   } = markdownRemark || { frontmatter: {}, internal: {} };
-  const handleCopy = useCallback<NonNullable<BlogProps["handleCopy"]>>(
+  const handleCopy = useCallback<NonNullable<BlogProps['handleCopy']>>(
     (_, result) => {
       if (result) {
-        toast.success("Copy Success!");
+        toast.success('Copy Success!');
 
         return;
       }
 
-      toast.error("Copy failed");
+      toast.error('Copy failed');
     },
-    []
+    [],
   );
 
   return (
@@ -43,7 +42,7 @@ const Date: FC<DateProps> = ({ data: { markdownRemark } }) => {
           ogDescription={content}
           ogTitle={title}
           ogType="article"
-          path={`/blog/${dayjs(date).format("YYYYMMDD")}`}
+          path={`/blog/${dayjs(date).format('YYYYMMDD')}`}
           title={title}
         />
         <Layout>

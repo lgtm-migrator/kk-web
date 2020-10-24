@@ -1,13 +1,12 @@
-import "./style.module.scss";
+import './style.module.scss';
 
-import { GatsbyLinkProps, Link } from "gatsby";
-import React, { ComponentPropsWithoutRef, FC, useMemo } from "react";
-
-import ExternalLink from "components/atoms/ExternalLink";
+import { GatsbyLinkProps, Link } from 'gatsby';
+import React, { ComponentPropsWithoutRef, FC, useMemo } from 'react';
+import ExternalLink from 'components/atoms/ExternalLink';
 
 type Item =
-  | Required<Pick<ComponentPropsWithoutRef<"a">, "children" | "href">>
-  | Pick<GatsbyLinkProps<any>, "children" | "to">;
+  | Required<Pick<ComponentPropsWithoutRef<'a'>, 'children' | 'href'>>
+  | Pick<GatsbyLinkProps<never>, 'children' | 'to'>;
 
 export type LinkListProps = {
   items: Item[];
@@ -15,27 +14,26 @@ export type LinkListProps = {
 
 const LinkList: FC<LinkListProps> = ({ items }) => {
   const children = useMemo(
-    () =>
-      items.map(({ children, ...item }) => {
-        if ("href" in item) {
-          const { href } = item;
-
-          return (
-            <li key={href} styleName="item">
-              <ExternalLink href={href}>{children}</ExternalLink>
-            </li>
-          );
-        }
-
-        const { to } = item;
+    () => items.map(({ children: itemChildren, ...item }) => {
+      if ('href' in item) {
+        const { href } = item;
 
         return (
-          <li key={to} styleName="item">
-            <Link to={to}>{children}</Link>
+          <li key={href} styleName="item">
+            <ExternalLink href={href}>{itemChildren}</ExternalLink>
           </li>
         );
-      }),
-    [items]
+      }
+
+      const { to } = item;
+
+      return (
+        <li key={to} styleName="item">
+          <Link to={to}>{itemChildren}</Link>
+        </li>
+      );
+    }),
+    [items],
   );
 
   return <ul styleName="link-list">{children}</ul>;

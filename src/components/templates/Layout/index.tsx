@@ -1,6 +1,10 @@
-import "./style.module.scss";
+/* eslint-disable react/button-has-type */
+/* eslint-disable react/jsx-props-no-spreading */
+/* eslint-disable @typescript-eslint/no-unsafe-assignment */
+/* eslint-disable @typescript-eslint/no-shadow */
+import './style.module.scss';
 
-import { graphql, Link, useStaticQuery } from "gatsby";
+import { graphql, Link, useStaticQuery } from 'gatsby';
 import React, {
   ComponentPropsWithoutRef,
   FC,
@@ -9,24 +13,23 @@ import React, {
   useMemo,
   useRef,
   useState,
-} from "react";
-import Autosuggest from "react-autosuggest";
-import { github } from "react-icons-kit/icomoon/github";
-import { menu } from "react-icons-kit/icomoon/menu";
-import { ic_search } from "react-icons-kit/md/ic_search";
-import LinesEllipsisLoose from "react-lines-ellipsis/lib/loose";
-
-import Icon from "components/atoms/Icon";
-import PrimaryNavigation from "components/molecules/PrimaryNavigation";
-import ToggleButton from "components/molecules/ToggleButton";
-import Footer from "components/organisms/Footer";
-import Main from "components/organisms/Main";
+} from 'react';
+import Autosuggest from 'react-autosuggest';
+import { github } from 'react-icons-kit/icomoon/github';
+import { menu } from 'react-icons-kit/icomoon/menu';
+import { ic_search } from 'react-icons-kit/md/ic_search';
+import LinesEllipsisLoose from 'react-lines-ellipsis/lib/loose';
+import Icon from 'components/atoms/Icon';
+import PrimaryNavigation from 'components/molecules/PrimaryNavigation';
+import ToggleButton from 'components/molecules/ToggleButton';
+import Footer from 'components/organisms/Footer';
+import Main from 'components/organisms/Main';
 import SquareNavigation, {
   SquareNavigationProps,
-} from "components/organisms/SquareNavigation";
-import DarkModeContext from "contexts/DarkModeContext";
-import useOnClickOutside from "hooks/useOnClickOutside";
-import useWindowSize from "hooks/useWindowSize";
+} from 'components/organisms/SquareNavigation';
+import DarkModeContext from 'contexts/DarkModeContext';
+import useOnClickOutside from 'hooks/useOnClickOutside';
+import useWindowSize from 'hooks/useWindowSize';
 
 type Edge = {
   node: {
@@ -58,16 +61,16 @@ const Layout: FC = ({ children }) => {
     () => ({
       minHeight: windowHeight,
     }),
-    [windowHeight]
+    [windowHeight],
   );
   const [menuOpen, setMenuOpen] = useState(false);
   const handleClickOnButton = useCallback<
-    NonNullable<ComponentPropsWithoutRef<"button">["onClick"]>
+    NonNullable<ComponentPropsWithoutRef<'button'>['onClick']>
   >(() => {
     setMenuOpen(true);
   }, []);
   const handleClickOnLink = useCallback<
-    NonNullable<SquareNavigationProps["handleClickOnLink"]>
+    NonNullable<SquareNavigationProps['handleClickOnLink']>
   >(() => {
     setMenuOpen(false);
   }, []);
@@ -76,15 +79,14 @@ const Layout: FC = ({ children }) => {
     setMenuOpen(false);
   }, []);
   const squareNavigation = useMemo(
-    () =>
-      menuOpen ? (
-        <div styleName="square-navigation-wrapper">
-          <SquareNavigation handleClickOnLink={handleClickOnLink} ref={ref} />
-        </div>
-      ) : null,
-    [handleClickOnLink, menuOpen, ref]
+    () => (menuOpen ? (
+      <div styleName="square-navigation-wrapper">
+        <SquareNavigation ref={ref} handleClickOnLink={handleClickOnLink} />
+      </div>
+    ) : null),
+    [handleClickOnLink, menuOpen, ref],
   );
-  const [inputValue, setInputValue] = useState("");
+  const [inputValue, setInputValue] = useState('');
   const handleChange = useCallback((_, { newValue }) => {
     setInputValue(newValue);
   }, []);
@@ -129,8 +131,8 @@ const Layout: FC = ({ children }) => {
           markdown: rawMarkdownBody,
           slug,
           title,
-        })
-      )
+        }),
+      ),
     );
   }, [edges]);
 
@@ -155,7 +157,7 @@ const Layout: FC = ({ children }) => {
               <ToggleButton checked={value} handleChange={toggle} />
               <div styleName="autosuggest-wrapper">
                 <Autosuggest
-                  getSuggestionValue={() => ""}
+                  getSuggestionValue={() => ''}
                   inputProps={{
                     onChange: handleChange,
                     value: inputValue,
@@ -167,43 +169,43 @@ const Layout: FC = ({ children }) => {
                   onSuggestionsFetchRequested={({ value, reason }) => {
                     const values = value.match(/[^\s]+/g);
 
-                    if (!values || reason !== "input-changed") {
+                    if (!values || reason !== 'input-changed') {
                       return;
                     }
 
                     setSuggestions(
                       blogs
                         .filter(
-                          ({ date, markdown, title }) =>
-                            values
-                              .map(
-                                (value) =>
-                                  `${date} ${markdown} ${title}`
-                                    .toLowerCase()
-                                    .indexOf(value.toLowerCase()) >= 0
-                              )
-                              .filter(Boolean).length === values.length
+                          ({ date, markdown, title }) => values
+                            .map(
+                              (value) => `${date} ${markdown} ${title}`
+                                .toLowerCase()
+                                .indexOf(value.toLowerCase()) >= 0,
+                            )
+                            .filter(Boolean).length === values.length,
                         )
-                        .filter((_, index) => index < 5)
+                        .filter((_, index) => index < 5),
                     );
                   }}
                   renderInputComponent={({ onChange, ...inputProps }) => (
                     <div styleName="input-wrapper">
                       <Icon icon={ic_search} />
-                      <input onChange={onChange as any} {...inputProps} />
+                      <input onChange={onChange as never} {...inputProps} />
                     </div>
                   )}
-                  renderSuggestion={({ date, markdown, title, slug }) => (
-                    <Link key={slug} to={slug}>
-                      <div styleName="date">{date}</div>
-                      <div styleName="render-suggestion">
-                        <div styleName="title">{title}</div>
-                        <div styleName="markdown">
-                          <LinesEllipsisLoose maxLine="2" text={markdown} />
+                  renderSuggestion={({
+                    date, markdown, title, slug,
+                  }) => (
+                      <Link key={slug} to={slug}>
+                        <div styleName="date">{date}</div>
+                        <div styleName="render-suggestion">
+                          <div styleName="title">{title}</div>
+                          <div styleName="markdown">
+                            <LinesEllipsisLoose maxLine="2" text={markdown} />
+                          </div>
                         </div>
-                      </div>
-                    </Link>
-                  )}
+                      </Link>
+                    )}
                   suggestions={suggestions}
                 />
               </div>
@@ -216,7 +218,7 @@ const Layout: FC = ({ children }) => {
             <Footer />
           </div>
           <button onClick={handleClickOnButton} styleName="button">
-            <Icon icon={menu} size={30} style={{ color: "#a6dfec" }} />
+            <Icon icon={menu} size={30} style={{ color: '#a6dfec' }} />
           </button>
           {squareNavigation}
         </div>

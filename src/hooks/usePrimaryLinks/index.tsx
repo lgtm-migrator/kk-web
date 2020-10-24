@@ -1,64 +1,66 @@
-import { useMemo } from "react";
-import { blog } from "react-icons-kit/icomoon/blog";
-import { cogs } from "react-icons-kit/icomoon/cogs";
-import { earth } from "react-icons-kit/icomoon/earth";
-import { film } from "react-icons-kit/icomoon/film";
-import { home } from "react-icons-kit/icomoon/home";
-import { link } from "react-icons-kit/icomoon/link";
-import { starFull } from "react-icons-kit/icomoon/starFull";
-import { user } from "react-icons-kit/icomoon/user";
-import { androidMail } from "react-icons-kit/ionicons/androidMail";
+/* eslint-disable @typescript-eslint/no-unsafe-assignment */
+import { useMemo } from 'react';
+import { blog } from 'react-icons-kit/icomoon/blog';
+import { cogs } from 'react-icons-kit/icomoon/cogs';
+import { earth } from 'react-icons-kit/icomoon/earth';
+import { film } from 'react-icons-kit/icomoon/film';
+import { home } from 'react-icons-kit/icomoon/home';
+import { link } from 'react-icons-kit/icomoon/link';
+import { starFull } from 'react-icons-kit/icomoon/starFull';
+import { user } from 'react-icons-kit/icomoon/user';
+import { androidMail } from 'react-icons-kit/ionicons/androidMail';
 
+// eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
 function usePrimaryLinks() {
   const primaryLinks = useMemo(
     () => [
       {
         icon: home,
-        text: "Home",
-        to: "/",
+        text: 'Home',
+        to: '/',
       },
       {
         icon: user,
-        text: "About",
-        to: "/about",
+        text: 'About',
+        to: '/about',
       },
       {
         icon: blog,
-        text: "Blog",
-        to: "/blog",
+        text: 'Blog',
+        to: '/blog',
       },
       {
         icon: androidMail,
-        text: "Contact",
-        to: "/contact",
+        text: 'Contact',
+        to: '/contact',
       },
       {
         icon: link,
-        text: "Link",
-        to: "/link",
+        text: 'Link',
+        to: '/link',
       },
       {
         icon: film,
-        text: "Movie",
-        to: "/movie",
+        text: 'Movie',
+        to: '/movie',
       },
       {
         icon: starFull,
-        text: "Request",
-        to: "/request",
+        text: 'Request',
+        to: '/request',
       },
       {
         icon: cogs,
-        text: "Service",
-        to: "/service",
+        text: 'Service',
+        to: '/service',
       },
       {
         icon: earth,
-        text: "Site",
-        to: "/site",
+        text: 'Site',
+        to: '/site',
       },
     ],
-    []
+    [],
   );
 
   return primaryLinks;

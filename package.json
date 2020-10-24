@@ -18,13 +18,9 @@
     "@types/uniqid": "5.2.0",
     "@types/yup": "0.29.8",
     "@typescript-eslint/eslint-plugin": "4.5.0",
-    "@typescript-eslint/parser": "4.5.0",
-    "babel-eslint": "10.1.0",
     "dayjs": "1.9.4",
     "eslint": "7.11.0",
-    "eslint-config-react-app": "6.0.0",
-    "eslint-import-resolver-node": "0.3.4",
-    "eslint-plugin-flowtype": "5.2.0",
+    "eslint-config-airbnb-typescript": "12.0.0",
     "eslint-plugin-import": "2.22.1",
     "eslint-plugin-jsx-a11y": "6.3.1",
     "eslint-plugin-react": "7.21.5",
@@ -60,7 +56,6 @@
     "pdfmake": "0.1.68",
     "postcss-scss": "3.0.2",
     "prettier": "2.1.2",
-    "pretty-quick": "3.1.0",
     "prop-types": "15.7.2",
     "react": "16.14.0",
     "react-autosuggest": "10.0.3",
@@ -78,9 +73,9 @@
     "ress": "3.0.0",
     "sass-mq": "5.0.1",
     "stylelint": "13.7.2",
-    "stylelint-config-prettier": "8.0.2",
     "stylelint-config-sass-guidelines": "7.1.0",
-    "stylelint-prettier": "1.1.2",
+    "stylelint-config-standard": "20.0.0",
+    "stylelint-order": "4.1.0",
     "ts-node": "9.0.0",
     "typescript": "4.0.3",
     "uniqid": "5.2.0",
@@ -91,17 +86,29 @@
   "description": "Freelance front-end programmer piro's website",
   "eslintConfig": {
     "extends": [
-      "react-app",
-      "eslint:recommended",
-      "plugin:jsx-a11y/strict",
+      "airbnb-typescript",
+      "airbnb/hooks",
+      "plugin:@typescript-eslint/recommended",
+      "plugin:@typescript-eslint/recommended-requiring-type-checking",
       "plugin:import/errors",
       "plugin:import/warnings",
       "plugin:import/typescript"
     ],
-    "plugins": [
-      "jsx-a11y"
+    "overrides": [
+      {
+        "files": [
+          "**/*.tsx"
+        ],
+        "rules": {
+          "react/prop-types": "off"
+        }
+      }
     ],
+    "parserOptions": {
+      "project": "./tsconfig.json"
+    },
     "rules": {
+      "@typescript-eslint/indent": "off",
       "import/order": [
         "error",
         {
@@ -109,16 +116,13 @@
             "caseInsensitive": true,
             "order": "asc"
           },
-          "newlines-between": "always"
+          "newlines-between": "never"
         }
       ],
       "no-alert": "error",
       "no-console": "error",
       "no-var": "error",
-      "react/jsx-fragments": [
-        "error",
-        "syntax"
-      ],
+      "react/jsx-indent": "off",
       "react/jsx-sort-props": [
         "error"
       ],
@@ -136,7 +140,7 @@
   "husky": {
     "hooks": {
       "commit-msg": "commitlint -E HUSKY_GIT_PARAMS",
-      "pre-commit": "npm run precommit"
+      "pre-commit": "lint-staged"
     }
   },
   "keywords": [
@@ -144,7 +148,7 @@
   ],
   "license": "MIT",
   "lint-staged": {
-    "**/*.scss": "npm run stylelint",
+    "**/*.scss": "npm run lint:css",
     "**/*.ts?(x)": "npm run lint"
   },
   "name": "kk-web",
@@ -158,33 +162,22 @@
     "clean": "gatsby clean",
     "deploy": "firebase deploy --only hosting",
     "develop": "gatsby develop",
-    "format": "prettier --write \"**/*.{ts,tsx,scss,md}\"",
-    "format:staged": "pretty-quick --staged --pattern \"**/*.*(ts|tsx|scss|md)\"",
+    "format": "prettier --write \"**/*.{md}\"",
     "lint": "eslint --fix --ext .ts,.tsx src/",
-    "lint:staged": "lint-staged",
-    "precommit": "npm run format:staged && npm run lint:staged",
+    "lint:css": "stylelint \"**/*.scss\" --fix",
     "serve": "gatsby serve",
     "start": "npm run develop",
-    "stylelint": "stylelint \"**/*.scss\" --fix",
     "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1"
   },
   "stylelint": {
     "extends": [
-      "stylelint-config-sass-guidelines",
-      "stylelint-prettier/recommended"
+      "stylelint-config-standard",
+      "stylelint-config-sass-guidelines"
     ],
     "plugins": [
-      "stylelint-prettier"
+      "stylelint-order"
     ],
     "rules": {
-      "at-rule-empty-line-before": [
-        "always",
-        {
-          "except": [
-            "blockless-after-same-name-blockless"
-          ]
-        }
-      ],
       "color-named": [
         "never",
         {
@@ -193,7 +186,15 @@
           ]
         }
       ],
-      "prettier/prettier": true
+      "order/properties-alphabetical-order": true,
+      "selector-pseudo-class-no-unknown": [
+        true,
+        {
+          "ignorePseudoClasses": [
+            "global"
+          ]
+        }
+      ]
     }
   },
   "version": "0.1.0"

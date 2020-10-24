@@ -1,12 +1,14 @@
-import "./style.module.scss";
+import './style.module.scss';
 
-import React, { ComponentPropsWithoutRef, FC, Fragment, useMemo } from "react";
-import uniqid from "uniqid";
+import React, {
+  ComponentPropsWithoutRef, FC, Fragment, useMemo,
+} from 'react';
+import uniqid from 'uniqid';
 
 type Item = {
-  description: ComponentPropsWithoutRef<"dd">["children"];
+  description: ComponentPropsWithoutRef<'dd'>['children'];
   key?: string;
-  term: ComponentPropsWithoutRef<"dt">["children"];
+  term: ComponentPropsWithoutRef<'dt'>['children'];
 };
 
 export type DefinitionListProps = {
@@ -15,14 +17,13 @@ export type DefinitionListProps = {
 
 const DefinitionList: FC<DefinitionListProps> = ({ items }) => {
   const children = useMemo(
-    () =>
-      items.map(({ description, key, term }) => (
-        <Fragment key={key || uniqid()}>
-          <dt styleName="term">{term}</dt>
-          <dd>{description}</dd>
-        </Fragment>
-      )),
-    [items]
+    () => items.map(({ description, key, term }) => (
+      <Fragment key={key || uniqid()}>
+        <dt styleName="term">{term}</dt>
+        <dd>{description}</dd>
+      </Fragment>
+    )),
+    [items],
   );
 
   return <dl>{children}</dl>;

@@ -1,42 +1,41 @@
-import { PageProps } from "gatsby";
-import React, { FC, useMemo } from "react";
-
-import ExternalLink from "components/atoms/ExternalLink";
+import { PageProps } from 'gatsby';
+import React, { FC, useMemo } from 'react';
+import ExternalLink from 'components/atoms/ExternalLink';
 import DefinitionList, {
   DefinitionListProps,
-} from "components/molecules/DefinitionList";
-import Layout from "components/templates/Layout";
-import Seo from "components/templates/Seo";
+} from 'components/molecules/DefinitionList';
+import Layout from 'components/templates/Layout';
+import Seo from 'components/templates/Seo';
 
 export type AboutProps = PageProps;
 
 const About: FC<AboutProps> = () => {
-  const items = useMemo<DefinitionListProps["items"]>(
+  const items = useMemo<DefinitionListProps['items']>(
     () => [
       {
-        description: "piro",
-        term: "Handle",
+        description: 'piro',
+        term: 'Handle',
       },
       {
-        description: "Kohei Kawamura",
-        term: "Name",
+        description: 'Kohei Kawamura',
+        term: 'Name',
       },
       {
-        description: "Tokyo, Japan",
-        term: "Address",
+        description: 'Tokyo, Japan',
+        term: 'Address',
       },
       {
-        description: "Freelancer (Video Creator and Front End Engineer)",
-        term: "Job",
+        description: 'Freelancer (Video Creator and Front End Engineer)',
+        term: 'Job',
       },
       {
         description: (
           <ExternalLink href="/about/resume">Engineering Resume</ExternalLink>
         ),
-        term: "Resume",
+        term: 'Resume',
       },
     ],
-    []
+    [],
   );
 
   return (

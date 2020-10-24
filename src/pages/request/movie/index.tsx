@@ -1,21 +1,20 @@
-import { PageProps } from "gatsby";
-import React, { FC, useMemo } from "react";
-
-import ExternalLink from "components/atoms/ExternalLink";
-import List from "components/molecules/List";
-import Table, { TableProps } from "components/molecules/Table";
-import Request from "components/organisms/Request";
-import Layout from "components/templates/Layout";
-import Seo from "components/templates/Seo";
+import { PageProps } from 'gatsby';
+import React, { FC, useMemo } from 'react';
+import ExternalLink from 'components/atoms/ExternalLink';
+import List from 'components/molecules/List';
+import Table, { TableProps } from 'components/molecules/Table';
+import Request from 'components/organisms/Request';
+import Layout from 'components/templates/Layout';
+import Seo from 'components/templates/Seo';
 
 export type MovieProps = PageProps;
 
 const Movie: FC<MovieProps> = () => {
-  const rows = useMemo<TableProps["rows"]>(
+  const rows = useMemo<TableProps['rows']>(
     () => [
-      ["概要", "動画制作を行います"],
+      ['概要', '動画制作を行います'],
       [
-        "費用",
+        '費用',
         <>
           前払い金500円
           <br />
@@ -25,7 +24,7 @@ const Movie: FC<MovieProps> = () => {
         </>,
       ],
       [
-        "制作実績",
+        '制作実績',
         <List
           items={[
             <ExternalLink href="https://www.youtube.com/watch?v=RDHDQk10yV4">
@@ -41,7 +40,7 @@ const Movie: FC<MovieProps> = () => {
         />,
       ],
     ],
-    []
+    [],
   );
 
   return (

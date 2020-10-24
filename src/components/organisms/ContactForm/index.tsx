@@ -1,14 +1,13 @@
-import "./style.module.scss";
+import './style.module.scss';
 
-import React, { ComponentPropsWithoutRef, FC, ReactNode } from "react";
-
+import React, { ComponentPropsWithoutRef, FC, ReactNode } from 'react';
 import DefinitionList, {
   DefinitionListProps,
-} from "components/molecules/DefinitionList";
+} from 'components/molecules/DefinitionList';
 
-export type ContactFormProps = Pick<DefinitionListProps, "items"> & {
+export type ContactFormProps = Pick<DefinitionListProps, 'items'> & {
   callback: (children: ReactNode) => ReactNode;
-  submitButton: ComponentPropsWithoutRef<"button">["children"];
+  submitButton: ComponentPropsWithoutRef<'button'>['children'];
 };
 
 const ContactForm: FC<ContactFormProps> = ({
@@ -22,7 +21,7 @@ const ContactForm: FC<ContactFormProps> = ({
         <DefinitionList items={items} />
       </div>
       <div>{submitButton}</div>
-    </div>
+    </div>,
   );
 
   return <div styleName="contact-form">{children}</div>;

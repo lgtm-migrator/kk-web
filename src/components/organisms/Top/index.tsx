@@ -1,9 +1,9 @@
-import "./style.module.scss";
+import './style.module.scss';
 
-import React, { ComponentPropsWithoutRef, FC } from "react";
+import React, { ComponentPropsWithoutRef, FC } from 'react';
 
 export type TopProps = {
-  heading: ComponentPropsWithoutRef<"div">["children"];
+  heading: ComponentPropsWithoutRef<'div'>['children'];
 };
 
 const Top: FC<TopProps> = ({ heading }) => (

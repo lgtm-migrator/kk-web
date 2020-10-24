@@ -1,9 +1,9 @@
-import "./style.module.scss";
+import './style.module.scss';
 
-import React, { ComponentPropsWithoutRef, FC, useMemo } from "react";
-import uniqid from "uniqid";
+import React, { ComponentPropsWithoutRef, FC, useMemo } from 'react';
+import uniqid from 'uniqid';
 
-type Row = ComponentPropsWithoutRef<"td">["children"][];
+type Row = ComponentPropsWithoutRef<'td'>['children'][];
 
 export type TableProps = {
   rows: Row[];
@@ -11,17 +11,16 @@ export type TableProps = {
 
 const Table: FC<TableProps> = ({ rows }) => {
   const children = useMemo(
-    () =>
-      rows.map((row) => {
-        const tds = row.map((value) => (
-          <td key={uniqid()} styleName="td">
-            {value}
-          </td>
-        ));
+    () => rows.map((row) => {
+      const tds = row.map((value) => (
+        <td key={uniqid()} styleName="td">
+          {value}
+        </td>
+      ));
 
-        return <tr key={uniqid()}>{tds}</tr>;
-      }),
-    [rows]
+      return <tr key={uniqid()}>{tds}</tr>;
+    }),
+    [rows],
   );
 
   return (

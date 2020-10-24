@@ -1,8 +1,7 @@
-import { PageProps } from "gatsby";
-import React, { FC } from "react";
-
-import Layout from "components/templates/Layout";
-import Seo from "components/templates/Seo";
+import { PageProps } from 'gatsby';
+import React, { FC } from 'react';
+import Layout from 'components/templates/Layout';
+import Seo from 'components/templates/Seo';
 
 export type NotFoundProps = PageProps;
 

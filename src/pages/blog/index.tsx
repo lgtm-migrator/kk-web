@@ -1,9 +1,8 @@
-import { Link, PageProps, graphql } from "gatsby";
-import React, { FC, useMemo } from "react";
-
-import BlogListBlock from "components/organisms/BlogListBlock";
-import Layout from "components/templates/Layout";
-import Seo from "components/templates/Seo";
+import { Link, PageProps, graphql } from 'gatsby';
+import React, { FC, useMemo } from 'react';
+import BlogListBlock from 'components/organisms/BlogListBlock';
+import Layout from 'components/templates/Layout';
+import Seo from 'components/templates/Seo';
 
 type Edge = {
   node: {
@@ -23,13 +22,12 @@ const Blog: FC<BlogProps> = ({
   },
 }) => {
   const items = useMemo(
-    () =>
-      edges.map(({ node: { frontmatter: { date, slug, title } } }) => ({
-        description: <Link to={slug}>{title}</Link>,
-        key: slug,
-        term: date,
-      })),
-    [edges]
+    () => edges.map(({ node: { frontmatter: { date, slug, title } } }) => ({
+      description: <Link to={slug}>{title}</Link>,
+      key: slug,
+      term: date,
+    })),
+    [edges],
   );
 
   return (

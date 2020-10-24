@@ -1,5 +1,9 @@
-import { useEffect } from "react";
+/* eslint-disable @typescript-eslint/no-unsafe-call */
+/* eslint-disable @typescript-eslint/no-unsafe-member-access */
+/* eslint-disable @typescript-eslint/no-explicit-any */
+import { useEffect } from 'react';
 
+// eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
 function useOnClickOutside(ref: any, handler: any) {
   useEffect(
     () => {
@@ -8,15 +12,16 @@ function useOnClickOutside(ref: any, handler: any) {
           return;
         }
 
+        // eslint-disable-next-line @typescript-eslint/no-unsafe-call
         handler(event);
       };
 
-      document.addEventListener("mousedown", listener);
-      document.addEventListener("touchstart", listener);
+      document.addEventListener('mousedown', listener);
+      document.addEventListener('touchstart', listener);
 
       return () => {
-        document.removeEventListener("mousedown", listener);
-        document.removeEventListener("touchstart", listener);
+        document.removeEventListener('mousedown', listener);
+        document.removeEventListener('touchstart', listener);
       };
     },
 
@@ -26,7 +31,7 @@ function useOnClickOutside(ref: any, handler: any) {
     // ... callback/cleanup to run every render. It's not a big deal ...
     // ... but to optimize you can wrap handler in useCallback before ...
     // ... passing it into this hook.
-    [ref, handler]
+    [ref, handler],
   );
 }
 

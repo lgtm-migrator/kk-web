@@ -1,7 +1,7 @@
-import "./style.module.scss";
+import './style.module.scss';
 
-import { Link } from "gatsby";
-import React, { FC } from "react";
+import { Link } from 'gatsby';
+import React, { FC } from 'react';
 
 const Request: FC = ({ children }) => (
   <div>

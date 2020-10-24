@@ -1,21 +1,20 @@
-import { PageProps } from "gatsby";
-import React, { FC, useMemo } from "react";
-
-import ExternalLink from "components/atoms/ExternalLink";
-import List from "components/molecules/List";
-import Table, { TableProps } from "components/molecules/Table";
-import Request from "components/organisms/Request";
-import Layout from "components/templates/Layout";
-import Seo from "components/templates/Seo";
+import { PageProps } from 'gatsby';
+import React, { FC, useMemo } from 'react';
+import ExternalLink from 'components/atoms/ExternalLink';
+import List from 'components/molecules/List';
+import Table, { TableProps } from 'components/molecules/Table';
+import Request from 'components/organisms/Request';
+import Layout from 'components/templates/Layout';
+import Seo from 'components/templates/Seo';
 
 export type WebsiteProps = PageProps;
 
 const Website: FC<WebsiteProps> = () => {
-  const rows = useMemo<TableProps["rows"]>(
+  const rows = useMemo<TableProps['rows']>(
     () => [
-      ["概要", "Webサイト制作を行います"],
+      ['概要', 'Webサイト制作を行います'],
       [
-        "費用",
+        '費用',
         <>
           前払い金500円
           <br />
@@ -27,7 +26,7 @@ const Website: FC<WebsiteProps> = () => {
         </>,
       ],
       [
-        "制作実績",
+        '制作実績',
         <List
           items={[
             <ExternalLink href="https://hitmeup.co.jp/">
@@ -43,7 +42,7 @@ const Website: FC<WebsiteProps> = () => {
         />,
       ],
     ],
-    []
+    [],
   );
 
   return (
