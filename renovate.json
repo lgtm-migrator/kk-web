@@ -1,16 +1,12 @@
 {
+  "assignees": ["piro0919"],
+  "automerge": true,
   "extends": ["config:base"],
   "packageRules": [
     {
-      "assignees": ["piro0919"]
-    },
-    {
       "enabled": false,
       "packagePatterns": ["husky", "node-sass"]
-    },
-    {
-      "automerge": true,
-      "updateTypes": ["minor", "patch", "pin", "digest"]
     }
-  ]
+  ],
+  "updateTypes": ["minor", "patch", "pin", "digest"]
 }
