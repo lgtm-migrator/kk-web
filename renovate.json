@@ -6,7 +6,9 @@
     {
       "enabled": false,
       "packagePatterns": ["husky", "node-sass"]
+    },
+    {
+      "updateTypes": ["minor", "patch", "pin", "digest"]
     }
-  ],
-  "updateTypes": ["minor", "patch", "pin", "digest"]
+  ]
 }
