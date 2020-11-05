@@ -10,5 +10,6 @@
     {
       "updateTypes": ["minor", "patch", "pin", "digest"]
     }
-  ]
+  ],
+  "reviewers": ["piro0919"]
 }
