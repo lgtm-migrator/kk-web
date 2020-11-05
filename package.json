@@ -56,7 +56,7 @@
     "no-scroll": "2.1.1",
     "node-sass": "4.14.1",
     "pdfmake": "0.1.68",
-    "postcss-scss": "3.0.2",
+    "postcss-scss": "3.0.4",
     "prettier": "2.1.2",
     "prop-types": "15.7.2",
     "react": "16.14.0",
