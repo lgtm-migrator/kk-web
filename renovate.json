@@ -2,7 +2,7 @@
   "extends": ["config:base"],
   "packageRules": [
     {
-      "assignees": "piro0919"
+      "assignees": ["piro0919"]
     },
     {
       "enabled": false,
