@@ -19,6 +19,7 @@ import { github } from 'react-icons-kit/icomoon/github';
 import { menu } from 'react-icons-kit/icomoon/menu';
 import { ic_search } from 'react-icons-kit/md/ic_search';
 import LinesEllipsisLoose from 'react-lines-ellipsis/lib/loose';
+import NoSSR from 'react-no-ssr';
 import Icon from 'components/atoms/Icon';
 import PrimaryNavigation from 'components/molecules/PrimaryNavigation';
 import ToggleButton from 'components/molecules/ToggleButton';
@@ -141,61 +142,62 @@ const Layout: FC = ({ children }) => {
   return (
     <DarkModeContext.Consumer>
       {({ toggle, value }) => (
-        <div style={style} styleName="layout">
-          <div styleName="navigation-wrapper">
-            <div styleName="primary-navigation-wrapper">
-              <PrimaryNavigation />
-            </div>
-            <div styleName="icons">
-              <a
-                href="https://github.com/piro0919/kk-web"
-                rel="noreferrer"
-                target="_blank"
-              >
-                <Icon icon={github} size={18} />
-              </a>
-              <ToggleButton checked={value} handleChange={toggle} />
-              <div styleName="autosuggest-wrapper">
-                <Autosuggest
-                  getSuggestionValue={() => ''}
-                  inputProps={{
-                    onChange: handleChange,
-                    value: inputValue,
-                  }}
-                  multiSection={false}
-                  onSuggestionsClearRequested={() => {
-                    setSuggestions([]);
-                  }}
-                  onSuggestionsFetchRequested={({ value, reason }) => {
-                    const values = value.match(/[^\s]+/g);
+        <NoSSR>
+          <div style={style} styleName="layout">
+            <div styleName="navigation-wrapper">
+              <div styleName="primary-navigation-wrapper">
+                <PrimaryNavigation />
+              </div>
+              <div styleName="icons">
+                <a
+                  href="https://github.com/piro0919/kk-web"
+                  rel="noreferrer"
+                  target="_blank"
+                >
+                  <Icon icon={github} size={18} />
+                </a>
+                <ToggleButton checked={value} handleChange={toggle} />
+                <div styleName="autosuggest-wrapper">
+                  <Autosuggest
+                    getSuggestionValue={() => ''}
+                    inputProps={{
+                      onChange: handleChange,
+                      value: inputValue,
+                    }}
+                    multiSection={false}
+                    onSuggestionsClearRequested={() => {
+                      setSuggestions([]);
+                    }}
+                    onSuggestionsFetchRequested={({ value, reason }) => {
+                      const values = value.match(/[^\s]+/g);
 
-                    if (!values || reason !== 'input-changed') {
-                      return;
-                    }
+                      if (!values || reason !== 'input-changed') {
+                        return;
+                      }
 
-                    setSuggestions(
-                      blogs
-                        .filter(
-                          ({ date, markdown, title }) => values
-                            .map(
-                              (value) => `${date} ${markdown} ${title}`
-                                .toLowerCase()
-                                .indexOf(value.toLowerCase()) >= 0,
-                            )
-                            .filter(Boolean).length === values.length,
-                        )
-                        .filter((_, index) => index < 5),
-                    );
-                  }}
-                  renderInputComponent={({ onChange, ...inputProps }) => (
-                    <div styleName="input-wrapper">
-                      <Icon icon={ic_search} />
-                      <input onChange={onChange as never} {...inputProps} />
-                    </div>
-                  )}
-                  renderSuggestion={({
-                    date, markdown, title, slug,
-                  }) => (
+                      setSuggestions(
+                        blogs
+                          .filter(
+                            ({ date, markdown, title }) => values
+                              .map(
+                                (value) => `${date} ${markdown} ${title}`
+                                  .toLowerCase()
+                                  .indexOf(value.toLowerCase()) >= 0,
+                              )
+                              .filter(Boolean).length === values.length,
+                          )
+                          .filter((_, index) => index < 5),
+                      );
+                    }}
+                    renderInputComponent={({ onChange, ...inputProps }) => (
+                      <div styleName="input-wrapper">
+                        <Icon icon={ic_search} />
+                        <input onChange={onChange as never} {...inputProps} />
+                      </div>
+                    )}
+                    renderSuggestion={({
+                      date, markdown, title, slug,
+                    }) => (
                       <Link key={slug} to={slug}>
                         <div styleName="date">{date}</div>
                         <div styleName="render-suggestion">
@@ -206,22 +208,23 @@ const Layout: FC = ({ children }) => {
                         </div>
                       </Link>
                     )}
-                  suggestions={suggestions}
-                />
+                    suggestions={suggestions}
+                  />
+                </div>
               </div>
             </div>
+            <div styleName="main-wrapper">
+              <Main>{children}</Main>
+            </div>
+            <div styleName="footer-wrapper">
+              <Footer />
+            </div>
+            <button onClick={handleClickOnButton} styleName="button">
+              <Icon icon={menu} size={30} style={{ color: '#a6dfec' }} />
+            </button>
+            {squareNavigation}
           </div>
-          <div styleName="main-wrapper">
-            <Main>{children}</Main>
-          </div>
-          <div styleName="footer-wrapper">
-            <Footer />
-          </div>
-          <button onClick={handleClickOnButton} styleName="button">
-            <Icon icon={menu} size={30} style={{ color: '#a6dfec' }} />
-          </button>
-          {squareNavigation}
-        </div>
+        </NoSSR>
       )}
     </DarkModeContext.Consumer>
   );
