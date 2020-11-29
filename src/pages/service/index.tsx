@@ -10,16 +10,20 @@ const Service: FC<ServiceProps> = () => {
   const items = useMemo<LinkListProps['items']>(
     () => [
       {
-        children: 'Image Maker',
-        href: 'https://piro0919.github.io/image-maker/',
+        children: 'React npm',
+        href: 'https://react-npm.kk-web.link/',
+      },
+      {
+        children: 'レシグル',
+        href: 'https://recigle.kk-web.link/',
       },
       {
         children: 'レジュメイク',
         href: 'https://resumake.kk-web.link/',
       },
       {
-        children: 'レシグル',
-        href: 'https://recigle.kk-web.link/',
+        children: 'Image Maker',
+        href: 'https://piro0919.github.io/image-maker/',
       },
     ],
     [],
