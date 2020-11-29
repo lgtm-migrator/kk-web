@@ -6,7 +6,6 @@ import { earth } from 'react-icons-kit/icomoon/earth';
 import { film } from 'react-icons-kit/icomoon/film';
 import { home } from 'react-icons-kit/icomoon/home';
 import { link } from 'react-icons-kit/icomoon/link';
-import { starFull } from 'react-icons-kit/icomoon/starFull';
 import { user } from 'react-icons-kit/icomoon/user';
 import { androidMail } from 'react-icons-kit/ionicons/androidMail';
 
@@ -43,11 +42,6 @@ function usePrimaryLinks() {
         icon: film,
         text: 'Movie',
         to: '/movie',
-      },
-      {
-        icon: starFull,
-        text: 'Request',
-        to: '/request',
       },
       {
         icon: cogs,
