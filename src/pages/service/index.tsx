@@ -10,6 +10,10 @@ const Service: FC<ServiceProps> = () => {
   const items = useMemo<LinkListProps['items']>(
     () => [
       {
+        children: 'せりふや',
+        href: 'https://serifuya.kk-web.link/',
+      },
+      {
         children: 'React npm',
         href: 'https://react-npm.kk-web.link/',
       },
