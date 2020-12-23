@@ -10,6 +10,10 @@ const Service: FC<ServiceProps> = () => {
   const items = useMemo<LinkListProps['items']>(
     () => [
       {
+        children: '限界しりとりタイマー',
+        href: 'https://siritori-timer.kk-web.link/',
+      },
+      {
         children: 'せりふや',
         href: 'https://serifuya.kk-web.link/',
       },
