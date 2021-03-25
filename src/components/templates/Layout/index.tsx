@@ -18,7 +18,6 @@ import Autosuggest from 'react-autosuggest';
 import { github } from 'react-icons-kit/icomoon/github';
 import { menu } from 'react-icons-kit/icomoon/menu';
 import { ic_search } from 'react-icons-kit/md/ic_search';
-import { FaDiscord } from 'react-icons/fa';
 import LinesEllipsisLoose from 'react-lines-ellipsis/lib/loose';
 import NoSSR from 'react-no-ssr';
 import Icon from 'components/atoms/Icon';
@@ -150,9 +149,6 @@ const Layout: FC = ({ children }) => {
                 <PrimaryNavigation />
               </div>
               <div styleName="icons">
-                <Link to="/discord">
-                  <FaDiscord size={18} />
-                </Link>
                 <a
                   href="https://github.com/piro0919/kk-web"
                   rel="noreferrer"

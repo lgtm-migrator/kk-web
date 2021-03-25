@@ -10,10 +10,6 @@ const Link: FC<LinkProps> = () => {
   const items = useMemo<LinkListProps['items']>(
     () => [
       {
-        children: 'Discord',
-        href: 'https://discord.gg/UqkDpwBw94',
-      },
-      {
         children: 'GitHub',
         href: 'https://github.com/piro0919',
       },
