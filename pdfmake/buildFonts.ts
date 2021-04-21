@@ -5,7 +5,7 @@ import * as fs from "fs-extra";
 const main = async () => {
   fs.copy("pdfmake/fonts", "node_modules/pdfmake/examples/fonts");
 
-  exec("npm i", { cwd: "node_modules/pdfmake" }, () => {
+  exec("npm i --legacy-peer-deps", { cwd: "node_modules/pdfmake" }, () => {
     exec("npx gulp buildFonts", {
       cwd: "node_modules/pdfmake",
     });

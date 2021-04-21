@@ -142,6 +142,9 @@
       }
     }
   },
+  "eslintIgnore": [
+    "pdfmake"
+  ],
   "homepage": "https://kk-web.link",
   "husky": {
     "hooks": {
