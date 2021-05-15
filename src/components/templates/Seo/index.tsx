@@ -1,8 +1,8 @@
 /* eslint-disable @typescript-eslint/restrict-template-expressions */
 /* eslint-disable @typescript-eslint/no-unsafe-assignment */
 import { graphql, useStaticQuery } from 'gatsby';
-import React, { ComponentPropsWithoutRef, FC } from 'react';
 import { Helmet, HelmetProps } from 'react-helmet';
+import React, { ComponentPropsWithoutRef, FC } from 'react';
 
 export type SeoProps = Pick<HelmetProps, 'title'> & {
   ogDescription?: ComponentPropsWithoutRef<'meta'>['content'];

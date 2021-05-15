@@ -1,5 +1,5 @@
-import React, { FC } from 'react';
 import { IconProp, Icon as ReactIconKitIcon } from 'react-icons-kit';
+import React, { FC } from 'react';
 
 export type IconProps = Pick<IconProp, 'icon' | 'size' | 'style'>;
 

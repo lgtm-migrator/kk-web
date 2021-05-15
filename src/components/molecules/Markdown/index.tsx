@@ -4,7 +4,6 @@
 /* eslint-disable react/jsx-props-no-spreading */
 import './style.module.scss';
 
-import React, { FC, useMemo } from 'react';
 import CopyToClipboard from 'react-copy-to-clipboard';
 import { Icon } from 'react-icons-kit';
 import { ic_content_copy } from 'react-icons-kit/md/ic_content_copy';
@@ -14,6 +13,7 @@ import {
   atomOneDark,
   github,
 } from 'react-syntax-highlighter/dist/esm/styles/hljs';
+import React, { FC, useMemo } from 'react';
 import gfm from 'remark-gfm';
 import DarkModeContext from 'contexts/DarkModeContext';
 

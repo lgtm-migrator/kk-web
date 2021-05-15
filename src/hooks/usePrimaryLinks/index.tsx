@@ -1,5 +1,4 @@
 /* eslint-disable @typescript-eslint/no-unsafe-assignment */
-import { useMemo } from 'react';
 import { blog } from 'react-icons-kit/icomoon/blog';
 import { cogs } from 'react-icons-kit/icomoon/cogs';
 import { earth } from 'react-icons-kit/icomoon/earth';
@@ -8,6 +7,7 @@ import { home } from 'react-icons-kit/icomoon/home';
 import { link } from 'react-icons-kit/icomoon/link';
 import { user } from 'react-icons-kit/icomoon/user';
 import { androidMail } from 'react-icons-kit/ionicons/androidMail';
+import { useMemo } from 'react';
 
 // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
 function usePrimaryLinks() {
