@@ -5,12 +5,6 @@
 import './style.module.scss';
 
 import { graphql, Link, useStaticQuery } from 'gatsby';
-import Autosuggest from 'react-autosuggest';
-import { github } from 'react-icons-kit/icomoon/github';
-import { menu } from 'react-icons-kit/icomoon/menu';
-import { ic_search } from 'react-icons-kit/md/ic_search';
-import LinesEllipsisLoose from 'react-lines-ellipsis/lib/loose';
-import NoSSR from 'react-no-ssr';
 import React, {
   ComponentPropsWithoutRef,
   FC,
@@ -20,6 +14,12 @@ import React, {
   useRef,
   useState,
 } from 'react';
+import Autosuggest from 'react-autosuggest';
+import { github } from 'react-icons-kit/icomoon/github';
+import { menu } from 'react-icons-kit/icomoon/menu';
+import { ic_search } from 'react-icons-kit/md/ic_search';
+import LinesEllipsisLoose from 'react-lines-ellipsis/lib/loose';
+import NoSSR from 'react-no-ssr';
 import Icon from 'components/atoms/Icon';
 import PrimaryNavigation from 'components/molecules/PrimaryNavigation';
 import ToggleButton from 'components/molecules/ToggleButton';

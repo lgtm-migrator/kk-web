@@ -1,9 +1,9 @@
 /* eslint-disable @typescript-eslint/no-unsafe-assignment */
 import './style.module.scss';
 
+import React, { ComponentPropsWithoutRef, FC } from 'react';
 import { Icon } from 'react-icons-kit';
 import { iosLightbulb } from 'react-icons-kit/ionicons/iosLightbulb';
-import React, { ComponentPropsWithoutRef, FC } from 'react';
 
 export type ToggleButtonProps = Pick<
   ComponentPropsWithoutRef<'input'>,
