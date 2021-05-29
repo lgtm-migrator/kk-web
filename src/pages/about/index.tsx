@@ -25,7 +25,7 @@ const About: FC<AboutProps> = () => {
         term: 'Address',
       },
       {
-        description: 'Freelancer (Video Creator and Front End Engineer)',
+        description: 'Freelancer (Video Creator and Front End Developer)',
         term: 'Job',
       },
       {

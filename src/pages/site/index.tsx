@@ -17,14 +17,6 @@ const Site: FC<SiteProps> = () => {
         children: '1stKontact',
         href: 'http://kontaniki.com/',
       },
-      {
-        children: '春告と雪息子',
-        href: 'http://yukimusuko.meltlabcd.com/',
-      },
-      {
-        children: 'Queen of Wand',
-        href: 'http://www.q-o-w.jp/',
-      },
     ],
     [],
   );

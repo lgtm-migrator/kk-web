@@ -18,20 +18,12 @@ const Link: FC<LinkProps> = () => {
         href: 'https://www.instagram.com/piro9190/',
       },
       {
-        children: 'LINE sticker',
-        href: 'https://store.line.me/stickershop/product/4699951',
-      },
-      {
-        children: 'VIVIVIT',
-        href: 'https://www.vivivit.com/profile/public/AyPekahJAg',
+        children: 'Slack',
+        href: 'https://kk-web.link/blog/20210529',
       },
       {
         children: 'Wantedly',
         href: 'https://www.wantedly.com/users/125337597',
-      },
-      {
-        children: 'ニコニコミュニティ',
-        href: 'https://com.nicovideo.jp/community/co4686164',
       },
     ],
     [],
