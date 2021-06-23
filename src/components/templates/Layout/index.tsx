@@ -6,6 +6,7 @@ import './style.module.scss';
 
 import { graphql, Link, useStaticQuery } from 'gatsby';
 import Autosuggest from 'react-autosuggest';
+import { slack } from 'react-icons-kit/fa/slack';
 import { github } from 'react-icons-kit/icomoon/github';
 import { menu } from 'react-icons-kit/icomoon/menu';
 import { ic_search } from 'react-icons-kit/md/ic_search';
@@ -149,6 +150,13 @@ const Layout: FC = ({ children }) => {
                 <PrimaryNavigation />
               </div>
               <div styleName="icons">
+                <a
+                  href="https://join.slack.com/t/kk-webhq/shared_invite/zt-r0qjvw1f-5QCnXyGzW4~OA6574tIipg"
+                  rel="noreferrer"
+                  target="_blank"
+                >
+                  <Icon icon={slack} size={18} />
+                </a>
                 <a
                   href="https://github.com/piro0919/kk-web"
                   rel="noreferrer"

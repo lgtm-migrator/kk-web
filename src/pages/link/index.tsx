@@ -19,7 +19,7 @@ const Link: FC<LinkProps> = () => {
       },
       {
         children: 'Slack',
-        href: 'https://kk-web.link/blog/20210529',
+        href: 'https://join.slack.com/t/kk-webhq/shared_invite/zt-r0qjvw1f-5QCnXyGzW4~OA6574tIipg',
       },
       {
         children: 'Wantedly',
